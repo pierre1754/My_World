@@ -50,6 +50,11 @@ typedef struct {
 
 // CREATE_COMPONENT
 void create_settings(void);
+void create_buttons(void);
 engine_t *get_engine(void);
+
+// DESTROY_COMPONENTS
+void destroy_settings(void);
+void destroy_buttons(void);
 
 #endif // MY_WORLD_H

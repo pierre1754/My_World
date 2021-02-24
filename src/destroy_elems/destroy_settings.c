@@ -7,9 +7,9 @@
 
 #include "my_world.h"
 
-void create_buttons(void)
+void destroy_settings(void)
 {
     engine_t *engine = get_engine();
 
-    engine->buttons
+    free(engine->settings);
 }
