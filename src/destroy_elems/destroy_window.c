@@ -11,5 +11,6 @@ void destroy_window(void)
 {
     engine_t *engine = get_engine();
 
-
+    sfRenderWindow_destroy(GET_WINDOW(engine));
+    free(engine->window);
 }

@@ -26,6 +26,10 @@
 
 #define nbr_int_settings 7
 
+// MACRO FOR STRUCTURES
+#define GET_WINDOW(engine) (engine->window->window)
+#define GET_WINDOW_SIZE(engine) (engine->window->window_size)
+
 typedef struct buttons_s {
     LIST_ENTRY(buttons_s) entries;
     sfRectangleShape *rectangle;
@@ -64,6 +68,7 @@ typedef struct {
 void create_settings(void);
 void create_buttons(void);
 void create_window(void);
+void create_map(void);
 engine_t *get_engine(void);
 
 // DESTROY_COMPONENTS
