@@ -25,8 +25,8 @@
 #include "my.h"
 
 #define nbr_int_settings 7
-#define ANGLE_X_RAD engine->settings->angle_x * 3.14 / 180
-#define ANGLE_Y_RAD engine->settings->angle_y * 3.14 / 180
+#define ANGLE_X_RAD(engine) engine->settings->angle_x * 3.14 / 180
+#define ANGLE_Y_RAD(engine) engine->settings->angle_y * 3.14 / 180
 
 // MACRO FOR STRUCTURES
 #define GET_LISTHEAD(engine) (&engine->buttons)
