@@ -24,6 +24,8 @@
 
 #include "my.h"
 
+#define nbr_int_settings 7
+
 typedef struct buttons_s {
     LIST_ENTRY(buttons_s) entries;
     sfRectangleShape *rectangle;
@@ -46,5 +48,8 @@ typedef struct {
     LIST_HEAD(, buttons_s) buttons;
 } engine_t;
 
+// CREATE_COMPONENT
+void create_settings(void);
+engine_t *get_engine(void);
 
 #endif // MY_WORLD_H

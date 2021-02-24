@@ -5,8 +5,8 @@
 ## Main Makefile
 ##
 
-SRC		 =	src/game_loop.c			\
-			src/loop.c				\
+SRC		 =	src/create_elems/create_engine.c		\
+			src/create_elems/create_settings.c		\
 
 SRC_MAIN =	main.c	\
 
