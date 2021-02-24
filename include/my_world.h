@@ -25,14 +25,24 @@
 #include "my.h"
 
 #define nbr_int_settings 7
-#define ANGLE_X_RAD(engine) engine->settings->angle_x * 3.14 / 180
-#define ANGLE_Y_RAD(engine) engine->settings->angle_y * 3.14 / 180
 
 // MACRO FOR STRUCTURES
+#define GET_SET_Z(engine) engine->settings->zoom
+#define GET_SET_AX(engine) engine->settings->angle_x
+#define GET_SET_AY(engine) engine->settings->angle_y
+#define GET_SET_PX(engine) engine->settings->pos_x
+#define GET_SET_PY(engine) engine->settings->pos_y
+#define GET_SET_MX(engine) engine->settings->max_x
+#define GET_SET_MY(engine) engine->settings->max_y
+
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
 #define GET_WINDOW(engine) (engine->window->window)
 #define GET_WINDOW_SIZE(engine) (engine->window->window_size)
+
+// MACRO FOR CALC
+#define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
+#define ANGLE_Y_RAD(engine) GET_SET_AY(engine) * 3.14 / 180
 
 typedef struct buttons_s {
     LIST_ENTRY(buttons_s) entries;

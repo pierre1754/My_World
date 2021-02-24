@@ -20,4 +20,5 @@ buttons_t *get_new_button(void)
     buttons_t *button = malloc(sizeof(buttons_t));
 
     button->rectangle = sfRectangleShape_create();
+
 }
