@@ -44,17 +44,33 @@ typedef struct {
 } settings_t;
 
 typedef struct {
+    sfRenderWindow *window;
+    sfVector2f window_size;
+} window_t;
+
+typedef struct {
+    char **map_3d;
+    sfVector2f **map_2d;
+} map_t;
+
+typedef struct {
+    sfEvent envent;
     settings_t *settings;
     LIST_HEAD(, buttons_s) buttons;
+    window_t *window;
 } engine_t;
 
 // CREATE_COMPONENT
 void create_settings(void);
 void create_buttons(void);
+void create_window(void);
 engine_t *get_engine(void);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
 void destroy_buttons(void);
+void destroy_window(void);
+void destroy_map(void);
+
 
 #endif // MY_WORLD_H
