@@ -2,3 +2,4 @@
 *.o
 *.out
 my_world
+.vscode
