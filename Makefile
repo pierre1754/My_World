@@ -5,7 +5,8 @@
 ## Main Makefile
 ##
 
-SRC =
+SRC		 =	src/game_loop.c			\
+			src/loop.c				\
 
 SRC_MAIN =	main.c	\
 
@@ -23,7 +24,7 @@ CFLAGS_TEST	=	--coverage -lcriterion
 
 CFLAGS_DEBUG =	-Wall -Wextra -W -g
 
-NAME =	my_runner
+NAME =	my_world
 
 NAME_TEST =	unit_tests
 

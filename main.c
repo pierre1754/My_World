@@ -5,10 +5,9 @@
 ** 17/11/2020
 */
 
-#include "my_runner.h"
+#include "my_world.h"
 
 int main(int argc, char **argv)
 {
-
     return 0;
 }
