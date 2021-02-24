@@ -25,6 +25,8 @@
 #include "my.h"
 
 #define nbr_int_settings 7
+#define ANGLE_X_RAD engine->settings->angle_x * 3.14 / 180
+#define ANGLE_Y_RAD engine->settings->angle_y * 3.14 / 180
 
 // MACRO FOR STRUCTURES
 #define GET_LISTHEAD(engine) (&engine->buttons)
@@ -55,7 +57,7 @@ typedef struct {
 } window_t;
 
 typedef struct {
-    char **map_3d;
+    int **map_3d;
     sfVector2f **map_2d;
 } map_t;
 
@@ -64,6 +66,7 @@ typedef struct {
     settings_t *settings;
     LIST_HEAD(, buttons_s) buttons;
     window_t *window;
+    map_t *map;
 } engine_t;
 
 // CREATE_COMPONENT
@@ -78,6 +81,11 @@ void destroy_settings(void);
 void destroy_buttons(void);
 void destroy_window(void);
 void destroy_map(void);
+
+// SET_COMPONENTS
+void set_map_3d(void);
+sfVector2f get_iso_point(int x, int y, int z);
+void set_map_2d(void);
 
 
 #endif // MY_WORLD_H
