@@ -11,5 +11,13 @@ void create_buttons(void)
 {
     engine_t *engine = get_engine();
 
-    engine->buttons
+    LIST_INIT(GET_LISTHEAD(engine));
+}
+
+buttons_t *get_new_button(void)
+{
+    engine_t *engine = get_engine();
+    buttons_t *button = malloc(sizeof(buttons_t));
+
+    button->rectangle = sfRectangleShape_create();
 }

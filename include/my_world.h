@@ -27,6 +27,8 @@
 #define nbr_int_settings 7
 
 // MACRO FOR STRUCTURES
+#define GET_LISTHEAD(engine) (&engine->buttons)
+
 #define GET_WINDOW(engine) (engine->window->window)
 #define GET_WINDOW_SIZE(engine) (engine->window->window_size)
 
