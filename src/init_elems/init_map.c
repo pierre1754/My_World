@@ -14,7 +14,7 @@ void set_map_3d(void)
     for (int i = 0; i < engine->settings->max_x; i++) {
         for (int j = 0; j < engine->settings->max_x; j++)
             engine->map->map_3d[i][j] = 0;
-        engine->map->map_3d[i][engine->settings->max_x] = '\0';
+        engine->map->map_3d[i][engine->settings->max_y] = '\0';
     }
     engine->map->map_3d[engine->settings->max_x] = NULL;
 }
