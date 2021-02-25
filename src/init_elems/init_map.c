@@ -24,8 +24,8 @@ void init_map_2d(void)
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        for (int j = 0; j < GET_SET_MY(engine) - 1; j++)
-            GET_MAP_2D(engine)[i][j] = get_iso_point(i, j, GET_MAP_3D(engine)[i][j]);
+        for (int j = 0; j < GET_SET_MY(engine); j++)
+            GET_MAP_2D(engine)[i][j] = get_iso_point(i, j, 0);
     }
 }
 

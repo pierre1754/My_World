@@ -11,5 +11,6 @@ void init_elem(void)
 {
     init_map_2d();
     init_map_3d();
+    init_map_ver();
     // PUT INIT HERE
 }
