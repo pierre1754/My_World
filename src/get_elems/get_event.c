@@ -7,11 +7,8 @@
 
 #include "my_world.h"
 
-void get_event(void)
+int get_event(void)
 {
     engine_t *engine = get_engine();
 
-    if (engine->event.type == sfEvtClosed) {
-        destroy_engine();
-    }
 }

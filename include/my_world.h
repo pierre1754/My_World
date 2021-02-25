@@ -116,7 +116,7 @@ void init_elem(void);
 
 // GET_ELEM
 sfVector2f get_iso_point(int x, int y, int z);
-void get_event(void);
+int get_event(void);
 void get_elem(void);
 
 // DRAW_ELEM

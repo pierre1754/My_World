@@ -21,6 +21,7 @@ SRC		 =	src/create_elems/create_engine.c		\
 			src/get_elems/get_event.c				\
 			src/get_elems/get_elem.c				\
 			src/init_elems/init_map.c				\
+			src/start_engine.c
 
 SRC_MAIN =	main.c	\
 
