@@ -26,6 +26,13 @@
 
 #define nbr_int_settings 7
 
+#ifndef LIST_FOREACH_SAFE
+#define LIST_FOREACH_SAFE(var, head, field, tvar)          \
+        for ((var) = LIST_FIRST((head));                   \
+            (var) && ((tvar) = LIST_NEXT((var), field), 1);\
+            (var) = (tvar))
+#endif
+
 // MACRO FOR STRUCTURES
 #define GET_SET_Z(engine) engine->settings->zoom
 #define GET_SET_AX(engine) engine->settings->angle_x
@@ -47,8 +54,9 @@
 typedef struct buttons_s {
     LIST_ENTRY(buttons_s) entries;
     sfRectangleShape *rectangle;
-    sfText *text;
     sfVector2f pos;
+    sfText *text;
+    sfFont *font;
 } buttons_t;
 
 typedef struct {
@@ -82,6 +90,7 @@ typedef struct {
 // CREATE_COMPONENT
 void create_settings(void);
 void create_buttons(void);
+buttons_t *get_new_button(void);
 void create_window(void);
 void create_map(void);
 engine_t *get_engine(void);
@@ -89,6 +98,7 @@ engine_t *get_engine(void);
 // DESTROY_COMPONENTS
 void destroy_settings(void);
 void destroy_buttons(void);
+void destroy_one_button(buttons_t *button);
 void destroy_window(void);
 void destroy_map(void);
 

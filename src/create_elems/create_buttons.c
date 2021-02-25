@@ -20,5 +20,7 @@ buttons_t *get_new_button(void)
     buttons_t *button = malloc(sizeof(buttons_t));
 
     button->rectangle = sfRectangleShape_create();
-
+    button->font = sfFont_createFromFile("asset/button_font.ttf");
+    button->text = sfText_create();
+    button->pos = (sfVector2f){0};
 }
