@@ -50,5 +50,7 @@ char *my_strndup(char const *src, int n);
 void my_putstr(char const *str);
 void my_array_nbr(int nb, char *array, int array_size);
 unsigned int my_atoi_size(char const *str);
+char **init_array(int y);
+char **strdup_2d(char **array);
 
 #endif

@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static char **init_array(char const *str)
+static char **initt_array(char const *str)
 {
     char **ar_two_dimension = malloc(sizeof(char *) * size_tab_wordarray(str));
 
@@ -22,7 +22,7 @@ char **my_str_to_word_array(char const *str)
 {
     if (str == 0)
         return 0;
-    char **array_two_dimension = init_array(str);
+    char **array_two_dimension = initt_array(str);
     int word_size = 0;
     int adv = 0;
 
