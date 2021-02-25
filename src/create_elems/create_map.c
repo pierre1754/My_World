@@ -30,18 +30,22 @@ void create_map_2d(void)
 {
     engine_t *engine = get_engine();
 
-    GET_MAP_2D(engine) = malloc(sizeof(sfVector2f *) * (GET_SET_MX(engine) + 1));
+    GET_MAP_2D(engine) = malloc(sizeof(sfVector2f *) *
+    (GET_SET_MX(engine) + 1));
     for (int i = 0; i < GET_SET_MX(engine); i++)
-        GET_MAP_2D(engine)[i] = malloc(sizeof(sfVector2f) * (GET_SET_MY(engine) + 1));
+        GET_MAP_2D(engine)[i] = malloc(sizeof(sfVector2f) *
+        (GET_SET_MY(engine) + 1));
 }
 
 void create_map_ver(void)
 {
     engine_t *engine = get_engine();
 
-    GET_MAP_VER(engine) = malloc(sizeof(sfVertexArray **) * (GET_SET_MX(engine) + 1));
+    GET_MAP_VER(engine) = malloc(sizeof(sfVertexArray **) *
+    (GET_SET_MX(engine) + 1));
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
-        GET_MAP_VER(engine)[i] = malloc(sizeof(sfVertexArray *) * (GET_SET_MY(engine) + 1));
+        GET_MAP_VER(engine)[i] = malloc(sizeof(sfVertexArray *) *
+        (GET_SET_MY(engine) + 1));
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++)
             GET_MAP_VER(engine)[i][j] = sfVertexArray_create();
     }
