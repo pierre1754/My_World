@@ -79,13 +79,6 @@ typedef struct {
 } window_t;
 
 typedef struct {
-    sfVector2f point1;
-    sfVector2f point2;
-    sfVector2f point3;
-    sfVector2f point4;
-} square_t;
-
-typedef struct {
     int **map_3d;
     sfVector2f **map_2d;
     sfVertexArray ***map_ver;
@@ -98,6 +91,13 @@ typedef struct {
     window_t *window;
     map_t *map;
 } engine_t;
+
+typedef struct {
+    sfVector2f point1;
+    sfVector2f point2;
+    sfVector2f point3;
+    sfVector2f point4;
+} square_t;
 
 // CREATE_COMPONENT
 void create_settings(void);
