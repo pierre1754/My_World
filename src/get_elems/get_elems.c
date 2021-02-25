@@ -7,7 +7,8 @@
 
 #include "my_world.h"
 
-void draw_elem(void)
-{
 
+
+void get_elems(void)
+{
 }

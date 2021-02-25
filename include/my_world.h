@@ -34,18 +34,21 @@
 #endif
 
 // MACRO FOR STRUCTURES
-#define GET_SET_Z(engine) engine->settings->zoom
-#define GET_SET_AX(engine) engine->settings->angle_x
-#define GET_SET_AY(engine) engine->settings->angle_y
-#define GET_SET_PX(engine) engine->settings->pos_x
-#define GET_SET_PY(engine) engine->settings->pos_y
-#define GET_SET_MX(engine) engine->settings->max_x
-#define GET_SET_MY(engine) engine->settings->max_y
+#define GET_SET_Z(engine) (engine->settings->zoom)
+#define GET_SET_AX(engine) ( engine->settings->angle_x)
+#define GET_SET_AY(engine) ( engine->settings->angle_y)
+#define GET_SET_PX(engine) ( engine->settings->pos_x)
+#define GET_SET_PY(engine) ( engine->settings->pos_y)
+#define GET_SET_MX(engine) ( engine->settings->max_x)
+#define GET_SET_MY(engine) ( engine->settings->max_y)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
 #define GET_WINDOW(engine) (engine->window->window)
 #define GET_WINDOW_SIZE(engine) (engine->window->window_size)
+
+#define GET_MAP_2D(engine) (engine->map->map_2d)
+#define GET_MAP_3D(engine) (engine->map->map_3d)
 
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
@@ -102,12 +105,12 @@ void destroy_one_button(buttons_t *button);
 void destroy_window(void);
 void destroy_map(void);
 
-// SET_COMPONENTS
-void set_map_3d(void);
-sfVector2f get_iso_point(int x, int y, int z);
-void set_map_2d(void);
+// INIT_COMPONENTS
+void init_map_3d(void);
+void init_map_2d(void);
 
 // GET_ELEM
+sfVector2f get_iso_point(int x, int y, int z);
 void get_event(void);
 void get_elem(void);
 

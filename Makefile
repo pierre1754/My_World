@@ -16,7 +16,10 @@ SRC		 =	src/create_elems/create_engine.c		\
 			src/destroy_elems/destroy_window.c		\
 			src/destroy_elems/destroy_map.c			\
 			src/init_elems/init_map.c				\
-			src/draw_elems/draw_all.c				\
+			src/get_elems/get_iso_point.c			\
+			src/get_elems/get_event.c				\
+			src/get_elems/get_elems.c				\
+			src/draw_elems/draw_elem.c				\
 			src/draw_elems/draw_map.c				\
 
 SRC_MAIN =	main.c	\

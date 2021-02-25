@@ -15,8 +15,3 @@ void get_event(void)
         destroy_engine();
     }
 }
-
-void get_elem(void)
-{
-
-}
