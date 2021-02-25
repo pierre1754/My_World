@@ -79,6 +79,13 @@ typedef struct {
 } window_t;
 
 typedef struct {
+    sfVector2f point1;
+    sfVector2f point2;
+    sfVector2f point3;
+    sfVector2f point4;
+} quad_t;
+
+typedef struct {
     int **map_3d;
     sfVector2f **map_2d;
     sfVertexArray ***map_ver;
@@ -122,8 +129,7 @@ void get_elem(void);
 // DRAW_ELEM
 void draw_elem(void);
 void draw_2d_map(void);
-sfVertexArray *create_vertex_quad(sfVector2f *point1, sfVector2f *point2,
-sfVector2f *point3, sfVector2f *point4);
+sfVertexArray *create_vertex_quad(quad_t *quad, sfVertexArray *array);
 
 void start_engine(void);
 
