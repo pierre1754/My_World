@@ -80,7 +80,7 @@ typedef struct {
 } map_t;
 
 typedef struct {
-    sfEvent envent;
+    sfEvent event;
     settings_t *settings;
     LIST_HEAD(, buttons_s) buttons;
     window_t *window;
