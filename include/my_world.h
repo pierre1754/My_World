@@ -49,7 +49,7 @@
 
 #define GET_MAP_2D(engine) (engine->map->map_2d)
 #define GET_MAP_3D(engine) (engine->map->map_3d)
-#define GET_MAP_VER(engine) (engine->map->map_3d)
+#define GET_MAP_VER(engine) (engine->map->map_ver)
 
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
@@ -121,7 +121,9 @@ void get_elem(void);
 
 // DRAW_ELEM
 void draw_elem(void);
-
+void draw_2d_map(void);
+sfVertexArray *create_vertex_quad(sfVector2f *point1, sfVector2f *point2,
+sfVector2f *point3, sfVector2f *point4);
 
 void start_engine(void);
 

@@ -30,7 +30,7 @@ void init_map_2d(void)
     }
 }
 
-void init_map_2d(void)
+void init_map_ver(void)
 {
     engine_t *engine = get_engine();
 
