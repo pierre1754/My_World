@@ -7,12 +7,19 @@
 
 #include "my_world.h"
 
+void init_map(void)
+{
+    init_map_3d();
+    init_map_2d();
+    init_map_ver();
+}
+
 void init_map_3d(void)
 {
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        for (int j = 0; j < GET_SET_MX(engine); j++)
+        for (int j = 0; j < GET_SET_MY(engine); j++)
             GET_MAP_3D(engine)[i][j] = rand() % 3 - 1;
         GET_MAP_3D(engine)[i][GET_SET_MY(engine)] = '\0';
     }

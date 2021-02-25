@@ -127,6 +127,7 @@ void destroy_engine(void);
 void init_map_3d(void);
 void init_map_2d(void);
 void init_map_ver(void);
+void init_map(void);
 void init_elem(void);
 
 // GET_ELEM
@@ -146,5 +147,6 @@ void draw_elem(void);
 void draw_2d_map(void);
 
 void start_engine(void);
+void enlarge_map_x(void);
 
 #endif // MY_WORLD_H
