@@ -107,5 +107,14 @@ void set_map_3d(void);
 sfVector2f get_iso_point(int x, int y, int z);
 void set_map_2d(void);
 
+// GET_ELEM
+void get_event(void);
+void get_elem(void);
+
+// DRAW_ELEM
+void draw_elem(void);
+
+
+void start_engine(void);
 
 #endif // MY_WORLD_H
