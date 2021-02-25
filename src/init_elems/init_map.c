@@ -41,7 +41,7 @@ void init_map_ver(void)
             GET_MAP_2D(engine)[i][j + 1], GET_MAP_2D(engine)[i + 1][j + 1],
             GET_MAP_2D(engine)[i + 1][j]);
             GET_MAP_VER(engine)[i][j] = create_vertex_quad(temp,
-            GET_MAP_VER(engine)[i][j]);
+            GET_MAP_VER(engine)[i][j], i, j);
         }
     }
 }

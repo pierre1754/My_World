@@ -133,7 +133,8 @@ void init_elem(void);
 sfVector2f get_iso_point(int x, int y, int z);
 square_t *create_quad(sfVector2f point1, sfVector2f point2, sfVector2f point3,
 sfVector2f point4);
-sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array);
+sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
+int j);
 void get_event(void);
 void get_elem(void);
 

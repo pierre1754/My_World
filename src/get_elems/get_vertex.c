@@ -19,12 +19,34 @@ sfVector2f point4)
     return quad;
 }
 
-sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array)
+sfColor get_hight(int **map, int i, int j)
 {
-    sfVertex vertex1 = {.position = quad->point1, .color = sfGreen};
-    sfVertex vertex2 = {.position = quad->point2, .color = sfYellow};
-    sfVertex vertex3 = {.position = quad->point3, .color = sfWhite};
-    sfVertex vertex4 = {.position = quad->point4, .color = sfYellow};
+    int hight = map[i][j];
+
+    switch (hight) {
+    case 1:
+        return sfColor_fromRGB(0, 255, 0);
+    case 0:
+        return sfColor_fromRGB(0, 128, 0);
+    case -1:
+        return sfColor_fromRGB(0, 0, 0);
+    default:
+        return sfBlack;
+    }
+}
+
+sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
+int j)
+{
+    engine_t *engine = get_engine();
+    sfVertex vertex1 = {.position = quad->point1, .color = get_hight(
+    GET_MAP_3D(engine), i, j)};
+    sfVertex vertex2 = {.position = quad->point2, .color = get_hight(
+    GET_MAP_3D(engine), i, j + 1)};
+    sfVertex vertex3 = {.position = quad->point3, .color = get_hight(
+    GET_MAP_3D(engine), i + 1, j + 1)};
+    sfVertex vertex4 = {.position = quad->point4, .color = get_hight(
+    GET_MAP_3D(engine), i + 1, j)};
 
     sfVertexArray_append(array, vertex1);
     sfVertexArray_append(array, vertex2);
