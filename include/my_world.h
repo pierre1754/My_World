@@ -108,6 +108,7 @@ void destroy_map(void);
 // INIT_COMPONENTS
 void init_map_3d(void);
 void init_map_2d(void);
+void init_elem(void);
 
 // GET_ELEM
 sfVector2f get_iso_point(int x, int y, int z);

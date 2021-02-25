@@ -7,8 +7,6 @@
 
 #include "my_world.h"
 
-
-
-void get_elems(void)
+void get_elem(void)
 {
 }
