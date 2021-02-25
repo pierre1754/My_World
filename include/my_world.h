@@ -24,6 +24,7 @@
 #include <time.h>
 
 #include "my.h"
+#include "button.h"
 
 #define nbr_int_settings 7
 
@@ -55,14 +56,6 @@
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
 #define ANGLE_Y_RAD(engine) GET_SET_AY(engine) * 3.14 / 180
-
-typedef struct buttons_s {
-    LIST_ENTRY(buttons_s) entries;
-    sfRectangleShape *rectangle;
-    sfVector2f pos;
-    sfText *text;
-    sfFont *font;
-} buttons_t;
 
 typedef struct {
     int zoom;
@@ -128,6 +121,7 @@ void init_map_3d(void);
 void init_map_2d(void);
 void init_map_ver(void);
 void init_map(void);
+void init_button(void);
 void init_elem(void);
 
 // GET_ELEM

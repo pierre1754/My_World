@@ -12,7 +12,7 @@ void draw_elem(void)
     engine_t *engine = get_engine();
 
     sfRenderWindow_clear(GET_WINDOW(engine), sfBlack);
-    draw_2d_map();
+    // draw_2d_map();
     // DRAW HERE
     sfRenderWindow_display(GET_WINDOW(engine));
 }

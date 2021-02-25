@@ -57,7 +57,7 @@ CFLAGS	=	-I include/ -g
 NAME =	libmy.a
 
 $(NAME): $(OBJ)
-	cp include/my.h ../../include
+	# cp include/my.h ../../include
 	@ar rc $(NAME) $(OBJ)
 	cp $(NAME) ../
 
