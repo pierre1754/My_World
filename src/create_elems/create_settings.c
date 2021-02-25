@@ -17,7 +17,7 @@ void create_settings(void)
     GET_SET_AY(engine) = 45;
     GET_SET_MX(engine) = 6;
     GET_SET_MY(engine) = 6;
-    GET_SET_PX(engine) = 400;
-    GET_SET_PY(engine) = 0;
+    GET_SET_PX(engine) = 600;
+    GET_SET_PY(engine) = 100;
     GET_SET_Z(engine) = 100;
 }
