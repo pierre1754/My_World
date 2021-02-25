@@ -13,11 +13,12 @@ void start_engine(void)
 
     while (sfRenderWindow_isOpen(GET_WINDOW(engine))) {
         while (sfRenderWindow_pollEvent(GET_WINDOW(engine), &engine->event)) {
-            get_event();
+            if (engine->event.type == sfEvtClosed)
+                sfRenderWindow_close(GET_WINDOW(engine));
         }
-        get_elem();
-        set_elem();
-        draw_elem();
+        // get_elem();
+        // set_elem();
+        // draw_elem();
         // CODE HERE
     }
 }
