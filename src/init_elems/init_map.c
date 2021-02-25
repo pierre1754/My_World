@@ -33,7 +33,7 @@ void init_map_2d(void)
 void init_map_ver(void)
 {
     engine_t *engine = get_engine();
-    quad_t *temp = NULL;
+    square_t *temp = NULL;
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {

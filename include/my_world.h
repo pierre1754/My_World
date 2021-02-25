@@ -83,7 +83,7 @@ typedef struct {
     sfVector2f point2;
     sfVector2f point3;
     sfVector2f point4;
-} quad_t;
+} square_t;
 
 typedef struct {
     int **map_3d;
@@ -105,6 +105,9 @@ void create_buttons(void);
 buttons_t *get_new_button(void);
 void create_window(void);
 void create_map(void);
+void create_map_3d(void);
+void create_map_2d(void);
+void create_map_ver(void);
 engine_t *get_engine(void);
 void create_engine(void);
 
@@ -114,6 +117,9 @@ void destroy_buttons(void);
 void destroy_one_button(buttons_t *button);
 void destroy_window(void);
 void destroy_map(void);
+void destroy_map_3d(void);
+void destroy_map_2d(void);
+void destroy_map_ver(void);
 void destroy_engine(void);
 
 // INIT_COMPONENTS
@@ -123,13 +129,15 @@ void init_elem(void);
 
 // GET_ELEM
 sfVector2f get_iso_point(int x, int y, int z);
+square_t *create_quad(sfVector2f point1, sfVector2f point2, sfVector2f point3,
+sfVector2f point4);
+sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array);
 void get_event(void);
 void get_elem(void);
 
 // DRAW_ELEM
 void draw_elem(void);
 void draw_2d_map(void);
-sfVertexArray *create_vertex_quad(quad_t *quad, sfVertexArray *array);
 
 void start_engine(void);
 
