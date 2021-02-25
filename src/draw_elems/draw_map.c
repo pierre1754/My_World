@@ -27,14 +27,9 @@ sfVector2f *point3, sfVector2f *point4)
 void draw_2d_map(void)
 {
     engine_t *engine = get_engine();
-    sfVertexArray *temp_arr;
 
-    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
-        for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
-            temp_arr = create_vertex_quad(&engine->map->map_2d[i][j],
-            &engine->map->map_2d[i][j + 1], &engine->map->map_2d[i + 1][j + 1],
-            &engine->map->map_2d[i + 1][j]);
-            sfRenderWindow_drawVertexArray(GET_WINDOW(engine), temp_arr, NULL);
-        }
-    }
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
+        for (int j = 0; j < GET_SET_MY(engine) - 1; j++)
+            sfRenderWindow_drawVertexArray(GET_WINDOW(engine),
+            GET_MAP_VER(engine)[i][j], NULL);
 }
