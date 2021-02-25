@@ -10,10 +10,8 @@
 void set_map_3d(void)
 {
     engine_t *engine = get_engine();
-    engine->map->map_3d = malloc(sizeof(int *) * (engine->settings->max_x + 1));
 
     for (int i = 0; i < engine->settings->max_x; i++) {
-        engine->map->map_3d[i] = malloc(sizeof(int) * (engine->settings->max_y + 1));
         for (int j = 0; j < engine->settings->max_x; j++)
             engine->map->map_3d[i][j] = 0;
         engine->map->map_3d[i][engine->settings->max_x] = '\0';
@@ -36,11 +34,10 @@ sfVector2f get_iso_point(int x, int y, int z)
 void set_map_2d(void)
 {
     engine_t *engine = get_engine();
-    engine->map->map_2d = malloc(sizeof(sfVector2f *) * (engine->settings->max_x + 1));
 
     for (int i = 0; i < engine->settings->max_x; i++) {
-        engine->map->map_2d[i] = malloc(sizeof(sfVector2f) * (engine->settings->max_x + 1));
         for (int j = 0; j < engine->settings->max_y - 1; j++)
-            engine->map->map_2d[i][j] = get_iso_point(i, j, engine->map->map_3d[i][j]);
+            engine->map->map_2d[i][j] = get_iso_point(i, j,
+            engine->map->map_3d[i][j]);
     }
 }

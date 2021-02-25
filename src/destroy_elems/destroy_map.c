@@ -11,4 +11,10 @@ void destroy_map(void)
 {
     engine_t *engine = get_engine();
 
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
+        free(engine->map->map_3d[i]);
+        free(engine->map->map_2d[i]);
+    }
+    free(engine->map->map_3d);
+    free(engine->map->map_2d);
 }
