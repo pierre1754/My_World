@@ -97,6 +97,7 @@ buttons_t *get_new_button(void);
 void create_window(void);
 void create_map(void);
 engine_t *get_engine(void);
+void create_engine(void);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
@@ -104,6 +105,7 @@ void destroy_buttons(void);
 void destroy_one_button(buttons_t *button);
 void destroy_window(void);
 void destroy_map(void);
+void destroy_engine(void);
 
 // INIT_COMPONENTS
 void init_map_3d(void);

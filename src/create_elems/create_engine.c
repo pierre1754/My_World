@@ -15,3 +15,11 @@ engine_t *get_engine(void)
         engine = malloc(sizeof(engine_t));
     return engine;
 }
+
+void create_engine(void)
+{
+    create_window();
+    create_settings();
+    create_buttons();
+    // create_map();
+}
