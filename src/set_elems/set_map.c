@@ -26,8 +26,10 @@ sfVector2f get_iso_point(int x, int y, int z)
     engine_t *engine = get_engine();
     sfVector2f point_2d = {0, 0};
 
-    point_2d.x = (cos(ANGLE_X_RAD) * x - cos(ANGLE_X_RAD) * y) * engine->settings->zoom + engine->settings->max_x / 2;
-    point_2d.y = (sin(ANGLE_Y_RAD) * y + sin(ANGLE_Y_RAD) * x - z) * engine->settings->zoom;
+    point_2d.x = (cos(ANGLE_X_RAD(engine)) * x - cos(ANGLE_X_RAD(engine)) * y)
+    * GET_SET_Z(engine) + GET_SET_MX(engine) / 2;
+    point_2d.y = (sin(ANGLE_Y_RAD(engine)) * y + sin(ANGLE_Y_RAD(engine)) * x -
+    z) * GET_SET_Z(engine);
     return point_2d;
 }
 
