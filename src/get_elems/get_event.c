@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-int get_event(void)
+void get_event(void)
 {
     engine_t *engine = get_engine();
 
