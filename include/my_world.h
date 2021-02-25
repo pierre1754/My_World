@@ -49,6 +49,7 @@
 
 #define GET_MAP_2D(engine) (engine->map->map_2d)
 #define GET_MAP_3D(engine) (engine->map->map_3d)
+#define GET_MAP_VER(engine) (engine->map->map_3d)
 
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
@@ -80,6 +81,7 @@ typedef struct {
 typedef struct {
     int **map_3d;
     sfVector2f **map_2d;
+    sfVertexArray ***map_ver;
 } map_t;
 
 typedef struct {

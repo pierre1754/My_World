@@ -12,9 +12,15 @@ void destroy_map(void)
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        free(engine->map->map_3d[i]);
-        free(engine->map->map_2d[i]);
+        free(GET_MAP_3D(engine)[i]);
+        free(GET_MAP_2D(engine)[i]);
     }
-    free(engine->map->map_3d);
-    free(engine->map->map_2d);
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
+        for (int j = 0; j < GET_SET_MY(engine); j++)
+            sfVertexArray_destroy(GET_MAP_VER(engine)[i][j]);
+        free(GET_MAP_VER(engine)[i]);
+    }
+    free(GET_MAP_VER(engine));
+    free(GET_MAP_3D(engine));
+    free(GET_MAP_2D(engine));
 }
