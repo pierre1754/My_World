@@ -21,6 +21,7 @@ SRC		 =	src/create_elems/create_engine.c		\
 			src/get_elems/get_event.c				\
 			src/get_elems/get_elem.c				\
 			src/get_elems/get_vertex.c				\
+			src/init_elems/init_button.c			\
 			src/init_elems/init_map.c				\
 			src/init_elems/init_elem.c				\
 			src/set_elems/set_elem.c				\
@@ -36,7 +37,7 @@ OBJ_MAIN =	$(SRC_MAIN)
 
 OBJ_TEST =	$(SRC_TEST:.c=.o)
 
-CFLAGS	=	-I include -L lib/my -lmy -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm
+CFLAGS	=	-I include -I lib/button/include -I lib/my/include -L lib/my -lmy -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm
 
 CFLAGS_TEST	=	--coverage -lcriterion
 
@@ -48,6 +49,7 @@ NAME_TEST =	unit_tests
 
 $(NAME): $(OBJ) $(OBJ_MAIN)
 	@make -C lib/my
+	@make -C lib/button
 	@(gcc $(OBJ) $(OBJ_MAIN) -o $(NAME) $(CFLAGS)) > /dev/null
 
 all:	$(NAME)
@@ -61,6 +63,7 @@ clean:
 
 fclean:	clean
 	@make fclean -C lib/my
+	@make fclean -C lib/button
 	@rm -f $(NAME)
 	@(rm -f $(NAME) $(NAME_TEST)) > /dev/null
 	@(rm -rf tests/coverage) > /dev/null
@@ -70,10 +73,12 @@ re:	fclean all
 
 debug:
 	@make -C lib/my
+	@make -C lib/button
 	gcc $(SRC) $(SRC_MAIN) -o $(NAME) $(CFLAGS) $(CFLAGS_DEBUG)
 
 unit_tests: $(OBJ_TEST)
 	@make -C lib/my
+	@make -C lib/button
 	@(gcc -o $(NAME_TEST) $(OBJ_TEST) $(SRC) $(CFLAGS_TEST) $(CFLAGS)) > /dev/null
 	./$(NAME_TEST)
 

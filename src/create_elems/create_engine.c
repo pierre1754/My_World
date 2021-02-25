@@ -21,5 +21,5 @@ void create_engine(void)
     create_window();
     create_settings();
     create_buttons();
-    create_map();
+    // create_map();
 }
