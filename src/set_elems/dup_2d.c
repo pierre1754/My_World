@@ -14,8 +14,16 @@ int **intdup_2d(int **src)
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + 1));
-        cp_src[i] = src[i];
+        for (int j = 0; j < GET_SET_MY(engine); j++) {
+            if (src[i][j] != '\0')
+                cp_src[i][j] = src[i][j];
+            else {
+                cp_src[i][j] = 0;
+                cp_src[i][j + 1] = '\0';
+            }
+        }
     }
+    GET_MAP_3D(engine)[GET_SET_MX(engine) - 1] = NULL;
     return cp_src;
 }
 
@@ -28,8 +36,11 @@ sfVector2f **vectordup_2d(sfVector2f **src)
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVector2f) *
         (GET_SET_MY(engine) + 1));
-        cp_src[i] = src[i];
+        for (int j = 0; j < GET_SET_MY(engine); j++) {
+            cp_src[i][j] = src[i][j];
+        }
     }
+    GET_MAP_2D(engine)[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }
 
@@ -44,8 +55,8 @@ sfVertexArray ***vertexdup_2d(sfVertexArray ***src)
         (GET_SET_MY(engine) + 1));
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
             cp_src[i][j] = sfVertexArray_create();
-            cp_src[i][j] = sfVertexArray_copy(src[i][j]);
         }
     }
+    GET_MAP_VER(engine)[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }

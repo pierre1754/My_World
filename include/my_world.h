@@ -142,5 +142,8 @@ void draw_2d_map(void);
 
 void start_engine(void);
 void enlarge_map_x(void);
+int **intdup_2d(int **src);
+sfVector2f **vectordup_2d(sfVector2f **src);
+sfVertexArray ***vertexdup_2d(sfVertexArray ***src);
 
 #endif // MY_WORLD_H

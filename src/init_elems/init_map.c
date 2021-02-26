@@ -23,7 +23,6 @@ void init_map_3d(void)
             GET_MAP_3D(engine)[i][j] = rand() % 3 - 1;
         GET_MAP_3D(engine)[i][GET_SET_MY(engine)] = '\0';
     }
-    GET_MAP_3D(engine)[GET_SET_MX(engine)] = NULL;
 }
 
 void init_map_2d(void)
