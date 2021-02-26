@@ -28,7 +28,9 @@ SRC		 =	src/create_elems/create_engine.c		\
 			src/set_elems/set_elem.c				\
 			src/set_elems/dup_2d.c					\
 			src/start_engine.c						\
-			src/button_command.c					\
+			src/button_command/change_size.c		\
+			src/button_command/change_zoom.c		\
+			src/button_command/refresh_map.c		\
 
 SRC_MAIN =	main.c	\
 

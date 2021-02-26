@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2020
-** button_command.c
+** change_size.c
 ** File description:
 ** 17/11/2020
 */
@@ -27,6 +27,7 @@ void increase_map_x(void)
         resize_map();
     }
 }
+
 void decrease_map_x(void)
 {
     engine_t *engine = get_engine();
