@@ -15,6 +15,7 @@
 #include <SFML/Config.h>
 #include <sys/queue.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct buttons_s {
     LIST_ENTRY(buttons_s) entries;
@@ -27,5 +28,6 @@ typedef struct buttons_s {
 void get_pos_button(buttons_t *button_head);
 void curser_on_button(buttons_t *button_head, sfRenderWindow *window);
 void click_on_button(buttons_t *button_head, sfRenderWindow *window);
+void draw_button(buttons_t *button_head, sfRenderWindow *window);
 
 #endif // BUTTON_H
