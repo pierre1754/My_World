@@ -7,6 +7,21 @@
 
 #include "my_world.h"
 
+int *intdup(int *cp_src, int *src)
+{
+    engine_t *engine = get_engine();
+
+    for (int j = 0; j < GET_SET_MY(engine); j++) {
+        if (src[j] != '\0')
+            cp_src[j] = src[j];
+        else {
+            cp_src[j] = 0;
+            cp_src[j + 1] = '\0';
+        }
+    }
+    return cp_src;
+}
+
 int **intdup_2d(int **src)
 {
     engine_t *engine = get_engine();
@@ -14,18 +29,18 @@ int **intdup_2d(int **src)
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + 1));
-        for (int j = 0; j < GET_SET_MY(engine); j++) {
-            if (src[i][j] != '\0')
-                cp_src[i][j] = src[i][j];
-            else {
+        if (src[i] != NULL)
+            cp_src[i] = intdup(cp_src[i], src[i]);
+        else {
+            for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = 0;
-                cp_src[i][j + 1] = '\0';
-            }
+            cp_src[i][GET_SET_MY(engine)] = '\0';
         }
     }
-    GET_MAP_3D(engine)[GET_SET_MX(engine) - 1] = NULL;
+    cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }
+
 
 sfVector2f **vectordup_2d(sfVector2f **src)
 {
@@ -36,11 +51,14 @@ sfVector2f **vectordup_2d(sfVector2f **src)
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVector2f) *
         (GET_SET_MY(engine) + 1));
-        for (int j = 0; j < GET_SET_MY(engine); j++) {
-            cp_src[i][j] = src[i][j];
-        }
+        if (src[i] != NULL)
+            for (int j = 0; j < GET_SET_MY(engine); j++)
+                cp_src[i][j] = src[i][j];
+        else
+            for (int j = 0; j < GET_SET_MY(engine); j++)
+                cp_src[i][j] = (sfVector2f){0, 0};
     }
-    GET_MAP_2D(engine)[GET_SET_MX(engine)] = NULL;
+    cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }
 
@@ -57,6 +75,6 @@ sfVertexArray ***vertexdup_2d(sfVertexArray ***src)
             cp_src[i][j] = sfVertexArray_create();
         }
     }
-    GET_MAP_VER(engine)[GET_SET_MX(engine)] = NULL;
+    GET_MAP_VER(engine)[GET_SET_MX(engine) - 1] = NULL;
     return cp_src;
 }
