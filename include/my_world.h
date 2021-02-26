@@ -57,6 +57,19 @@
 #define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
 #define ANGLE_Y_RAD(engine) GET_SET_AY(engine) * 3.14 / 180
 
+typedef enum {
+    plus_x,
+    minus_x,
+    plus_y,
+    minus_y,
+    plus_zoom,
+    minus_zoom,
+    cart_mode,
+    color_mode,
+
+    but_nbr
+} all_buttons;
+
 typedef struct {
     int zoom;
     int angle_x;
@@ -122,9 +135,9 @@ void init_map_2d(void);
 void init_map_ver(void);
 void init_map(void);
 void init_button(void);
-void init_text_cara(void);
+void redirect_button(int id_but, buttons_t *button);
 void init_text_obj(void);
-void init_text(void);
+void init_buttons_text(void);
 void init_elem(void);
 
 // GET_ELEM
