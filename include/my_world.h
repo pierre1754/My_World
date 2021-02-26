@@ -149,6 +149,9 @@ void increase_map_x(void);
 void decrease_map_x(void);
 void increase_map_y(void);
 void decrease_map_y(void);
+void increase_zoom(void);
+void decrease_zoom(void);
+void refresh_map(void);
 
 void start_engine(void);
 int *intdup(int *cp_src, int *src);

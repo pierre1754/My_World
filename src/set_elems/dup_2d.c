@@ -65,8 +65,8 @@ sfVector2f **vectordup_2d(sfVector2f **src)
 sfVertexArray ***vertexdup_2d(sfVertexArray ***src)
 {
     engine_t *engine = get_engine();
-    sfVertexArray ***cp_src = malloc(sizeof(sfVertexArray **) * (GET_SET_MX(engine)
-    + 1));
+    sfVertexArray ***cp_src = malloc(sizeof(sfVertexArray **) *
+    (GET_SET_MX(engine) + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVertexArray *) *
