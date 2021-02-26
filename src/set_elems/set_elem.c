@@ -10,8 +10,5 @@
 void set_elem(void)
 {
     engine_t *engine = get_engine();
-    buttons_t *temp = NULL;
 
-    curser_on_button(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
-    // click_on_button(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
 }

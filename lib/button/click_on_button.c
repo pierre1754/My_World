@@ -16,7 +16,8 @@ sfVector2f size_rect)
     return (x && y);
 }
 
-void click_on_button(buttons_t *button_head, sfRenderWindow *window)
+void click_on_button(buttons_t *button_head, sfRenderWindow *window,
+sfEvent event)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
     sfVector2f size_rect = {0};
@@ -26,10 +27,14 @@ void click_on_button(buttons_t *button_head, sfRenderWindow *window)
     buttons.lh_first = button_head;
     LIST_FOREACH(temp, &buttons, entries) {
         size_rect = sfRectangleShape_getSize(temp->rectangle);
-        if (if_collision(temp, mouse, size_rect)) {
-            sfRectangleShape_setOutlineColor(temp->rectangle,
+        if (if_collision(temp, mouse, size_rect) &&
+            event.type == sfEvtMouseButtonPressed) {
+            sfRectangleShape_setFillColor(temp->rectangle,
             sfColor_modulate(sfRectangleShape_getFillColor(temp->rectangle),
             sfColor_fromRGB(128, 0, 0)));
+        }
+        else {
+            sfRectangleShape_setFillColor(temp->rectangle, sfRed);
         }
     }
 }
