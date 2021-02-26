@@ -143,8 +143,14 @@ void set_elem(void);
 void draw_elem(void);
 void draw_2d_map(void);
 
+// BUTTON_COMMAND
+void resize_map(void);
+void increase_map_x(void);
+void decrease_map_x(void);
+void increase_map_y(void);
+void decrease_map_y(void);
+
 void start_engine(void);
-void enlarge_map_x(void);
 int *intdup(int *cp_src, int *src);
 int **intdup_2d(int **src);
 sfVector2f **vectordup_2d(sfVector2f **src);
