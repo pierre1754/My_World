@@ -31,5 +31,8 @@ void curser_on_button(buttons_t *button_head, sfRenderWindow *window)
             sfColor_modulate(sfRectangleShape_getFillColor(temp->rectangle),
             sfColor_fromRGB(128, 0, 0)));
         }
+        else {
+            sfRectangleShape_setOutlineColor(temp->rectangle, sfRed);
+        }
     }
 }
