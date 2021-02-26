@@ -5,8 +5,7 @@
 ## Makefile
 ##
 
-SRC =	get_pos_button.c		\
-		curser_on_button.c		\
+SRC =	curser_on_button.c		\
 		click_on_button.c		\
 		draw_button.c			\
 
