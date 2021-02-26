@@ -15,4 +15,5 @@ void get_event(void)
     click_on_button(GET_LISTHEAD(engine)->lh_first,
                     GET_WINDOW(engine),
                     engine->event);
+    print_map_pos();
 }

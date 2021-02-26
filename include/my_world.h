@@ -135,6 +135,7 @@ sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
 int j);
 void get_event(void);
 void get_elem(void);
+void print_map_pos(void);
 
 // SET_ELEM
 void set_elem(void);

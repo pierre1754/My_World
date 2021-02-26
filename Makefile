@@ -21,6 +21,7 @@ SRC		 =	src/create_elems/create_engine.c		\
 			src/get_elems/get_event.c				\
 			src/get_elems/get_elem.c				\
 			src/get_elems/get_vertex.c				\
+			src/get_elems/get_on_map.c				\
 			src/init_elems/init_button.c			\
 			src/init_elems/init_map.c				\
 			src/init_elems/init_elem.c				\
