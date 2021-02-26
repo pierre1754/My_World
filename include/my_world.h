@@ -122,6 +122,9 @@ void init_map_2d(void);
 void init_map_ver(void);
 void init_map(void);
 void init_button(void);
+void init_text_cara(void);
+void init_text_obj(void);
+void init_text(void);
 void init_elem(void);
 
 // GET_ELEM

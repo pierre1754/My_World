@@ -23,6 +23,8 @@ typedef struct buttons_s {
     sfVector2f pos;
     sfText *text;
     sfFont *font;
+    char *str_text;
+    void (*act_funct)(void);
 } buttons_t;
 
 void curser_on_button(buttons_t *button_head, sfRenderWindow *window);

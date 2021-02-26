@@ -16,7 +16,6 @@ CFLAGS	=	-I include/ -g
 NAME =	libbutton.a
 
 $(NAME): $(OBJ)
-	# cp include/button.h ../../include
 	@ar rc $(NAME) $(OBJ)
 	cp $(NAME) ../
 
