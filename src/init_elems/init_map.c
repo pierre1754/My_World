@@ -20,7 +20,7 @@ void init_map_3d(void)
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         for (int j = 0; j < GET_SET_MY(engine); j++)
-            GET_MAP_3D(engine)[i][j] = rand() % 3 - 1;
+            GET_MAP_3D(engine)[i][j] = 0;//rand() % 3 - 1;
         GET_MAP_3D(engine)[i][GET_SET_MY(engine)] = '\0';
     }
 }
@@ -48,6 +48,18 @@ void init_map_ver(void)
             GET_MAP_2D(engine)[i + 1][j]);
             GET_MAP_VER(engine)[i][j] = create_vertex_quad(temp,
             GET_MAP_VER(engine)[i][j], i, j);
+        }
+    }
+}
+
+void clear_map_ver(void)
+{
+    engine_t *engine = get_engine();
+
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
+        for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
+            //sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], 0)->color = sfRed;
+            sfVertexArray_clear(GET_MAP_VER(engine)[i][j]);
         }
     }
 }

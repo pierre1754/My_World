@@ -134,6 +134,7 @@ void destroy_engine(void);
 void init_map_3d(void);
 void init_map_2d(void);
 void init_map_ver(void);
+void clear_map_ver(void);
 void init_map(void);
 void init_button_head(void);
 void init_plus_x(buttons_t *button);
@@ -157,6 +158,8 @@ int j);
 void get_event(void);
 void get_elem(void);
 void print_map_pos(void);
+void get_mouse_input(void);
+void get_selection(void);
 
 // SET_ELEM
 void set_elem(void);

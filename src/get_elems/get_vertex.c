@@ -31,7 +31,7 @@ sfColor get_hight(int **map, int i, int j)
     case -1:
         return sfColor_fromRGB(64, 64, 64);
     default:
-        return sfBlack;
+        return sfWhite;
     }
 }
 
