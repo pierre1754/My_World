@@ -27,6 +27,7 @@
 #include "button.h"
 
 #define nbr_int_settings 7
+#define MARGE 10
 
 #ifndef LIST_FOREACH_SAFE
 #define LIST_FOREACH_SAFE(var, head, field, tvar)          \
