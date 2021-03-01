@@ -10,6 +10,7 @@
 void init_elem(void)
 {
     init_map();
-    init_button();
+    init_button_head();
+    init_text_obj();
     // PUT INIT HERE
 }

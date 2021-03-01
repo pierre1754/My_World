@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void init_button(void)
+void init_button_head(void)
 {
     engine_t *engine = get_engine();
     buttons_t *temp = NULL;

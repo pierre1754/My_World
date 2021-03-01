@@ -26,5 +26,8 @@ buttons_t *get_new_button(void)
     sfRectangleShape_setFillColor(button->rectangle, sfRed);
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){100, 100});
     sfRectangleShape_setOutlineThickness(button->rectangle, -2.f);
+    sfText_setFont(button->text, button->font);
+    sfText_setColor(button->text, sfWhite);
+    sfText_setCharacterSize(button->text, 15);
     return button;
 }

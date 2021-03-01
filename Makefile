@@ -5,33 +5,35 @@
 ## Main Makefile
 ##
 
-SRC		 =	src/create_elems/create_engine.c		\
-			src/create_elems/create_settings.c		\
-			src/create_elems/create_buttons.c		\
-			src/create_elems/create_window.c		\
-			src/create_elems/create_map.c			\
-			src/destroy_elems/destroy_engine.c		\
-			src/destroy_elems/destroy_settings.c	\
-			src/destroy_elems/destroy_buttons.c		\
-			src/destroy_elems/destroy_window.c		\
-			src/destroy_elems/destroy_map.c			\
-			src/draw_elems/draw_elem.c				\
-			src/draw_elems/draw_map.c				\
-			src/get_elems/get_iso_point.c			\
-			src/get_elems/get_event.c				\
-			src/get_elems/get_elem.c				\
-			src/get_elems/get_vertex.c				\
-			src/get_elems/get_on_map.c				\
-			src/init_elems/init_button.c			\
-			src/init_elems/init_buttons_text.c		\
-			src/init_elems/init_map.c				\
-			src/init_elems/init_elem.c				\
-			src/set_elems/set_elem.c				\
-			src/set_elems/dup_2d.c					\
-			src/start_engine.c						\
-			src/button_command/change_size.c		\
-			src/button_command/change_zoom.c		\
-			src/button_command/refresh_map.c		\
+SRC		 =	src/create_elems/create_engine.c			\
+			src/create_elems/create_settings.c			\
+			src/create_elems/create_buttons.c			\
+			src/create_elems/create_window.c			\
+			src/create_elems/create_map.c				\
+			src/destroy_elems/destroy_engine.c			\
+			src/destroy_elems/destroy_settings.c		\
+			src/destroy_elems/destroy_buttons.c			\
+			src/destroy_elems/destroy_window.c			\
+			src/destroy_elems/destroy_map.c				\
+			src/draw_elems/draw_elem.c					\
+			src/draw_elems/draw_map.c					\
+			src/get_elems/get_iso_point.c				\
+			src/get_elems/get_event.c					\
+			src/get_elems/get_elem.c					\
+			src/get_elems/get_vertex.c					\
+			src/get_elems/get_on_map.c					\
+			src/init_elems/init_button_head.c			\
+			src/init_elems/init_buttons_text.c			\
+			src/init_elems/init_one_button/init_x_y.c	\
+			src/init_elems/init_one_button/init_z_mode.c\
+			src/init_elems/init_map.c					\
+			src/init_elems/init_elem.c					\
+			src/set_elems/set_elem.c					\
+			src/set_elems/dup_2d.c						\
+			src/start_engine.c							\
+			src/button_command/change_size.c			\
+			src/button_command/change_zoom.c			\
+			src/button_command/refresh_map.c			\
 
 SRC_MAIN =	main.c	\
 

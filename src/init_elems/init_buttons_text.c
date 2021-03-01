@@ -7,35 +7,16 @@
 
 #include "my_world.h"
 
-void redirect_button(int id_but, buttons_t *button)
-{
-    switch (id_but) {
-    case plus_x:
-        /* code */
-        break;
-    case minus_x:
-        /* code */
-        break;
-    case plus_y:
-        /* code */
-        break;
-    case minus_y:
-        /* code */
-        break;
-    case plus_zoom:
-        /* code */
-        break;
-    case minus_zoom:
-        /* code */
-        break;
-    case cart_mode:
-        /* code */
-        break;
-    case color_mode:
-        /* code */
-        break;
-    }
-}
+static const void (*ptr_func[but_nbr])(buttons_t *) = {
+    init_plus_x,
+    init_minus_x,
+    init_plus_y,
+    init_minus_y,
+    init_plus_zoom,
+    init_minus_zoom,
+    init_cart_mode,
+    init_color_mode
+};
 
 void init_text_obj(void)
 {
@@ -43,16 +24,11 @@ void init_text_obj(void)
     buttons_t *temp = NULL;
     int id_but = 0;
 
-    LIST_FOREACH(temp, GET_LISTHEAD(engine), entries) {
-        sfText_setFont(temp->text, temp->font);
-        sfText_setColor(temp->text, sfWhite);
-        sfText_setCharacterSize(temp->text, 15);
-        redirect_button(id_but, temp);
+    for (int i = 0; i < but_nbr; i++) {
+        temp = get_new_button();
+
+        ptr_func[i](temp);
+        LIST_INSERT_HEAD(GET_LISTHEAD(engine), temp, entries);
         id_but++;
     }
-}
-
-void init_buttons_text(void)
-{
-
 }

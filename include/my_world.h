@@ -68,7 +68,7 @@ typedef enum {
     color_mode,
 
     but_nbr
-} all_buttons;
+} all_buttons_t;
 
 typedef struct {
     int zoom;
@@ -134,8 +134,15 @@ void init_map_3d(void);
 void init_map_2d(void);
 void init_map_ver(void);
 void init_map(void);
-void init_button(void);
-void redirect_button(int id_but, buttons_t *button);
+void init_button_head(void);
+void init_plus_x(buttons_t *button);
+void init_minus_x(buttons_t *button);
+void init_plus_y(buttons_t *button);
+void init_minus_y(buttons_t *button);
+void init_plus_zoom(buttons_t *button);
+void init_minus_zoom(buttons_t *button);
+void init_cart_mode(buttons_t *button);
+void init_color_mode(buttons_t *button);
 void init_text_obj(void);
 void init_buttons_text(void);
 void init_elem(void);
