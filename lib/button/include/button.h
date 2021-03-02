@@ -27,7 +27,22 @@ typedef struct buttons_s {
     void (*act_funct)(void);
 } buttons_t;
 
-void curser_on_button(buttons_t *button_head, sfRenderWindow *window);
+typedef struct {
+    int zoom;
+    int angle_x;
+    int angle_y;
+    int pos_x;
+    int pos_y;
+    int max_x;
+    int max_y;
+    bool on_button;
+} settings_t;
+
+void curser_on_button(
+    buttons_t *button_head,
+    sfRenderWindow *window,
+    settings_t *settings
+);
 void click_on_button(buttons_t *button_head, sfRenderWindow *window,
 sfEvent event);
 void draw_button(buttons_t *button_head, sfRenderWindow *window);

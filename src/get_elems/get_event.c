@@ -11,9 +11,15 @@ void get_event(void)
 {
     engine_t *engine = get_engine();
 
-    curser_on_button(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
-    click_on_button(GET_LISTHEAD(engine)->lh_first,
-                    GET_WINDOW(engine),
-                    engine->event);
+    curser_on_button(
+        GET_LISTHEAD(engine)->lh_first,
+        GET_WINDOW(engine),
+        GET_SETTINGS(engine)
+    );
+    click_on_button(
+        GET_LISTHEAD(engine)->lh_first,
+        GET_WINDOW(engine),
+        engine->event
+    );
     get_mouse_input();
 }
