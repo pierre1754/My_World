@@ -184,6 +184,6 @@ void start_engine(void);
 int *intdup(int *cp_src, int *src);
 int **intdup_2d(int **src);
 sfVector2f **vectordup_2d(sfVector2f **src);
-sfVertexArray ***vertexdup_2d(sfVertexArray ***src);
+sfVertexArray ***vertexdup_2d(void);
 
 #endif // MY_WORLD_H

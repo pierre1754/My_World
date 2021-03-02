@@ -9,7 +9,5 @@
 
 void refresh_map(void)
 {
-    engine_t *engine = get_engine();
-
     init_map();
 }

@@ -9,6 +9,5 @@
 
 void set_elem(void)
 {
-    engine_t *engine = get_engine();
 
 }

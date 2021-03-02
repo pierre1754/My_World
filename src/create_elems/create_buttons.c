@@ -16,7 +16,6 @@ void create_buttons(void)
 
 buttons_t *get_new_button(void)
 {
-    engine_t *engine = get_engine();
     buttons_t *button = malloc(sizeof(buttons_t));
 
     button->rectangle = sfRectangleShape_create();

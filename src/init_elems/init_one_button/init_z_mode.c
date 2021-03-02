@@ -73,7 +73,6 @@ void init_color_mode(buttons_t *button)
 
 void init_new_map(buttons_t *button)
 {
-    engine_t *engine = get_engine();
     sfVector2f rect_size = {0};
 
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
