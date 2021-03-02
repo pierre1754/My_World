@@ -15,7 +15,8 @@ static const void (*ptr_func[but_nbr])(buttons_t *) = {
     init_plus_zoom,
     init_minus_zoom,
     init_cart_mode,
-    init_color_mode
+    init_color_mode,
+    init_new_map
 };
 
 void init_text_obj(void)
@@ -26,7 +27,6 @@ void init_text_obj(void)
 
     for (int i = 0; i < but_nbr; i++) {
         temp = get_new_button();
-
         ptr_func[i](temp);
         LIST_INSERT_HEAD(GET_LISTHEAD(engine), temp, entries);
         id_but++;

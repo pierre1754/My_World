@@ -67,6 +67,7 @@ typedef enum {
     minus_zoom,
     cart_mode,
     color_mode,
+    new_map,
 
     but_nbr
 } all_buttons_t;
@@ -145,6 +146,7 @@ void init_plus_zoom(buttons_t *button);
 void init_minus_zoom(buttons_t *button);
 void init_cart_mode(buttons_t *button);
 void init_color_mode(buttons_t *button);
+void init_new_map(buttons_t *button);
 void init_text_obj(void);
 void init_buttons_text(void);
 void init_elem(void);
