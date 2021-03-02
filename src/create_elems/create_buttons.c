@@ -26,6 +26,6 @@ buttons_t *get_new_button(void)
     sfRectangleShape_setOutlineThickness(button->rectangle, -2.f);
     sfText_setFont(button->text, button->font);
     sfText_setColor(button->text, sfWhite);
-    sfText_setCharacterSize(button->text, 15);
+    sfText_setCharacterSize(button->text, 20);
     return button;
 }

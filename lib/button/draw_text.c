@@ -14,6 +14,6 @@ void draw_text(buttons_t *button_head, sfRenderWindow *window)
     LIST_HEAD(, buttons_s) buttons;
     buttons.lh_first = button_head;
     LIST_FOREACH(temp, &buttons, entries) {
-        sfRenderWindow_drawText(window, temp->rectangle, NULL);
+        sfRenderWindow_drawText(window, temp->text, NULL);
     }
 }
