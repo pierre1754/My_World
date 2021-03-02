@@ -19,6 +19,15 @@ sfVector2f point4)
     return quad;
 }
 
+line_t *create_line(sfVector2f point1, sfVector2f point2)
+{
+    line_t *line = malloc(sizeof(line_t));
+
+    line->point1 = point1;
+    line->point2 = point2;
+    return line;
+}
+
 sfColor get_hight(int **map, int i, int j)
 {
     int hight = map[i][j];
@@ -53,5 +62,18 @@ int j)
     sfVertexArray_append(array, vertex3);
     sfVertexArray_append(array, vertex4);
     sfVertexArray_setPrimitiveType(array, sfQuads);
+    return array;
+}
+
+sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array, int i,
+int j)
+{
+    engine_t *engine = get_engine();
+    sfVertex vertex1 = {.position = line->point1, .color = sfGreen};
+    sfVertex vertex2 = {.position = line->point2, .color = sfGreen};
+
+    sfVertexArray_append(array, vertex1);
+    sfVertexArray_append(array, vertex2);
+    sfVertexArray_setPrimitiveType(array, sfLinesStrip);
     return array;
 }

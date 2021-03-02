@@ -25,12 +25,16 @@ void get_on_map(void)
 
 void get_mouse_input(void)
 {
+    engine_t *engine = get_engine();
+
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
         get_on_map();
     }
-    clear_map_ver();
+    GET_MAP_VER(engine) = clear_map_ver(GET_MAP_VER(engine));
+    GET_MAP_LINES(engine) = clear_map_ver(GET_MAP_LINES(engine));
     init_map_ver();
-        get_selection();
+    init_map_line();
+    get_selection();
 }
 
 void draw_selection(sfVector2i pos)
@@ -58,7 +62,6 @@ void draw_selection(sfVector2i pos)
 
 void get_selection(void)
 {
-    engine_t *engine = get_engine();
     sfVector2i offset = {0, 0};
     int angle = 0;
 

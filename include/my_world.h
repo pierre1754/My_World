@@ -53,6 +53,7 @@
 #define GET_MAP_2D(engine) (engine->map->map_2d)
 #define GET_MAP_3D(engine) (engine->map->map_3d)
 #define GET_MAP_VER(engine) (engine->map->map_ver)
+#define GET_MAP_LINES(engine) (engine->map->map_lines)
 
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
@@ -95,6 +96,7 @@ typedef struct {
     int **map_3d;
     sfVector2f **map_2d;
     sfVertexArray ***map_ver;
+    sfVertexArray ***map_lines;
 } map_t;
 
 typedef struct {
@@ -112,6 +114,11 @@ typedef struct {
     sfVector2f point4;
 } square_t;
 
+typedef struct {
+    sfVector2f point1;
+    sfVector2f point2;
+} line_t;
+
 // CREATE_COMPONENT
 void create_settings(void);
 void create_buttons(void);
@@ -120,7 +127,7 @@ void create_window(void);
 void create_map(void);
 void create_map_3d(void);
 void create_map_2d(void);
-void create_map_ver(void);
+sfVertexArray ***create_map_ver(sfVertexArray ***map);
 engine_t *get_engine(void);
 void create_engine(void);
 
@@ -139,7 +146,8 @@ void destroy_engine(void);
 void init_map_3d(void);
 void init_map_2d(void);
 void init_map_ver(void);
-void clear_map_ver(void);
+void init_map_line(void);
+sfVertexArray ***clear_map_ver(sfVertexArray ***map);
 void init_map(void);
 void init_button_head(void);
 void init_plus_x(buttons_t *button);
@@ -163,7 +171,10 @@ void init_elem(void);
 sfVector2f get_iso_point(int x, int y, int z);
 square_t *create_quad(sfVector2f point1, sfVector2f point2, sfVector2f point3,
 sfVector2f point4);
+line_t *create_line(sfVector2f point1, sfVector2f point2);
 sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
+int j);
+sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array, int i,
 int j);
 void get_event(void);
 void get_elem(void);

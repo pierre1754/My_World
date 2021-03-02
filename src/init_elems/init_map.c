@@ -12,6 +12,7 @@ void init_map(void)
     init_map_3d();
     init_map_2d();
     init_map_ver();
+    init_map_line();
 }
 
 void init_map_3d(void)
@@ -52,13 +53,21 @@ void init_map_ver(void)
     }
 }
 
-void clear_map_ver(void)
+void init_map_line(void)
 {
     engine_t *engine = get_engine();
+    line_t *temp = NULL;
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
-            sfVertexArray_clear(GET_MAP_VER(engine)[i][j]);
+            temp = create_line(GET_MAP_2D(engine)[i][j],
+            GET_MAP_2D(engine)[i + 1][j]);
+            GET_MAP_LINES(engine)[i][j] = create_vertex_line(temp,
+            GET_MAP_LINES(engine)[i][j], i, j);
+            temp = create_line(GET_MAP_2D(engine)[i][j],
+            GET_MAP_2D(engine)[i][j + 1]);
+            GET_MAP_LINES(engine)[i][j] = create_vertex_line(temp,
+            GET_MAP_LINES(engine)[i][j], i, j);
         }
     }
 }
