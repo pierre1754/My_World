@@ -29,6 +29,6 @@ buttons_t *get_new_button(void)
     sfColor_fromRGB(0, 0, 128)));
     sfText_setFont(button->text, button->font);
     sfText_setColor(button->text, sfWhite);
-    sfText_setCharacterSize(button->text, 20);
+    sfText_setCharacterSize(button->text, 18);
     return button;
 }

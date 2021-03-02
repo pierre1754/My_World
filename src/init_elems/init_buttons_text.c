@@ -16,7 +16,11 @@ static const void (*ptr_func[but_nbr])(buttons_t *) = {
     init_minus_zoom,
     init_cart_mode,
     init_color_mode,
-    init_new_map
+    init_new_map,
+    init_angle_plus_x,
+    init_angle_minus_x,
+    init_angle_plus_y,
+    init_angle_minus_y
 };
 
 void init_text_obj(void)

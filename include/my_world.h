@@ -38,12 +38,12 @@
 
 // MACRO FOR STRUCTURES
 #define GET_SET_Z(engine) (engine->settings->zoom)
-#define GET_SET_AX(engine) ( engine->settings->angle_x)
-#define GET_SET_AY(engine) ( engine->settings->angle_y)
-#define GET_SET_PX(engine) ( engine->settings->pos_x)
-#define GET_SET_PY(engine) ( engine->settings->pos_y)
-#define GET_SET_MX(engine) ( engine->settings->max_x)
-#define GET_SET_MY(engine) ( engine->settings->max_y)
+#define GET_SET_AX(engine) (engine->settings->angle_x)
+#define GET_SET_AY(engine) (engine->settings->angle_y)
+#define GET_SET_PX(engine) (engine->settings->pos_x)
+#define GET_SET_PY(engine) (engine->settings->pos_y)
+#define GET_SET_MX(engine) (engine->settings->max_x)
+#define GET_SET_MY(engine) (engine->settings->max_y)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -68,6 +68,10 @@ typedef enum {
     cart_mode,
     color_mode,
     new_map,
+    plus_angle_x,
+    minus_angle_x,
+    plus_angle_y,
+    minus_angle_y,
 
     but_nbr
 } all_buttons_t;
@@ -147,6 +151,10 @@ void init_minus_zoom(buttons_t *button);
 void init_cart_mode(buttons_t *button);
 void init_color_mode(buttons_t *button);
 void init_new_map(buttons_t *button);
+void init_angle_plus_x(buttons_t *button);
+void init_angle_minus_x(buttons_t *button);
+void init_angle_plus_y(buttons_t *button);
+void init_angle_minus_y(buttons_t *button);
 void init_text_obj(void);
 void init_buttons_text(void);
 void init_elem(void);
