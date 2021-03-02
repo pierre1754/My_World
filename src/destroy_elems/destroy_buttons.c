@@ -24,4 +24,5 @@ void destroy_one_button(buttons_t *button)
     sfText_destroy(button->text);
     sfFont_destroy(button->font);
     LIST_REMOVE(button, entries);
+    free(button);
 }

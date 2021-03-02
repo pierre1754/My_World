@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-static const void (*ptr_func[but_nbr])(buttons_t *) = {
+static void (*ptr_func[but_nbr])(buttons_t *) = {
     init_plus_x,
     init_minus_x,
     init_plus_y,
