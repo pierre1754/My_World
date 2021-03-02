@@ -14,6 +14,7 @@ void resize_map(void)
     GET_MAP_3D(engine) = intdup_2d(GET_MAP_3D(engine));
     GET_MAP_2D(engine) = vectordup_2d(GET_MAP_2D(engine));
     GET_MAP_VER(engine) = vertexdup_2d();
+    GET_MAP_LINES(engine) = vertexdup_2d();
     init_map_2d();
     init_map_ver();
 }
