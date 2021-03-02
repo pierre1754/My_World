@@ -45,11 +45,11 @@ sfVertexArray ***create_map_ver(sfVertexArray ***map)
     engine_t *engine = get_engine();
 
     map = malloc(sizeof(sfVertexArray **) * (GET_SET_MX(engine) + 1));
-    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
         map[i] = malloc(sizeof(sfVertexArray *) * (GET_SET_MY(engine) + 1));
-        for (int j = 0; j < GET_SET_MY(engine) - 1; j++)
+        for (int j = 0; j < GET_SET_MY(engine); j++)
             map[i][j] = sfVertexArray_create();
     }
-    map[GET_SET_MX(engine) - 1] = NULL;
+    map[GET_SET_MX(engine)] = NULL;
     return map;
 }
