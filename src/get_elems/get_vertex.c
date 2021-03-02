@@ -65,10 +65,8 @@ int j)
     return array;
 }
 
-sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array, int i,
-int j)
+sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array)
 {
-    engine_t *engine = get_engine();
     sfVertex vertex1 = {.position = line->point1, .color = sfGreen};
     sfVertex vertex2 = {.position = line->point2, .color = sfGreen};
 

@@ -174,8 +174,7 @@ sfVector2f point4);
 line_t *create_line(sfVector2f point1, sfVector2f point2);
 sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
 int j);
-sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array, int i,
-int j);
+sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array);
 void get_event(void);
 void get_elem(void);
 void print_map_pos(void);

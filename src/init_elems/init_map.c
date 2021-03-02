@@ -64,13 +64,13 @@ void init_map_line(void)
                 temp = create_line(GET_MAP_2D(engine)[i][j],
                 GET_MAP_2D(engine)[i + 1][j]);
                 GET_MAP_LINES(engine)[i][j] = create_vertex_line(temp,
-                GET_MAP_LINES(engine)[i][j], i, j);
+                GET_MAP_LINES(engine)[i][j]);
             }
             if (j + 1 != GET_SET_MY(engine)) {
                 temp = create_line(GET_MAP_2D(engine)[i][j],
                 GET_MAP_2D(engine)[i][j + 1]);
                 GET_MAP_LINES(engine)[i][j] = create_vertex_line(temp,
-                GET_MAP_LINES(engine)[i][j], i, j);
+                GET_MAP_LINES(engine)[i][j]);
             }
         }
     }
