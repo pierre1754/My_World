@@ -41,7 +41,6 @@ int **intdup_2d(int **src)
     return cp_src;
 }
 
-
 sfVector2f **vectordup_2d(sfVector2f **src)
 {
     engine_t *engine = get_engine();
@@ -62,7 +61,7 @@ sfVector2f **vectordup_2d(sfVector2f **src)
     return cp_src;
 }
 
-sfVertexArray ***vertexdup_2d(sfVertexArray ***src)
+sfVertexArray ***vertexdup_2d(void)
 {
     engine_t *engine = get_engine();
     sfVertexArray ***cp_src = malloc(sizeof(sfVertexArray **) *

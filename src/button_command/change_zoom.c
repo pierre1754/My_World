@@ -9,12 +9,10 @@
 
 void increase_zoom(void)
 {
-    engine_t *engine = get_engine();
 
 }
 
 void decrease_zoom(void)
 {
-    engine_t *engine = get_engine();
 
 }
