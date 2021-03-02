@@ -24,9 +24,19 @@ SRC		 =	src/create_elems/create_engine.c			\
 			src/get_elems/get_on_map.c					\
 			src/init_elems/init_button_head.c			\
 			src/init_elems/init_buttons_text.c			\
-			src/init_elems/init_one_button/init_x_y.c	\
-			src/init_elems/init_one_button/init_z_mode.c\
-			src/init_elems/init_one_button/init_angle.c	\
+			src/init_elems/init_one_button/init_angle/init_angle_plus_x.c	\
+			src/init_elems/init_one_button/init_angle/init_angle_minus_x.c	\
+			src/init_elems/init_one_button/init_angle/init_angle_plus_y.c	\
+			src/init_elems/init_one_button/init_angle/init_angle_minus_y.c	\
+			src/init_elems/init_one_button/init_map_modif/init_new_map.c	\
+			src/init_elems/init_one_button/init_mode/init_cart_mode.c		\
+			src/init_elems/init_one_button/init_mode/init_color_mode.c		\
+			src/init_elems/init_one_button/init_pos/init_plus_x.c			\
+			src/init_elems/init_one_button/init_pos/init_minus_x.c			\
+			src/init_elems/init_one_button/init_pos/init_plus_y.c			\
+			src/init_elems/init_one_button/init_pos/init_minus_y.c			\
+			src/init_elems/init_one_button/init_zoom/init_plus_zoom.c		\
+			src/init_elems/init_one_button/init_zoom/init_minus_zoom.c		\
 			src/init_elems/init_map.c					\
 			src/init_elems/clear_map.c					\
 			src/init_elems/init_elem.c					\

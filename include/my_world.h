@@ -37,6 +37,7 @@
 #endif
 
 // MACRO FOR STRUCTURES
+#define GET_SETTINGS(engine) (engine->settings)
 #define GET_SET_Z(engine) (engine->settings->zoom)
 #define GET_SET_AX(engine) (engine->settings->angle_x)
 #define GET_SET_AY(engine) (engine->settings->angle_y)
@@ -44,6 +45,7 @@
 #define GET_SET_PY(engine) (engine->settings->pos_y)
 #define GET_SET_MX(engine) (engine->settings->max_x)
 #define GET_SET_MY(engine) (engine->settings->max_y)
+#define GET_SET_STATUS(engine) (engine->settings->on_button)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -56,8 +58,8 @@
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
 
 // MACRO FOR CALC
-#define ANGLE_X_RAD(engine) GET_SET_AX(engine) * 3.14 / 180
-#define ANGLE_Y_RAD(engine) GET_SET_AY(engine) * 3.14 / 180
+#define ANGLE_X_RAD(engine) (GET_SET_AX(engine) * 3.14 / 180)
+#define ANGLE_Y_RAD(engine) (GET_SET_AY(engine) * 3.14 / 180)
 
 typedef enum {
     plus_x,
@@ -76,16 +78,6 @@ typedef enum {
 
     but_nbr
 } all_buttons_t;
-
-typedef struct {
-    int zoom;
-    int angle_x;
-    int angle_y;
-    int pos_x;
-    int pos_y;
-    int max_x;
-    int max_y;
-} settings_t;
 
 typedef struct {
     sfRenderWindow *window;
@@ -150,18 +142,94 @@ void init_map_line(void);
 sfVertexArray ***clear_map_ver(sfVertexArray ***map);
 void init_map(void);
 void init_button_head(void);
+
+// PLUS X
+void init_plus_x_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_plus_x_text(buttons_t *button,
+sfVector2f rect_size);
 void init_plus_x(buttons_t *button);
+
+// MINUS X
+void init_minus_x_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_minus_x_text(buttons_t *button,
+sfVector2f rect_size);
 void init_minus_x(buttons_t *button);
+
+// PLUS Y
+void init_plus_y_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_plus_y_text(buttons_t *button,
+sfVector2f rect_size);
 void init_plus_y(buttons_t *button);
+
+// MINUS Y
+void init_minus_y_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_angle_minus_y_text(buttons_t *button,
+sfVector2f rect_size);
 void init_minus_y(buttons_t *button);
+
+// PLUS ZOOM
+void init_plus_zoom_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_plus_zoom_text(buttons_t *button,
+sfVector2f rect_size);
 void init_plus_zoom(buttons_t *button);
+
+// MINUS ZOOM
+void init_minus_zoom_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_minus_zoom_text(buttons_t *button,
+sfVector2f rect_size);
 void init_minus_zoom(buttons_t *button);
+
+// CART MODE
+void init_cart_mode_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_cart_mode_text(buttons_t *button,
+sfVector2f rect_size);
 void init_cart_mode(buttons_t *button);
+
+// COLOR MODE
+void init_color_mode_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_color_mode_text(buttons_t *button,
+sfVector2f rect_size);
 void init_color_mode(buttons_t *button);
+
+// NEW MAP
+void init_new_map_rect(buttons_t *button);
+void init_new_map_text(buttons_t *button, sfVector2f rect_size);
 void init_new_map(buttons_t *button);
+
+// ANGLE X PLUS
+void init_angle_plus_x_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_angle_plus_x_text(buttons_t *button,
+sfVector2f rect_size);
 void init_angle_plus_x(buttons_t *button);
+
+// ANGLE X MINUS
+void init_angle_minus_x_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_angle_minus_x_text(buttons_t *button,
+sfVector2f rect_size);
 void init_angle_minus_x(buttons_t *button);
+
+// ANGLE Y PLUS
+void init_angle_plus_y_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_angle_plus_y_text(buttons_t *button,
+sfVector2f rect_size);
 void init_angle_plus_y(buttons_t *button);
+
+// ANGLE Y MINUS
+void init_angle_minus_y_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_angle_minus_y_text(buttons_t *button,
+sfVector2f rect_size);
 void init_angle_minus_y(buttons_t *button);
 void init_text_obj(void);
 void init_buttons_text(void);
