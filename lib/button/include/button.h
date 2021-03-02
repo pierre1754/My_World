@@ -31,5 +31,6 @@ void curser_on_button(buttons_t *button_head, sfRenderWindow *window);
 void click_on_button(buttons_t *button_head, sfRenderWindow *window,
 sfEvent event);
 void draw_button(buttons_t *button_head, sfRenderWindow *window);
+void draw_text(buttons_t *button_head, sfRenderWindow *window);
 
 #endif // BUTTON_H

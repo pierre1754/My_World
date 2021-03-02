@@ -52,6 +52,7 @@ void init_plus_y(buttons_t *button)
         rect_size.x + MARGE * 3,
         GET_WINDOW_SIZE(engine).y - rect_size.y * 2 - MARGE * 2
     };
+    sfText_setPosition(button->text, (sfVector2f){});
     sfRectangleShape_setPosition(button->rectangle, button->pos);
 }
 

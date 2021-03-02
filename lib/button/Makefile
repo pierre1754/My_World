@@ -8,6 +8,7 @@
 SRC =	curser_on_button.c		\
 		click_on_button.c		\
 		draw_button.c			\
+		lib/button/draw_text.c	\
 
 OBJ =	$(SRC:.c=.o)
 

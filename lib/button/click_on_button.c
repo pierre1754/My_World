@@ -31,10 +31,10 @@ sfEvent event)
             event.type == sfEvtMouseButtonPressed) {
             sfRectangleShape_setFillColor(temp->rectangle,
             sfColor_modulate(sfRectangleShape_getFillColor(temp->rectangle),
-            sfColor_fromRGB(128, 0, 0)));
+            sfColor_fromRGB(0, 0, 128)));
         }
         else {
-            sfRectangleShape_setFillColor(temp->rectangle, sfRed);
+            sfRectangleShape_setFillColor(temp->rectangle, sfBlue);
         }
     }
 }

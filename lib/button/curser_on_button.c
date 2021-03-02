@@ -29,10 +29,10 @@ void curser_on_button(buttons_t *button_head, sfRenderWindow *window)
         if (if_collision(temp, mouse, size_rect)) {
             sfRectangleShape_setOutlineColor(temp->rectangle,
             sfColor_modulate(sfRectangleShape_getFillColor(temp->rectangle),
-            sfColor_fromRGB(128, 0, 0)));
+            sfColor_fromRGB(0, 0, 128)));
         }
         else {
-            sfRectangleShape_setOutlineColor(temp->rectangle, sfRed);
+            sfRectangleShape_setOutlineColor(temp->rectangle, sfBlue);
         }
     }
 }

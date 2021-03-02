@@ -23,7 +23,7 @@ buttons_t *get_new_button(void)
     button->font = sfFont_createFromFile("asset/button_font.ttf");
     button->text = sfText_create();
     button->pos = (sfVector2f){0};
-    sfRectangleShape_setFillColor(button->rectangle, sfRed);
+    sfRectangleShape_setFillColor(button->rectangle, sfBlue);
     sfRectangleShape_setOutlineThickness(button->rectangle, -2.f);
     sfText_setFont(button->text, button->font);
     sfText_setColor(button->text, sfWhite);

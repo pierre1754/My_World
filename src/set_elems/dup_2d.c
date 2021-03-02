@@ -41,7 +41,6 @@ int **intdup_2d(int **src)
     return cp_src;
 }
 
-
 sfVector2f **vectordup_2d(sfVector2f **src)
 {
     engine_t *engine = get_engine();
