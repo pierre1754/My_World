@@ -27,12 +27,10 @@ void curser_on_button(buttons_t *button_head, sfRenderWindow *window)
     LIST_FOREACH(temp, &buttons, entries) {
         size_rect = sfRectangleShape_getSize(temp->rectangle);
         if (if_collision(temp, mouse, size_rect)) {
-            sfRectangleShape_setOutlineColor(temp->rectangle,
-            sfColor_modulate(sfRectangleShape_getFillColor(temp->rectangle),
-            sfColor_fromRGB(0, 0, 128)));
+            sfRectangleShape_setOutlineThickness(temp->rectangle, -5.f);
         }
         else {
-            sfRectangleShape_setOutlineColor(temp->rectangle, sfBlue);
+            sfRectangleShape_setOutlineThickness(temp->rectangle, -2.f);
         }
     }
 }

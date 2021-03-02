@@ -63,7 +63,7 @@ void init_plus_y(buttons_t *button)
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
     rect_size = sfRectangleShape_getSize(button->rectangle);
     button->pos = (sfVector2f){
-        rect_size.x + MARGE * 3,
+        rect_size.x + MARGE * 2,
         GET_WINDOW_SIZE(engine).y - rect_size.y * 2 - MARGE * 2
     };
     sfRectangleShape_setPosition(button->rectangle, button->pos);
@@ -87,7 +87,7 @@ void init_minus_y(buttons_t *button)
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
     rect_size = sfRectangleShape_getSize(button->rectangle);
     button->pos = (sfVector2f){
-        rect_size.x + MARGE * 3,
+        rect_size.x + MARGE * 2,
         GET_WINDOW_SIZE(engine).y - rect_size.y - MARGE
     };
     sfRectangleShape_setPosition(button->rectangle, button->pos);
