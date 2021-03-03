@@ -17,6 +17,24 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+// typedef enum {
+//     plus_x,
+//     minus_x,
+//     plus_y,
+//     minus_y,
+//     plus_zoom,
+//     minus_zoom,
+//     cart_mode,
+//     color_mode,
+//     new_map,
+//     plus_angle_x,
+//     minus_angle_x,
+//     plus_angle_y,
+//     minus_angle_y,
+
+//     but_nbr
+// } all_buttons_t;
+
 typedef struct buttons_s {
     LIST_ENTRY(buttons_s) entries;
     sfRectangleShape *rectangle;
@@ -36,6 +54,8 @@ typedef struct {
     int max_x;
     int max_y;
     bool on_button;
+    bool draw_line;
+    int draw_mode;
 } settings_t;
 
 void curser_on_button(

@@ -39,6 +39,7 @@ void init_angle_minus_x(buttons_t *button)
 
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
     rect_size = sfRectangleShape_getSize(button->rectangle);
+    button->act_funct = decrease_map_x;
     init_angle_minus_x_rect(engine, button, rect_size);
     init_angle_minus_x_text(button, rect_size);
 }

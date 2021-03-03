@@ -16,15 +16,13 @@ sfVector2f size_rect)
     return (x && y);
 }
 
-void curser_on_button(
-    buttons_t *button_head,
-    sfRenderWindow *window,
-    settings_t *settings
-)
+void curser_on_button(buttons_t *button_head, sfRenderWindow *window,
+settings_t *settings)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
     sfVector2f size_rect = {0};
     buttons_t *temp = NULL;
+    bool one_but = 0;
 
     LIST_HEAD(, buttons_s) buttons;
     buttons.lh_first = button_head;
@@ -32,11 +30,12 @@ void curser_on_button(
         size_rect = sfRectangleShape_getSize(temp->rectangle);
         if (if_collision(temp, mouse, size_rect)) {
             sfRectangleShape_setOutlineThickness(temp->rectangle, -5.f);
-            settings->on_button = 1;
+            one_but = 1;
         }
-        else {
-            sfRectangleShape_setOutlineThickness(temp->rectangle, -2.f);
-            settings->on_button = 0;
-        }
+        else sfRectangleShape_setOutlineThickness(temp->rectangle, -2.f);
     }
+    if (one_but)
+        settings->on_button = 1;
+    else
+        settings->on_button = 0;
 }

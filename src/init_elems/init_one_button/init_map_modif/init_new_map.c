@@ -36,6 +36,7 @@ void init_new_map(buttons_t *button)
 
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
     rect_size = sfRectangleShape_getSize(button->rectangle);
+    button->act_funct = refresh_map;
     init_new_map_rect(button);
     init_new_map_text(button, rect_size);
 }
