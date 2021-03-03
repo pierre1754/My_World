@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-sfVertexArray ***clear_map_ver(sfVertexArray ***map)
+void clear_map_ver(sfVertexArray ***map)
 {
     engine_t *engine = get_engine();
 
@@ -16,5 +16,4 @@ sfVertexArray ***clear_map_ver(sfVertexArray ***map)
             sfVertexArray_clear(map[i][j]);
         }
     }
-    return map;
 }

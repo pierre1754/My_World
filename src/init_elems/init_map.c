@@ -9,9 +9,13 @@
 
 void init_map(void)
 {
+    engine_t *engine = get_engine();
+
+    resize_map();
     init_map_3d();
     init_map_2d();
-    init_map_ver();
+    init_map_ver(GET_MAP_VER(engine));
+    init_map_ver(GET_MAP_ORIGIN(engine));
     init_map_line();
 }
 
@@ -37,7 +41,7 @@ void init_map_2d(void)
     }
 }
 
-void init_map_ver(void)
+void init_map_ver(sfVertexArray ***map)
 {
     engine_t *engine = get_engine();
     square_t *temp = NULL;
@@ -47,8 +51,7 @@ void init_map_ver(void)
             temp = create_quad(GET_MAP_2D(engine)[i][j],
             GET_MAP_2D(engine)[i][j + 1], GET_MAP_2D(engine)[i + 1][j + 1],
             GET_MAP_2D(engine)[i + 1][j]);
-            GET_MAP_VER(engine)[i][j] = create_vertex_quad(temp,
-            GET_MAP_VER(engine)[i][j], i, j);
+            map[i][j] = create_vertex_quad(temp, map[i][j], i, j);
         }
     }
 }
