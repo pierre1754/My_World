@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void init_color_mode_rect(engine_t *engine, buttons_t *button,
+void init_change_mode_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size)
 {
     button->pos = (sfVector2f){
@@ -17,10 +17,10 @@ sfVector2f rect_size)
     sfRectangleShape_setPosition(button->rectangle, button->pos);
 }
 
-void init_color_mode_text(buttons_t *button,
+void init_change_mode_text(buttons_t *button,
 sfVector2f rect_size)
 {
-    button->str_text = my_strdup("Color Mode");
+    button->str_text = my_strdup("Change Mode");
     sfText_setString(button->text, button->str_text);
     sfText_setOrigin(button->text, (sfVector2f){
         sfText_getGlobalBounds(button->text).width / 2,
@@ -32,13 +32,14 @@ sfVector2f rect_size)
     });
 }
 
-void init_color_mode(buttons_t *button)
+void init_change_mode(buttons_t *button)
 {
     engine_t *engine = get_engine();
     sfVector2f rect_size = {0};
 
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
     rect_size = sfRectangleShape_getSize(button->rectangle);
-    init_color_mode_rect(engine, button, rect_size);
-    init_color_mode_text(button, rect_size);
+    button->act_funct = change_draw_mode;
+    init_change_mode_rect(engine, button, rect_size);
+    init_change_mode_text(button, rect_size);
 }

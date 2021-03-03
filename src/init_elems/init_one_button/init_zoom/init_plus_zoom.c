@@ -39,6 +39,7 @@ void init_plus_zoom(buttons_t *button)
 
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
     rect_size = sfRectangleShape_getSize(button->rectangle);
+    button->act_funct = increase_zoom;
     init_plus_zoom_rect(engine, button, rect_size);
     init_plus_zoom_text(button, rect_size);
 }

@@ -39,7 +39,7 @@ void init_cart_mode(buttons_t *button)
 
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
     rect_size = sfRectangleShape_getSize(button->rectangle);
-    // button->act_funct =
+    button->act_funct = change_draw_line;
     init_cart_mode_rect(engine, button, rect_size);
     init_cart_mode_text(button, rect_size);
 }

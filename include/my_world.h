@@ -71,7 +71,7 @@ typedef enum {
     plus_zoom,
     minus_zoom,
     cart_mode,
-    color_mode,
+    change_mode,
     new_map,
     plus_angle_x,
     minus_angle_x,
@@ -194,12 +194,12 @@ void init_cart_mode_text(buttons_t *button,
 sfVector2f rect_size);
 void init_cart_mode(buttons_t *button);
 
-// COLOR MODE
-void init_color_mode_rect(engine_t *engine, buttons_t *button,
+// CHANGE MODE
+void init_change_mode_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
-void init_color_mode_text(buttons_t *button,
+void init_change_mode_text(buttons_t *button,
 sfVector2f rect_size);
-void init_color_mode(buttons_t *button);
+void init_change_mode(buttons_t *button);
 
 // NEW MAP
 void init_new_map_rect(buttons_t *button);
@@ -267,6 +267,8 @@ void decrease_map_y(void);
 void increase_zoom(void);
 void decrease_zoom(void);
 void refresh_map(void);
+void change_draw_line(void);
+void change_draw_mode(void);
 
 void start_engine(void);
 int *intdup(int *cp_src, int *src);

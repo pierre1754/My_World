@@ -30,7 +30,7 @@ SRC		 =	src/create_elems/create_engine.c			\
 			src/init_elems/init_one_button/init_angle/init_angle_minus_y.c	\
 			src/init_elems/init_one_button/init_map_modif/init_new_map.c	\
 			src/init_elems/init_one_button/init_mode/init_cart_mode.c		\
-			src/init_elems/init_one_button/init_mode/init_color_mode.c		\
+			src/init_elems/init_one_button/init_mode/init_change_mode.c		\
 			src/init_elems/init_one_button/init_pos/init_plus_x.c			\
 			src/init_elems/init_one_button/init_pos/init_minus_x.c			\
 			src/init_elems/init_one_button/init_pos/init_plus_y.c			\
@@ -45,7 +45,8 @@ SRC		 =	src/create_elems/create_engine.c			\
 			src/start_engine.c							\
 			src/button_command/change_size.c			\
 			src/button_command/change_zoom.c			\
-			src/button_command/refresh_map.c			\
+			src/button_command/change_draw_line.c		\
+			src/button_command/change_draw_mode.c		\
 
 SRC_MAIN =	main.c	\
 

@@ -9,10 +9,18 @@
 
 void increase_zoom(void)
 {
+    engine_t *engine = get_engine();
 
+    GET_SET_Z(engine)++;
+    resize_map();
 }
 
 void decrease_zoom(void)
 {
+    engine_t *engine = get_engine();
 
+    if (GET_SET_Z(engine) - 1 > 0) {
+        GET_SET_Z(engine)--;
+        resize_map();
+    }
 }
