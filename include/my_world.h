@@ -46,6 +46,8 @@
 #define GET_SET_MX(engine) (engine->settings->max_x)
 #define GET_SET_MY(engine) (engine->settings->max_y)
 #define GET_SET_STATUS(engine) (engine->settings->on_button)
+#define GET_SET_LINE(engine) (engine->settings->draw_line)
+#define GET_SET_MODE(engine) (engine->settings->draw_mode)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 

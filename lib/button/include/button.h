@@ -17,23 +17,13 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-// typedef enum {
-//     plus_x,
-//     minus_x,
-//     plus_y,
-//     minus_y,
-//     plus_zoom,
-//     minus_zoom,
-//     cart_mode,
-//     color_mode,
-//     new_map,
-//     plus_angle_x,
-//     minus_angle_x,
-//     plus_angle_y,
-//     minus_angle_y,
+typedef enum {
+    nothing,
+    texture,
+    color,
 
-//     but_nbr
-// } all_buttons_t;
+    mode_nbr
+} draw_mode_t;
 
 typedef struct buttons_s {
     LIST_ENTRY(buttons_s) entries;
@@ -58,11 +48,8 @@ typedef struct {
     int draw_mode;
 } settings_t;
 
-void curser_on_button(
-    buttons_t *button_head,
-    sfRenderWindow *window,
-    settings_t *settings
-);
+void curser_on_button(buttons_t *button_head, sfRenderWindow *window,
+settings_t *settings);
 void click_on_button(buttons_t *button_head, sfRenderWindow *window,
 sfEvent event);
 void draw_button(buttons_t *button_head, sfRenderWindow *window);
