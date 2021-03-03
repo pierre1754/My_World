@@ -38,6 +38,7 @@ SRC		 =	src/create_elems/create_engine.c			\
 			src/init_elems/init_one_button/init_zoom/init_plus_zoom.c		\
 			src/init_elems/init_one_button/init_zoom/init_minus_zoom.c		\
 			src/init_elems/init_map.c					\
+			src/init_elems/init_map_base.c				\
 			src/init_elems/clear_map.c					\
 			src/init_elems/init_elem.c					\
 			src/set_elems/set_elem.c					\

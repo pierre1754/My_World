@@ -55,7 +55,9 @@
 #define GET_WINDOW_SIZE(engine) (engine->window->window_size)
 
 #define GET_MAP_2D(engine) (engine->map->map_2d)
+#define GET_MAP_2D_BASE(engine) (engine->map->map_2d_base)
 #define GET_MAP_3D(engine) (engine->map->map_3d)
+#define GET_MAP_3D_BASE(engine) (engine->map->map_3d_base)
 #define GET_MAP_VER(engine) (engine->map->map_ver)
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
 #define GET_MAP_ORIGIN(engine) (engine->map->map_origin)
@@ -89,7 +91,9 @@ typedef struct {
 
 typedef struct {
     int **map_3d;
+    int **map_3d_base;
     sfVector2f **map_2d;
+    sfVector2f **map_2d_base;
     sfVertexArray ***map_ver;
     sfVertexArray ***map_lines;
     sfVertexArray ***map_origin;
@@ -121,8 +125,8 @@ void create_buttons(void);
 buttons_t *get_new_button(void);
 void create_window(void);
 void create_map(void);
-void create_map_3d(void);
-void create_map_2d(void);
+int **create_map_3d(void);
+sfVector2f **create_map_2d(void);
 sfVertexArray ***create_map_ver(void);
 engine_t *get_engine(void);
 void create_engine(void);
@@ -143,7 +147,10 @@ void init_map_3d(void);
 void init_map_2d(void);
 void init_map_ver(sfVertexArray ***map);
 void init_map_line(void);
+void init_map_3d_base(void);
+void init_map_2d_base(void);
 void clear_map_ver(sfVertexArray ***map);
+void init_map_ver_base(sfVertexArray ***map);
 void init_map(void);
 void init_button_head(void);
 

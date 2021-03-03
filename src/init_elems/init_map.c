@@ -11,11 +11,13 @@ void init_map(void)
 {
     engine_t *engine = get_engine();
 
-    resize_map();
     init_map_3d();
-    init_map_2d();
-    init_map_ver(GET_MAP_VER(engine));
-    init_map_ver(GET_MAP_ORIGIN(engine));
+    init_map_3d_base();
+    // init_map_2d();
+    // init_map_2d_base();
+    // init_map_ver(GET_MAP_VER(engine));
+    // init_map_ver_base(GET_MAP_ORIGIN(engine));
+    resize_map();
     init_map_line();
 }
 
