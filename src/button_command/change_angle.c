@@ -11,7 +11,8 @@ void increase_angle_x(void)
 {
     engine_t *engine = get_engine();
 
-    GET_SET_AX(engine)++;
+    GET_SET_AX(engine) += GET_ELAPSED(engine) * 100;
+    printf("%f\n", GET_SET_AX(engine));
     resize_map();
 }
 
@@ -19,7 +20,8 @@ void decrease_angle_x(void)
 {
     engine_t *engine = get_engine();
 
-    GET_SET_AX(engine)--;
+    GET_SET_AX(engine) -= GET_ELAPSED(engine) * 100;
+    printf("%f\n", GET_SET_AX(engine));
     resize_map();
 }
 

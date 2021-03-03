@@ -37,8 +37,8 @@ typedef struct buttons_s {
 
 typedef struct {
     int zoom;
-    int angle_x;
-    int angle_y;
+    float angle_x;
+    float angle_y;
     int pos_x;
     int pos_y;
     int max_x;
