@@ -14,8 +14,9 @@ void create_map(void)
     engine->map = malloc(sizeof(map_t));
     create_map_3d();
     create_map_2d();
-    GET_MAP_VER(engine) = create_map_ver(GET_MAP_VER(engine));
-    GET_MAP_LINES(engine) = create_map_ver(GET_MAP_LINES(engine));
+    GET_MAP_VER(engine) = create_map_ver();
+    GET_MAP_LINES(engine) = create_map_ver();
+    GET_MAP_ORIGIN(engine) = create_map_ver();
 }
 
 void create_map_3d(void)
@@ -40,11 +41,12 @@ void create_map_2d(void)
     GET_MAP_2D(engine)[GET_SET_MX(engine)] = NULL;
 }
 
-sfVertexArray ***create_map_ver(sfVertexArray ***map)
+sfVertexArray ***create_map_ver(void)
 {
     engine_t *engine = get_engine();
+    sfVertexArray ***map = malloc(sizeof(sfVertexArray **) *
+    (GET_SET_MX(engine) + 1));
 
-    map = malloc(sizeof(sfVertexArray **) * (GET_SET_MX(engine) + 1));
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         map[i] = malloc(sizeof(sfVertexArray *) * (GET_SET_MY(engine) + 1));
         for (int j = 0; j < GET_SET_MY(engine); j++)

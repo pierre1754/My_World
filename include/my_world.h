@@ -123,7 +123,7 @@ void create_window(void);
 void create_map(void);
 void create_map_3d(void);
 void create_map_2d(void);
-sfVertexArray ***create_map_ver(sfVertexArray ***map);
+sfVertexArray ***create_map_ver(void);
 engine_t *get_engine(void);
 void create_engine(void);
 
@@ -141,9 +141,9 @@ void destroy_engine(void);
 // INIT_COMPONENTS
 void init_map_3d(void);
 void init_map_2d(void);
-void init_map_ver(void);
+void init_map_ver(sfVertexArray ***map);
 void init_map_line(void);
-sfVertexArray ***clear_map_ver(sfVertexArray ***map);
+void clear_map_ver(sfVertexArray ***map);
 void init_map(void);
 void init_button_head(void);
 

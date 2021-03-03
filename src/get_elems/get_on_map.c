@@ -15,7 +15,7 @@ void get_on_map(void)
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
-            temp_rect = sfVertexArray_getBounds(GET_MAP_VER(engine)[i][j]);
+            temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             temp_rect.top -= 50;
             temp_rect.left -= 50;
             temp_rect.height += 100;
@@ -34,9 +34,9 @@ void get_mouse_input(void)
     if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button) {
         get_on_map();
     }
-    GET_MAP_VER(engine) = clear_map_ver(GET_MAP_VER(engine));
-    GET_MAP_LINES(engine) = clear_map_ver(GET_MAP_LINES(engine));
-    init_map_ver();
+    clear_map_ver(GET_MAP_VER(engine));
+    clear_map_ver(GET_MAP_LINES(engine));
+    init_map_ver(GET_MAP_VER(engine));
     init_map_line();
     get_selection();
 }
@@ -49,7 +49,7 @@ void draw_selection(sfVector2i pos)
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
-            temp_rect = sfVertexArray_getBounds(GET_MAP_VER(engine)[i][j]);
+            temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             if (sfFloatRect_contains(&temp_rect, mouse.x + pos.x, mouse.y +
             pos.y)) {
                 sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], 0)->color =

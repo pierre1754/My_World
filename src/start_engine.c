@@ -15,6 +15,9 @@ void start_engine(void)
         while (sfRenderWindow_pollEvent(GET_WINDOW(engine), &engine->event)) {
             if (engine->event.type == sfEvtClosed)
                 sfRenderWindow_close(GET_WINDOW(engine));
+            if (engine->event.type == sfEvtKeyPressed)
+                if (engine->event.key.code == sfKeyM)
+                    init_map();
             get_event();
         }
         get_elem();
