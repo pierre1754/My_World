@@ -27,7 +27,7 @@ void get_mouse_input(void)
 {
     engine_t *engine = get_engine();
 
-    if (sfMouse_isButtonPressed(sfMouseLeft)) {
+    if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button) {
         get_on_map();
     }
     GET_MAP_VER(engine) = clear_map_ver(GET_MAP_VER(engine));
