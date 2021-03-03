@@ -33,12 +33,10 @@ void decrease_map_x(void)
 {
     engine_t *engine = get_engine();
 
-    my_put_nbr(GET_SET_MX(engine));
     if (GET_SET_MX(engine) > 0) {
         GET_SET_MX(engine) -= 1;
         resize_map();
     }
-    my_put_nbr(GET_SET_MX(engine));
 }
 
 void increase_map_y(void)
