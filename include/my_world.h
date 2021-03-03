@@ -256,7 +256,8 @@ void set_elem(void);
 
 // DRAW_ELEM
 void draw_elem(void);
-void draw_2d_map(void);
+void draw_each_map(int i, int j);
+void draw_map(void);
 
 // BUTTON_COMMAND
 void resize_map(void);

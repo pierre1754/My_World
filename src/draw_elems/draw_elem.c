@@ -12,7 +12,7 @@ void draw_elem(void)
     engine_t *engine = get_engine();
 
     sfRenderWindow_clear(GET_WINDOW(engine), sfBlack);
-    draw_2d_map();
+    draw_map();
     draw_button(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
     draw_text(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
     sfRenderWindow_display(GET_WINDOW(engine));
