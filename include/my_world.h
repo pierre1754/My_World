@@ -58,6 +58,7 @@
 #define GET_MAP_3D(engine) (engine->map->map_3d)
 #define GET_MAP_VER(engine) (engine->map->map_ver)
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
+#define GET_MAP_ORIGIN(engine) (engine->map->map_origin)
 
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) (GET_SET_AX(engine) * 3.14 / 180)
@@ -91,6 +92,7 @@ typedef struct {
     sfVector2f **map_2d;
     sfVertexArray ***map_ver;
     sfVertexArray ***map_lines;
+    sfVertexArray ***map_origin;
 } map_t;
 
 typedef struct {
@@ -276,5 +278,6 @@ int *intdup(int *cp_src, int *src);
 int **intdup_2d(int **src);
 sfVector2f **vectordup_2d(sfVector2f **src);
 sfVertexArray ***vertexdup_2d(void);
+sfVertexArray ***linedup_2d(void);
 
 #endif // MY_WORLD_H

@@ -67,13 +67,30 @@ sfVertexArray ***vertexdup_2d(void)
     sfVertexArray ***cp_src = malloc(sizeof(sfVertexArray **) *
     (GET_SET_MX(engine) + 1));
 
-    for (int i = 0; i < GET_SET_MX(engine); i++) {
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         cp_src[i] = malloc(sizeof(sfVertexArray *) *
         (GET_SET_MY(engine) + 1));
-        for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
+        for (int j = 0; j < GET_SET_MY(engine) - 1;j++) {
             cp_src[i][j] = sfVertexArray_create();
         }
     }
-    GET_MAP_VER(engine)[GET_SET_MX(engine) - 1] = NULL;
+    cp_src[GET_SET_MX(engine) - 1] = NULL;
+    return cp_src;
+}
+
+sfVertexArray ***linedup_2d(void)
+{
+    engine_t *engine = get_engine();
+    sfVertexArray ***cp_src = malloc(sizeof(sfVertexArray **) *
+    (GET_SET_MX(engine) + 1));
+
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
+        cp_src[i] = malloc(sizeof(sfVertexArray *) *
+        (GET_SET_MY(engine) + 1));
+        for (int j = 0; j < GET_SET_MY(engine);j++) {
+            cp_src[i][j] = sfVertexArray_create();
+        }
+    }
+    cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }

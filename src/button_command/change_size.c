@@ -14,7 +14,7 @@ void resize_map(void)
     GET_MAP_3D(engine) = intdup_2d(GET_MAP_3D(engine));
     GET_MAP_2D(engine) = vectordup_2d(GET_MAP_2D(engine));
     GET_MAP_VER(engine) = vertexdup_2d();
-    GET_MAP_LINES(engine) = vertexdup_2d();
+    GET_MAP_LINES(engine) = linedup_2d();
     init_map_2d();
     init_map_ver();
 }
@@ -33,10 +33,12 @@ void decrease_map_x(void)
 {
     engine_t *engine = get_engine();
 
+    my_put_nbr(GET_SET_MX(engine));
     if (GET_SET_MX(engine) > 0) {
         GET_SET_MX(engine) -= 1;
         resize_map();
     }
+    my_put_nbr(GET_SET_MX(engine));
 }
 
 void increase_map_y(void)
