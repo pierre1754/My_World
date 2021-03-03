@@ -10,8 +10,6 @@
 void init_button_head(void)
 {
     engine_t *engine = get_engine();
-    buttons_t *temp = NULL;
 
-    temp = get_new_button();
-    LIST_INSERT_HEAD(GET_LISTHEAD(engine), temp, entries);
+    GET_LISTHEAD(engine)->lh_first = NULL;
 }

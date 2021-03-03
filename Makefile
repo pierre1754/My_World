@@ -47,6 +47,7 @@ SRC		 =	src/create_elems/create_engine.c			\
 			src/button_command/change_zoom.c			\
 			src/button_command/change_draw_line.c		\
 			src/button_command/change_draw_mode.c		\
+			src/button_command/change_angle.c			\
 
 SRC_MAIN =	main.c	\
 

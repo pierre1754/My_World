@@ -272,6 +272,10 @@ void decrease_zoom(void);
 void refresh_map(void);
 void change_draw_line(void);
 void change_draw_mode(void);
+void increase_angle_x(void);
+void decrease_angle_x(void);
+void increase_angle_y(void);
+void decrease_angle_y(void);
 
 void start_engine(void);
 int *intdup(int *cp_src, int *src);
