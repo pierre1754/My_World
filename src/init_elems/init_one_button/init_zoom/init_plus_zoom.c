@@ -42,5 +42,3 @@ void init_plus_zoom(buttons_t *button)
     init_plus_zoom_rect(engine, button, rect_size);
     init_plus_zoom_text(button, rect_size);
 }
-
-

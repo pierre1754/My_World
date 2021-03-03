@@ -42,4 +42,3 @@ void init_angle_plus_x(buttons_t *button)
     init_angle_plus_x_rect(engine, button, rect_size);
     init_angle_plus_x_text(button, rect_size);
 }
-

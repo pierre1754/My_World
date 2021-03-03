@@ -42,4 +42,3 @@ void init_plus_x(buttons_t *button)
     init_plus_x_rect(engine, button, rect_size);
     init_plus_x_text(button, rect_size);
 }
-
