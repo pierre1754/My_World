@@ -140,6 +140,12 @@ sfVertexArray ***create_map_ver(void);
 engine_t *get_engine(void);
 void create_time(void);
 void create_engine(void);
+square_t *create_quad(sfVector2f point1, sfVector2f point2, sfVector2f point3,
+sfVector2f point4);
+line_t *create_line(sfVector2f point1, sfVector2f point2);
+sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
+int j);
+sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
@@ -244,28 +250,30 @@ void init_buttons_text(void);
 void init_elem(void);
 
 // GET_ELEM
-sfVector2f get_iso_point(int x, int y, int z);
-square_t *create_quad(sfVector2f point1, sfVector2f point2, sfVector2f point3,
-sfVector2f point4);
-line_t *create_line(sfVector2f point1, sfVector2f point2);
-sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
-int j);
-sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array);
+sfColor get_color(int **map, int i, int j);
 void move_command(void);
-void get_event(void);
 void get_elem(void);
-void print_map_pos(void);
+void get_event(void);
+void get_on_map(void);
 void get_mouse_input(void);
-void get_time(void);
 void get_selection(void);
+void get_time(void);
 
 // SET_ELEM
+int *intdup(int *cp_src, int *src);
+int **intdup_2d(int **src);
+sfVector2f **vectordup_2d(sfVector2f **src);
+sfVertexArray ***vertexdup_2d(void);
+sfVertexArray ***linedup_2d(void);
 void set_elem(void);
 
 // DRAW_ELEM
+sfColor get_color(int **map, int i, int j);
 void draw_elem(void);
 void draw_each_map(int i, int j);
 void draw_map(void);
+void draw_selection(sfVector2i pos);
+sfVector2f set_iso_point(int x, int y, int z);
 
 // BUTTON_COMMAND
 void resize_map(void);
@@ -284,10 +292,5 @@ void increase_angle_y(void);
 void decrease_angle_y(void);
 
 void start_engine(void);
-int *intdup(int *cp_src, int *src);
-int **intdup_2d(int **src);
-sfVector2f **vectordup_2d(sfVector2f **src);
-sfVertexArray ***vertexdup_2d(void);
-sfVertexArray ***linedup_2d(void);
 
 #endif // MY_WORLD_H

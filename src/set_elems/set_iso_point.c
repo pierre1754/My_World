@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-sfVector2f get_iso_point(int x, int y, int z)
+sfVector2f set_iso_point(int x, int y, int z)
 {
     engine_t *engine = get_engine();
     sfVector2f point_2d = {0, 0};

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2020
-** get_vertex.c
+** my_world.c
 ** File description:
 ** 17/11/2020
 */
@@ -28,33 +28,17 @@ line_t *create_line(sfVector2f point1, sfVector2f point2)
     return line;
 }
 
-sfColor get_hight(int **map, int i, int j)
-{
-    int hight = map[i][j];
-
-    switch (hight) {
-    case 1:
-        return sfColor_fromRGB(255, 255, 255);
-    case 0:
-        return sfColor_fromRGB(128, 128, 128);
-    case -1:
-        return sfColor_fromRGB(64, 64, 64);
-    default:
-        return sfWhite;
-    }
-}
-
 sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
 int j)
 {
     engine_t *engine = get_engine();
-    sfVertex vertex1 = {.position = quad->point1, .color = get_hight(
+    sfVertex vertex1 = {.position = quad->point1, .color = get_color(
     GET_MAP_3D(engine), i, j)};
-    sfVertex vertex2 = {.position = quad->point2, .color = get_hight(
+    sfVertex vertex2 = {.position = quad->point2, .color = get_color(
     GET_MAP_3D(engine), i, j + 1)};
-    sfVertex vertex3 = {.position = quad->point3, .color = get_hight(
+    sfVertex vertex3 = {.position = quad->point3, .color = get_color(
     GET_MAP_3D(engine), i + 1, j + 1)};
-    sfVertex vertex4 = {.position = quad->point4, .color = get_hight(
+    sfVertex vertex4 = {.position = quad->point4, .color = get_color(
     GET_MAP_3D(engine), i + 1, j)};
 
     sfVertexArray_append(array, vertex1);

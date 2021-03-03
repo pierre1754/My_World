@@ -32,7 +32,7 @@ void init_map_2d(void)
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         for (int j = 0; j < GET_SET_MY(engine); j++)
-            GET_MAP_2D(engine)[i][j] = get_iso_point(i, j,
+            GET_MAP_2D(engine)[i][j] = set_iso_point(i, j,
             GET_MAP_3D(engine)[i][j]);
     }
 }
