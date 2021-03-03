@@ -16,7 +16,11 @@ void get_on_map(void)
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
             temp_rect = sfVertexArray_getBounds(GET_MAP_VER(engine)[i][j]);
-            if (sfFloatRect_contains(&temp_rect, mouse.x, mouse.y)) {
+            temp_rect.top -= 50;
+            temp_rect.left -= 50;
+            temp_rect.height += 100;
+            temp_rect.width += 100;
+            if (sfFloatRect_contains(&temp_rect, mouse.x, mouse.y + 25)) {
                 GET_MAP_3D(engine)[i][j] += 1;
                 init_map_2d();
             }
