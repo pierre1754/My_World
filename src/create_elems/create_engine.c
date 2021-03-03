@@ -22,4 +22,5 @@ void create_engine(void)
     create_settings();
     create_buttons();
     create_map();
+    create_time();
 }
