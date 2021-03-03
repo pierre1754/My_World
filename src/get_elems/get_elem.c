@@ -9,5 +9,5 @@
 
 void get_elem(void)
 {
-
+    get_time();
 }

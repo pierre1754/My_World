@@ -62,6 +62,9 @@
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
 #define GET_MAP_ORIGIN(engine) (engine->map->map_origin)
 
+#define GET_CLOCK(engine) (engine->time->clock)
+#define GET_ELAPSED(engine) (engine->time->time_elapsed)
+
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) (GET_SET_AX(engine) * 3.14 / 180)
 #define ANGLE_Y_RAD(engine) (GET_SET_AY(engine) * 3.14 / 180)
@@ -90,6 +93,11 @@ typedef struct {
 } window_t;
 
 typedef struct {
+    sfClock *clock;
+    float time_elapsed;
+} time_elapsed_t;
+
+typedef struct {
     int **map_3d;
     int **map_3d_base;
     sfVector2f **map_2d;
@@ -105,6 +113,7 @@ typedef struct {
     LIST_HEAD(, buttons_s) buttons;
     window_t *window;
     map_t *map;
+    time_elapsed_t *time;
 } engine_t;
 
 typedef struct {
@@ -129,6 +138,7 @@ int **create_map_3d(void);
 sfVector2f **create_map_2d(void);
 sfVertexArray ***create_map_ver(void);
 engine_t *get_engine(void);
+void create_time(void);
 void create_engine(void);
 
 // DESTROY_COMPONENTS
@@ -153,89 +163,76 @@ void clear_map_ver(sfVertexArray ***map);
 void init_map_ver_base(sfVertexArray ***map);
 void init_map(void);
 void init_button_head(void);
-
 // PLUS X
 void init_plus_x_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_plus_x_text(buttons_t *button,
 sfVector2f rect_size);
 void init_plus_x(buttons_t *button);
-
 // MINUS X
 void init_minus_x_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_minus_x_text(buttons_t *button,
 sfVector2f rect_size);
 void init_minus_x(buttons_t *button);
-
 // PLUS Y
 void init_plus_y_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_plus_y_text(buttons_t *button,
 sfVector2f rect_size);
 void init_plus_y(buttons_t *button);
-
 // MINUS Y
 void init_minus_y_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_angle_minus_y_text(buttons_t *button,
 sfVector2f rect_size);
 void init_minus_y(buttons_t *button);
-
 // PLUS ZOOM
 void init_plus_zoom_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_plus_zoom_text(buttons_t *button,
 sfVector2f rect_size);
 void init_plus_zoom(buttons_t *button);
-
 // MINUS ZOOM
 void init_minus_zoom_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_minus_zoom_text(buttons_t *button,
 sfVector2f rect_size);
 void init_minus_zoom(buttons_t *button);
-
 // CART MODE
 void init_cart_mode_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_cart_mode_text(buttons_t *button,
 sfVector2f rect_size);
 void init_cart_mode(buttons_t *button);
-
 // CHANGE MODE
 void init_change_mode_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_change_mode_text(buttons_t *button,
 sfVector2f rect_size);
 void init_change_mode(buttons_t *button);
-
 // NEW MAP
 void init_new_map_rect(buttons_t *button);
 void init_new_map_text(buttons_t *button, sfVector2f rect_size);
 void init_new_map(buttons_t *button);
-
 // ANGLE X PLUS
 void init_angle_plus_x_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_angle_plus_x_text(buttons_t *button,
 sfVector2f rect_size);
 void init_angle_plus_x(buttons_t *button);
-
 // ANGLE X MINUS
 void init_angle_minus_x_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_angle_minus_x_text(buttons_t *button,
 sfVector2f rect_size);
 void init_angle_minus_x(buttons_t *button);
-
 // ANGLE Y PLUS
 void init_angle_plus_y_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_angle_plus_y_text(buttons_t *button,
 sfVector2f rect_size);
 void init_angle_plus_y(buttons_t *button);
-
 // ANGLE Y MINUS
 void init_angle_minus_y_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
@@ -254,10 +251,12 @@ line_t *create_line(sfVector2f point1, sfVector2f point2);
 sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
 int j);
 sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array);
+void move_command(void);
 void get_event(void);
 void get_elem(void);
 void print_map_pos(void);
 void get_mouse_input(void);
+void get_time(void);
 void get_selection(void);
 
 // SET_ELEM
