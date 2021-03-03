@@ -32,6 +32,7 @@ sfEvent event)
             sfRectangleShape_setFillColor(temp->rectangle,
             sfColor_modulate(sfRectangleShape_getFillColor(temp->rectangle),
             sfColor_fromRGB(0, 0, 128)));
+            temp->act_funct();
         }
         else {
             sfRectangleShape_setFillColor(temp->rectangle, sfBlue);
