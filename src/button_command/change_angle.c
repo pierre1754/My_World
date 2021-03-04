@@ -24,7 +24,7 @@ void increase_angle_x(void)
 {
     engine_t *engine = get_engine();
 
-    GET_SET_AX(engine)++;
+    GET_SET_AX(engine) += GET_ELAPSED(engine) * 100;
     change_angle();
 }
 
@@ -32,7 +32,7 @@ void decrease_angle_x(void)
 {
     engine_t *engine = get_engine();
 
-    GET_SET_AX(engine)--;
+    GET_SET_AX(engine) -= GET_ELAPSED(engine) * 100;
     change_angle();
 }
 
