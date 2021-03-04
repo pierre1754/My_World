@@ -21,7 +21,7 @@ void get_on_map(void)
             temp_rect.height += 100;
             temp_rect.width += 100;
             if (sfFloatRect_contains(&temp_rect, mouse.x, mouse.y + 25)) {
-                GET_MAP_3D(engine)[i][j] += 1;
+                GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 50;
                 init_map_2d();
             }
         }
@@ -46,7 +46,7 @@ void get_selection(void)
     sfVector2i offset = {0, 0};
     int angle = 0;
 
-    for (; angle <= 360; angle += 30) {
+    for (; angle <= 360; angle += 20) {
         offset.x = cos(angle * 3.14 / 180) * 100;
         offset.y = sin(angle * 3.14 / 180) * 100;
         draw_selection(offset);
