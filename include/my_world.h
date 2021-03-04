@@ -166,6 +166,7 @@ void init_map_line(void);
 void init_map_3d_base(void);
 void init_map_2d_base(void);
 void clear_map_ver(sfVertexArray ***map);
+void clear_map_lines(sfVertexArray ***map);
 void init_map_ver_base(sfVertexArray ***map);
 void init_map(void);
 void init_button_head(void);
@@ -277,6 +278,7 @@ sfVector2f set_iso_point(int x, int y, int z);
 
 // BUTTON_COMMAND
 void resize_map(void);
+void recalc_map(void);
 void increase_map_x(void);
 void decrease_map_x(void);
 void increase_map_y(void);

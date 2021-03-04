@@ -28,17 +28,15 @@ void increase_map_x(void)
 {
     engine_t *engine = get_engine();
 
-    if (GET_SET_MX(engine) > 0) {
-        GET_SET_MX(engine) += 1;
-        resize_map();
-    }
+    GET_SET_MX(engine) += 1;
+    resize_map();
 }
 
 void decrease_map_x(void)
 {
     engine_t *engine = get_engine();
 
-    if (GET_SET_MX(engine) > 0) {
+    if (GET_SET_MX(engine) > 1) {
         GET_SET_MX(engine) -= 1;
         resize_map();
     }
@@ -48,17 +46,15 @@ void increase_map_y(void)
 {
     engine_t *engine = get_engine();
 
-    if (GET_SET_MY(engine) > 0) {
-        GET_SET_MY(engine) += 1;
-        resize_map();
-    }
+    GET_SET_MY(engine) += 1;
+    resize_map();
 }
 
 void decrease_map_y(void)
 {
     engine_t *engine = get_engine();
 
-    if (GET_SET_MY(engine) > 0) {
+    if (GET_SET_MY(engine) > 1) {
         GET_SET_MY(engine) -= 1;
         resize_map();
     }

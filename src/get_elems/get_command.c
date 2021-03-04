@@ -20,6 +20,6 @@ void move_command(void)
             GET_SET_PY(engine) += 20;
         if (engine->event.key.code == sfKeyUp)
             GET_SET_PY(engine) -= 20;
-        resize_map();
+        recalc_map();
     }
 }

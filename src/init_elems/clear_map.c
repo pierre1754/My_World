@@ -17,3 +17,14 @@ void clear_map_ver(sfVertexArray ***map)
         }
     }
 }
+
+void clear_map_lines(sfVertexArray ***map)
+{
+    engine_t *engine = get_engine();
+
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
+        for (int j = 0; j < GET_SET_MY(engine); j++) {
+            sfVertexArray_clear(map[i][j]);
+        }
+    }
+}

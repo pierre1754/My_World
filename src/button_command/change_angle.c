@@ -7,16 +7,17 @@
 
 #include "my_world.h"
 
-void change_angle(void)
+void recalc_map(void)
 {
     engine_t *engine = get_engine();
 
-    //clear_map_ver(GET_MAP_VER(engine));
     init_map_2d();
     init_map_2d_base();
+    clear_map_lines(GET_MAP_LINES(engine));
+    clear_map_ver(GET_MAP_VER(engine));
+    clear_map_ver(GET_MAP_ORIGIN(engine));
     init_map_ver(GET_MAP_VER(engine));
     init_map_ver_base(GET_MAP_ORIGIN(engine));
-    clear_map_ver(GET_MAP_LINES(engine));
     init_map_line();
 }
 
@@ -25,7 +26,7 @@ void increase_angle_x(void)
     engine_t *engine = get_engine();
 
     GET_SET_AX(engine) += GET_ELAPSED(engine) * 120;
-    resize_map();
+    recalc_map();
 }
 
 void decrease_angle_x(void)
@@ -33,7 +34,7 @@ void decrease_angle_x(void)
     engine_t *engine = get_engine();
 
     GET_SET_AX(engine) -= GET_ELAPSED(engine) * 120;
-    resize_map();
+    recalc_map();
 }
 
 void increase_angle_y(void)
@@ -41,7 +42,7 @@ void increase_angle_y(void)
     engine_t *engine = get_engine();
 
     GET_SET_AY(engine) += GET_ELAPSED(engine) * 120;
-    resize_map();
+    recalc_map();
 }
 
 void decrease_angle_y(void)
@@ -49,5 +50,5 @@ void decrease_angle_y(void)
     engine_t *engine = get_engine();
 
     GET_SET_AY(engine) -= GET_ELAPSED(engine) * 120;
-    resize_map();
+    recalc_map();
 }
