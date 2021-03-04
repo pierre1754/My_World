@@ -40,8 +40,6 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/init_elems/init_one_button/init_pos/init_minus_x.c				\
 			src/init_elems/init_one_button/init_pos/init_plus_y.c				\
 			src/init_elems/init_one_button/init_pos/init_minus_y.c				\
-			src/init_elems/init_one_button/init_zoom/init_plus_zoom.c			\
-			src/init_elems/init_one_button/init_zoom/init_minus_zoom.c			\
 			src/init_elems/init_map.c											\
 			src/init_elems/init_map_base.c										\
 			src/init_elems/clear_map.c											\
@@ -50,10 +48,11 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/set_elems/dup_2d.c												\
 			src/start_engine.c													\
 			src/button_command/change_size.c									\
-			src/button_command/change_zoom.c									\
 			src/button_command/change_draw_line.c								\
 			src/button_command/change_draw_mode.c								\
 			src/button_command/change_angle.c									\
+			src/keyboard_command/key_zoom.c										\
+			src/keyboard_command/key_move.c										\
 
 SRC_MAIN =	main.c	\
 

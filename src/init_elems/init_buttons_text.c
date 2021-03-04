@@ -12,8 +12,6 @@ static void (*ptr_func[but_nbr])(buttons_t *) = {
     init_minus_x,
     init_plus_y,
     init_minus_y,
-    init_plus_zoom,
-    init_minus_zoom,
     init_cart_mode,
     init_change_mode,
     init_new_map,
