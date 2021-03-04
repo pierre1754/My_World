@@ -138,12 +138,9 @@ sfVertexArray ***create_map_ver(void);
 engine_t *get_engine(void);
 void create_time(void);
 void create_engine(void);
-square_t *create_quad(sfVector2f point1, sfVector2f point2, sfVector2f point3,
-sfVector2f point4);
-line_t *create_line(sfVector2f point1, sfVector2f point2);
-sfVertexArray *create_vertex_quad(square_t *quad, sfVertexArray *array, int i,
+sfVertexArray *create_vertex_quad(square_t quad, sfVertexArray *array, int i,
 int j);
-sfVertexArray *create_vertex_line(line_t *line, sfVertexArray *array);
+sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);

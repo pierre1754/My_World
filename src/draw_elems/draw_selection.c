@@ -7,6 +7,16 @@
 
 #include "my_world.h"
 
+static void change_color(int i, int j)
+{
+    engine_t *engine = get_engine();
+
+    for (int a = 0; a < 4; a++) {
+        sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], a)->color =
+        sfColor_fromRGBA(12, 24, 255, 200);
+    }
+}
+
 void draw_selection(sfVector2i pos)
 {
     engine_t *engine = get_engine();
@@ -18,14 +28,7 @@ void draw_selection(sfVector2i pos)
             temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             if (sfFloatRect_contains(&temp_rect, mouse.x + pos.x, mouse.y +
             pos.y)) {
-                sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], 0)->color =
-                sfColor_fromRGBA(12, 24, 255, 200);
-                sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], 1)->color =
-                sfColor_fromRGBA(12, 24, 255, 200);
-                sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], 2)->color =
-                sfColor_fromRGBA(12, 24, 255, 200);
-                sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], 3)->color =
-                sfColor_fromRGBA(12, 24, 255, 200);
+                change_color(i, j);
             }
         }
 }

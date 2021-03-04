@@ -11,9 +11,9 @@ void destroy_engine(void)
 {
     engine_t *engine = get_engine();
 
+    destroy_map();
     destroy_settings();
     destroy_buttons();
     destroy_window();
     free(engine);
 }
-    // destroy_map();

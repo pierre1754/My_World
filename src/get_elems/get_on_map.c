@@ -46,7 +46,7 @@ void get_selection(void)
     sfVector2i offset = {0, 0};
     int angle = 0;
 
-    for (; angle <= 360; angle += 20) {
+    for (; angle <= 360; angle += 30) {
         offset.x = cos(angle * 3.14 / 180) * 100;
         offset.y = sin(angle * 3.14 / 180) * 100;
         draw_selection(offset);
