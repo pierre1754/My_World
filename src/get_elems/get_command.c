@@ -14,7 +14,6 @@ void move_command(void)
     if (engine->event.type == sfEvtKeyPressed) {
         key_move();
         key_zoom();
-        //resize_map();
         recalc_map();
     }
 }

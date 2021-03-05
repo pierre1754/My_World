@@ -11,38 +11,55 @@ void destroy_map(void)
 {
     engine_t *engine = get_engine();
 
-    destroy_map_3d();
-    destroy_map_2d();
-    destroy_map_ver();
+    destroy_map_3d(GET_MAP_3D(engine));
+    destroy_map_3d(GET_MAP_3D_BASE(engine));
+    destroy_map_2d(GET_MAP_2D(engine));
+    destroy_map_2d(GET_MAP_2D_BASE(engine));
+    destroy_map_ver(GET_MAP_VER(engine));
+    destroy_map_ver(GET_MAP_ORIGIN(engine));
+    destroy_map_line(GET_MAP_LINES(engine));
     free(engine->map);
 }
 
-void destroy_map_3d(void)
+void destroy_map_3d(int **map)
 {
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine); i++)
-        free(GET_MAP_3D(engine)[i]);
-    free(GET_MAP_3D(engine));
+        free(map[i]);
+    free(map);
 }
 
-void destroy_map_2d(void)
+void destroy_map_2d(sfVector2f **map)
 {
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine); i++)
-        free(GET_MAP_2D(engine)[i]);
-    free(GET_MAP_2D(engine));
+        free(map[i]);
+    free(map);
 }
 
-void destroy_map_ver(void)
+void destroy_map_ver(sfVertexArray ***map)
 {
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++)
-            sfVertexArray_destroy(GET_MAP_VER(engine)[i][j]);
-        free(GET_MAP_VER(engine)[i]);
+            sfVertexArray_destroy(map[i][j]);
+        free(map[i]);
     }
-    free(GET_MAP_VER(engine));
+    free(map);
+}
+
+
+void destroy_map_line(sfVertexArray ***map)
+{
+    engine_t *engine = get_engine();
+
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
+        for (int j = 0; j < GET_SET_MY(engine); j++)
+            sfVertexArray_destroy(map[i][j]);
+        free(map[i]);
+    }
+    free(map);
 }
