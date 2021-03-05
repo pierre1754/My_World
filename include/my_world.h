@@ -150,11 +150,12 @@ void destroy_buttons(void);
 void destroy_one_button(buttons_t *button);
 void destroy_window(void);
 void destroy_map(void);
-void destroy_map_3d(void);
-void destroy_map_2d(void);
-void destroy_map_ver(void);
 void destroy_help_message(void);
 void destroy_clock(void);
+void destroy_map_3d(int **map);
+void destroy_map_2d(sfVector2f **map);
+void destroy_map_ver(sfVertexArray ***map);
+void destroy_map_line(sfVertexArray ***map);
 void destroy_engine(void);
 
 // INIT_COMPONENTS
