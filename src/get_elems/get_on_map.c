@@ -21,8 +21,8 @@ void get_on_map(void)
             temp_rect.height += 100;
             temp_rect.width += 100;
             if (sfFloatRect_contains(&temp_rect, mouse.x, mouse.y + 25)) {
-                GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 50;
-                init_map_2d();
+                GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 100;
+                calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
             }
         }
 }
@@ -36,7 +36,7 @@ void get_mouse_input(void)
     }
     clear_map_ver(GET_MAP_VER(engine));
     clear_map_ver(GET_MAP_LINES(engine));
-    init_map_ver(GET_MAP_VER(engine));
+    init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
     init_map_line();
     get_selection();
 }

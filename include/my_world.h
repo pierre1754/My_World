@@ -154,15 +154,12 @@ void destroy_map_ver(void);
 void destroy_engine(void);
 
 // INIT_COMPONENTS
-void init_map_3d(void);
-void init_map_2d(void);
-void init_map_ver(sfVertexArray ***map);
+void init_map_int(int **map);
+void calc_map_vec(sfVector2f **map, int **map_int);
+void init_map_ver(sfVertexArray ***map, sfVector2f **map_vec);
 void init_map_line(void);
-void init_map_3d_base(void);
-void init_map_2d_base(void);
 void clear_map_ver(sfVertexArray ***map);
 void clear_map_lines(sfVertexArray ***map);
-void init_map_ver_base(sfVertexArray ***map);
 void init_map(void);
 void init_button_head(void);
 // PLUS X
@@ -279,6 +276,12 @@ void decrease_angle_y(void);
 // KEY_COMMAND
 void key_move(void);
 void key_zoom(void);
+
+// REFRESH_MAP
+sfVertexArray *refresh_vertex_quad(square_t quad, sfVertexArray *array);
+void refresh_map_ver(sfVertexArray ***map, sfVector2f **map_vec);
+sfVertexArray *refresh_vertex_line(line_t line, sfVertexArray *array);
+void refresh_map_line(void);
 
 void start_engine(void);
 

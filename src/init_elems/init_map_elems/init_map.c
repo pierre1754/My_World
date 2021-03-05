@@ -9,45 +9,50 @@
 
 void init_map(void)
 {
-    init_map_3d();
-    init_map_3d_base();
-    resize_map();
+    engine_t *engine = get_engine();
+
+    init_map_int(GET_MAP_3D(engine));
+    init_map_int(GET_MAP_3D_BASE(engine));
+    calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
+    calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
+    init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
+    init_map_ver(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     init_map_line();
 }
 
-void init_map_3d(void)
+void init_map_int(int **map)
+{
+    engine_t *engine = get_engine();
+
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
+        for (int j = 0; j <= GET_SET_MY(engine); j++)
+            map[i][j] = 0;
+    }
+    map[GET_SET_MX(engine)] = NULL;
+}
+
+void calc_map_vec(sfVector2f **map, int **map_int)
 {
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         for (int j = 0; j < GET_SET_MY(engine); j++)
-            GET_MAP_3D(engine)[i][j] = 0;
-        GET_MAP_3D(engine)[i][GET_SET_MY(engine)] = '\0';
+            map[i][j] = set_iso_point(i, j,
+            map_int[i][j]);
     }
 }
 
-void init_map_2d(void)
-{
-    engine_t *engine = get_engine();
-
-    for (int i = 0; i < GET_SET_MX(engine); i++) {
-        for (int j = 0; j < GET_SET_MY(engine); j++)
-            GET_MAP_2D(engine)[i][j] = set_iso_point(i, j,
-            GET_MAP_3D(engine)[i][j]);
-    }
-}
-
-void init_map_ver(sfVertexArray ***map)
+void init_map_ver(sfVertexArray ***map, sfVector2f **map_vec)
 {
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
             map[i][j] = create_vertex_quad((square_t){
-                GET_MAP_2D(engine)[i][j],
-                GET_MAP_2D(engine)[i][j + 1],
-                GET_MAP_2D(engine)[i + 1][j + 1],
-                GET_MAP_2D(engine)[i + 1][j]
+                map_vec[i][j],
+                map_vec[i][j + 1],
+                map_vec[i + 1][j + 1],
+                map_vec[i + 1][j]
             }, map[i][j], i, j);
         }
     }
