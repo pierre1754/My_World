@@ -30,7 +30,6 @@ typedef struct buttons_s {
     sfRectangleShape *rectangle;
     sfVector2f pos;
     sfText *text;
-    sfFont *font;
     char *str_text;
     char *help_message;
     void (*act_funct)(void);
@@ -51,6 +50,7 @@ typedef struct {
 
 typedef struct {
     sfText *message;
+    sfFont *font;
     bool is_printable;
 } help_message_t;
 

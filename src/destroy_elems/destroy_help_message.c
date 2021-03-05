@@ -12,5 +12,6 @@ void destroy_help_message(void)
     engine_t *engine = get_engine();
 
     sfText_destroy(engine->message->message);
+    sfFont_destroy(engine->message->font);
     free(engine->message);
 }
