@@ -51,11 +51,10 @@ typedef struct {
 typedef struct {
     sfText *message;
     sfFont *font;
-    bool is_printable;
 } help_message_t;
 
 void curser_on_button(buttons_t *button_head, sfRenderWindow *window,
-settings_t *settings);
+settings_t *settings, help_message_t *message);
 void click_on_button(buttons_t *button_head, sfRenderWindow *window,
 sfEvent event);
 void draw_button(buttons_t *button_head, sfRenderWindow *window);

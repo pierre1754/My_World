@@ -17,7 +17,7 @@ sfVector2f size_rect)
 }
 
 void curser_on_button(buttons_t *button_head, sfRenderWindow *window,
-settings_t *settings)
+settings_t *settings, help_message_t *message)
 {
     sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
     sfVector2f size_rect = {0};
@@ -30,6 +30,7 @@ settings_t *settings)
         size_rect = sfRectangleShape_getSize(temp->rectangle);
         if (if_collision(temp, mouse, size_rect)) {
             sfRectangleShape_setOutlineThickness(temp->rectangle, -5.f);
+            sfText_setString(message->message, temp->help_message);
             one_but = 1;
         }
         else sfRectangleShape_setOutlineThickness(temp->rectangle, -2.f);

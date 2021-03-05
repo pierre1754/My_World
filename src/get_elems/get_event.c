@@ -15,7 +15,8 @@ void get_event(void)
     curser_on_button(
         GET_LISTHEAD(engine)->lh_first,
         GET_WINDOW(engine),
-        GET_SETTINGS(engine)
+        GET_SETTINGS(engine),
+        engine->message
     );
     click_on_button(
         GET_LISTHEAD(engine)->lh_first,
