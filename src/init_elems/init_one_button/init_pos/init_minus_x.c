@@ -21,6 +21,7 @@ void init_minus_x_text(buttons_t *button,
 sfVector2f rect_size)
 {
     button->str_text = my_strdup("Decrease X");
+    button->help_message = my_strdup("Click to decrease X");
     sfText_setString(button->text, button->str_text);
     sfText_setOrigin(button->text, (sfVector2f){
         sfText_getGlobalBounds(button->text).width / 2,

@@ -19,6 +19,7 @@ void init_new_map_rect(buttons_t *button)
 void init_new_map_text(buttons_t *button, sfVector2f rect_size)
 {
     button->str_text = my_strdup("New Map");
+    button->help_message = my_strdup("Reset the map");
     sfText_setString(button->text, button->str_text);
     sfText_setOrigin(button->text, (sfVector2f){
         sfText_getGlobalBounds(button->text).width / 2,

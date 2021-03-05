@@ -112,6 +112,7 @@ typedef struct {
     window_t *window;
     map_t *map;
     time_elapsed_t *time;
+    help_message_t *message;
 } engine_t;
 
 typedef struct {
@@ -137,10 +138,11 @@ sfVector2f **create_map_2d(void);
 sfVertexArray ***create_map_ver(void);
 engine_t *get_engine(void);
 void create_time(void);
-void create_engine(void);
 sfVertexArray *create_vertex_quad(square_t quad, sfVertexArray *array, int i,
 int j);
 sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
+void create_help_message(void);
+void create_engine(void);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
@@ -151,6 +153,8 @@ void destroy_map(void);
 void destroy_map_3d(void);
 void destroy_map_2d(void);
 void destroy_map_ver(void);
+void destroy_help_message(void);
+void destroy_clock(void);
 void destroy_engine(void);
 
 // INIT_COMPONENTS

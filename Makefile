@@ -12,11 +12,14 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/create_elems/create_map.c										\
 			src/create_elems/create_time.c										\
 			src/create_elems/create_vertex.c									\
+			src/create_elems/create_help_message.c								\
 			src/destroy_elems/destroy_engine.c									\
 			src/destroy_elems/destroy_settings.c								\
 			src/destroy_elems/destroy_buttons.c									\
 			src/destroy_elems/destroy_window.c									\
 			src/destroy_elems/destroy_map.c										\
+			src/destroy_elems/destroy_clock.c									\
+			src/destroy_elems/destroy_help_message.c							\
 			src/draw_elems/draw_elem.c											\
 			src/draw_elems/draw_map.c											\
 			src/draw_elems/draw_selection.c										\

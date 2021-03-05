@@ -23,4 +23,5 @@ void create_engine(void)
     create_buttons();
     create_map();
     create_time();
+    create_help_message();
 }

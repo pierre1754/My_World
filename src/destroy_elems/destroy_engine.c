@@ -15,5 +15,7 @@ void destroy_engine(void)
     destroy_settings();
     destroy_buttons();
     destroy_window();
+    destroy_help_message();
+    destroy_clock();
     free(engine);
 }

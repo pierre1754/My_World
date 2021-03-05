@@ -32,6 +32,7 @@ typedef struct buttons_s {
     sfText *text;
     sfFont *font;
     char *str_text;
+    char *help_message;
     void (*act_funct)(void);
 } buttons_t;
 
@@ -47,6 +48,11 @@ typedef struct {
     bool draw_line;
     int draw_mode;
 } settings_t;
+
+typedef struct {
+    sfText *message;
+    bool is_printable;
+} help_message_t;
 
 void curser_on_button(buttons_t *button_head, sfRenderWindow *window,
 settings_t *settings);
