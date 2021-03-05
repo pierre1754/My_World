@@ -51,7 +51,6 @@ void destroy_map_ver(sfVertexArray ***map)
     free(map);
 }
 
-
 void destroy_map_line(sfVertexArray ***map)
 {
     engine_t *engine = get_engine();
