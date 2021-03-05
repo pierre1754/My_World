@@ -251,15 +251,17 @@ int **intdup_2d(int **src);
 sfVector2f **vectordup_2d(sfVector2f **src);
 sfVertexArray ***vertexdup_2d(void);
 sfVertexArray ***linedup_2d(void);
+void set_pos_help_message(void);
 void set_elem(void);
 
 // DRAW_ELEM
 sfColor get_color(int **map, int i, int j);
-void draw_elem(void);
-void draw_each_map(int i, int j);
-void draw_map(void);
 void draw_selection(sfVector2i pos);
 sfVector2f set_iso_point(int x, int y, int z);
+void draw_each_map(int i, int j);
+void draw_map(void);
+void draw_help(void);
+void draw_elem(void);
 
 // BUTTON_COMMAND
 void resize_map(void);

@@ -21,7 +21,6 @@ buttons_t *get_new_button(void)
 
     button->rectangle = sfRectangleShape_create();
     sfRectangleShape_setSize(button->rectangle, (sfVector2f){150, 75});
-
     button->text = sfText_create();
     button->pos = (sfVector2f){0};
     sfRectangleShape_setFillColor(button->rectangle, sfBlue);

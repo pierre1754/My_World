@@ -13,6 +13,10 @@ void create_help_message(void)
 
     engine->message = malloc(sizeof(help_message_t));
     engine->message->message = sfText_create();
+    sfText_setCharacterSize(engine->message->message, 17);
+    sfText_setColor(engine->message->message, sfWhite);
     engine->message->font = sfFont_createFromFile("asset/button_font.ttf");
     sfText_setFont(engine->message->message, engine->message->font);
+    sfText_setOutlineThickness(engine->message->message, 5.0f);
+    sfText_setOutlineColor(engine->message->message, sfBlack);
 }

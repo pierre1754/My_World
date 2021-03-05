@@ -15,5 +15,6 @@ void draw_elem(void)
     draw_map();
     draw_button(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
     draw_text(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
+    draw_help();
     sfRenderWindow_display(GET_WINDOW(engine));
 }

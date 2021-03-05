@@ -21,9 +21,9 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/destroy_elems/destroy_clock.c									\
 			src/destroy_elems/destroy_help_message.c							\
 			src/draw_elems/draw_elem.c											\
+			src/draw_elems/draw_help.c											\
 			src/draw_elems/draw_map.c											\
 			src/draw_elems/draw_selection.c										\
-			src/set_elems/set_iso_point.c										\
 			src/get_elems/get_event.c											\
 			src/get_elems/get_elem.c											\
 			src/get_elems/get_color.c											\
@@ -47,7 +47,9 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/set_elems/clear_map.c											\
 			src/init_elems/init_elem.c											\
 			src/set_elems/set_elem.c											\
+			src/set_elems/set_iso_point.c										\
 			src/set_elems/dup_2d.c												\
+			src/set_elems/set_pos_help_message.c								\
 			src/start_engine.c													\
 			src/button_command/change_size.c									\
 			src/button_command/change_draw_line.c								\
