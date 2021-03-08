@@ -15,6 +15,7 @@ void recalc_map(void)
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
     refresh_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
+    refresh_map_ver(GET_MAP_TEX(engine), GET_MAP_2D(engine));
     refresh_map_ver(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     refresh_map_line();
 }

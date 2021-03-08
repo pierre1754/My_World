@@ -36,7 +36,7 @@ void get_mouse_input(void)
     }
     clear_map_ver(GET_MAP_VER(engine));
     clear_map_ver(GET_MAP_LINES(engine));
-    init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
+    init_map_color(GET_MAP_VER(engine), GET_MAP_2D(engine));
     init_map_line();
     get_selection();
 }

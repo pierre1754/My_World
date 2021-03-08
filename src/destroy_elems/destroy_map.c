@@ -16,6 +16,7 @@ void destroy_map(void)
     destroy_map_2d(GET_MAP_2D(engine));
     destroy_map_2d(GET_MAP_2D_BASE(engine));
     destroy_map_ver(GET_MAP_VER(engine));
+    destroy_map_ver(GET_MAP_TEX(engine));
     destroy_map_ver(GET_MAP_ORIGIN(engine));
     destroy_map_line(GET_MAP_LINES(engine));
     free(engine->map);

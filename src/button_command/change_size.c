@@ -20,8 +20,9 @@ void resize_map(void)
     GET_MAP_ORIGIN(engine) = vertexdup_2d();
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
-    init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
-    init_map_ver(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
+    init_map_color(GET_MAP_VER(engine), GET_MAP_2D(engine));
+    init_map_tex(GET_MAP_TEX(engine), GET_MAP_2D(engine));
+    init_map_color(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
 }
 
 void increase_map_x(void)

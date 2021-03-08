@@ -60,6 +60,7 @@
 #define GET_MAP_3D(engine) (engine->map->map_3d)
 #define GET_MAP_3D_BASE(engine) (engine->map->map_3d_base)
 #define GET_MAP_VER(engine) (engine->map->map_ver)
+#define GET_MAP_TEX(engine) (engine->map->map_tex)
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
 #define GET_MAP_ORIGIN(engine) (engine->map->map_origin)
 
@@ -102,6 +103,7 @@ typedef struct {
     sfVector2f **map_2d;
     sfVector2f **map_2d_base;
     sfVertexArray ***map_ver;
+    sfVertexArray ***map_tex;
     sfVertexArray ***map_lines;
     sfVertexArray ***map_origin;
 } map_t;
@@ -114,6 +116,8 @@ typedef struct {
     map_t *map;
     time_elapsed_t *time;
     help_message_t *message;
+    sfTexture *tex;
+    sfRenderStates states;
 } engine_t;
 
 typedef struct {
@@ -139,8 +143,9 @@ sfVector2f **create_map_2d(void);
 sfVertexArray ***create_map_ver(void);
 engine_t *get_engine(void);
 void create_time(void);
-sfVertexArray *create_vertex_quad(square_t quad, sfVertexArray *array, int i,
+sfVertexArray *create_vertex_color(square_t quad, sfVertexArray *array, int i,
 int j);
+sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array);
 sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 void create_help_message(void);
 void create_engine(void);
@@ -162,7 +167,8 @@ void destroy_engine(void);
 // INIT_COMPONENTS
 void init_map_int(int **map);
 void calc_map_vec(sfVector2f **map, int **map_int);
-void init_map_ver(sfVertexArray ***map, sfVector2f **map_vec);
+void init_map_color(sfVertexArray ***map, sfVector2f **map_vec);
+void init_map_tex(sfVertexArray ***map, sfVector2f **map_vec);
 void init_map_line(void);
 void clear_map_ver(sfVertexArray ***map);
 void clear_map_lines(sfVertexArray ***map);

@@ -18,10 +18,19 @@ engine_t *get_engine(void)
 
 void create_engine(void)
 {
+    engine_t *engine = get_engine();
+
     create_window();
     create_settings();
     create_buttons();
     create_map();
     create_time();
     create_help_message();
+    engine->tex = sfTexture_createFromFile("asset/image.png", NULL);
+    engine->states = (sfRenderStates){
+        .shader = NULL,
+        .blendMode = sfBlendAlpha,
+        .transform = sfTransform_Identity,
+        .texture = engine->tex,
+    };
 }

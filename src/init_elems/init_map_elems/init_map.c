@@ -15,8 +15,9 @@ void init_map(void)
     init_map_int(GET_MAP_3D_BASE(engine));
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
-    init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
-    init_map_ver(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
+    init_map_color(GET_MAP_VER(engine), GET_MAP_2D(engine));
+    init_map_tex(GET_MAP_TEX(engine), GET_MAP_2D(engine));
+    init_map_color(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     init_map_line();
 }
 
@@ -42,18 +43,34 @@ void calc_map_vec(sfVector2f **map, int **map_int)
     }
 }
 
-void init_map_ver(sfVertexArray ***map, sfVector2f **map_vec)
+void init_map_color(sfVertexArray ***map, sfVector2f **map_vec)
 {
     engine_t *engine = get_engine();
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
-            map[i][j] = create_vertex_quad((square_t){
+            map[i][j] = create_vertex_color((square_t){
                 map_vec[i][j],
                 map_vec[i][j + 1],
                 map_vec[i + 1][j + 1],
                 map_vec[i + 1][j]
             }, map[i][j], i, j);
+        }
+    }
+}
+
+void init_map_tex(sfVertexArray ***map, sfVector2f **map_vec)
+{
+    engine_t *engine = get_engine();
+
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
+        for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
+            map[i][j] = create_vertex_tex((square_t){
+                map_vec[i][j],
+                map_vec[i][j + 1],
+                map_vec[i + 1][j + 1],
+                map_vec[i + 1][j]
+            }, map[i][j]);
         }
     }
 }
