@@ -16,11 +16,8 @@ void get_on_map(void)
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
             temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
-            temp_rect.top -= 50;
-            temp_rect.left -= 50;
-            temp_rect.height += 100;
-            temp_rect.width += 100;
-            if (sfFloatRect_contains(&temp_rect, mouse.x, mouse.y + 25)) {
+            if (get_distance((sfVector2f){temp_rect.left, temp_rect.top},
+            (sfVector2f){mouse.x, mouse.y}) < 100) {
                 GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 100;
                 calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
             }
@@ -41,14 +38,30 @@ void get_mouse_input(void)
     get_selection();
 }
 
+static void change_color(int i, int j)
+{
+    engine_t *engine = get_engine();
+
+    for (int a = 0; a < 4; a++) {
+        sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], a)->color =
+        sfColor_fromRGBA(12, 24, 255, 200);
+    }
+}
+
 void get_selection(void)
 {
-    sfVector2i offset = {0, 0};
-    int angle = 0;
+    engine_t *engine = get_engine();
+    sfVector2i mouse = sfMouse_getPositionRenderWindow(GET_WINDOW(engine));
+    sfFloatRect temp_rect = {0};
+    float dist = 0;
 
-    for (; angle <= 360; angle += 20) {
-        offset.x = cos(angle * 3.14 / 180) * 100;
-        offset.y = sin(angle * 3.14 / 180) * 100;
-        draw_selection(offset);
-    }
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
+        for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
+            temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
+            dist = get_distance((sfVector2f){temp_rect.left, temp_rect.top},
+            (sfVector2f){mouse.x, mouse.y});
+            if (dist < 100 && dist > 70) {
+                change_color(i, j);
+            }
+        }
 }

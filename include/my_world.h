@@ -244,6 +244,7 @@ void get_on_map(void);
 void get_mouse_input(void);
 void get_selection(void);
 void get_time(void);
+float get_distance(sfVector2f point_1, sfVector2f point_2);
 
 // SET_ELEM
 int *intdup(int *cp_src, int *src);
@@ -256,7 +257,6 @@ void set_elem(void);
 
 // DRAW_ELEM
 sfColor get_color(int **map, int i, int j);
-void draw_selection(sfVector2i pos);
 sfVector2f set_iso_point(int x, int y, int z);
 void draw_each_map(int i, int j);
 void draw_map(void);

@@ -23,13 +23,13 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/draw_elems/draw_elem.c											\
 			src/draw_elems/draw_help.c											\
 			src/draw_elems/draw_map.c											\
-			src/draw_elems/draw_selection.c										\
 			src/get_elems/get_event.c											\
 			src/get_elems/get_elem.c											\
 			src/get_elems/get_color.c											\
 			src/get_elems/get_on_map.c											\
 			src/get_elems/get_command.c											\
 			src/get_elems/get_time.c											\
+			src/get_elems/get_distance.c										\
 			src/init_elems/init_button_head.c									\
 			src/init_elems/init_buttons_text.c									\
 			src/init_elems/init_one_button/init_angle/init_angle_plus_x.c		\
