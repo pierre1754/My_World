@@ -15,6 +15,7 @@ void get_molette(void)
         if (engine->event.mouseWheelScroll.delta < 0)
             GET_SET_RAD(engine) += 10;
         if (engine->event.mouseWheelScroll.delta > 0)
-            GET_SET_RAD(engine) -= 10;
+            if (GET_SET_RAD(engine) - 10 > 0)
+                GET_SET_RAD(engine) -= 10;
     }
 }
