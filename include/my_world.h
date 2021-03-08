@@ -14,6 +14,9 @@
 #include <SFML/Audio.h>
 #include <SFML/Config.h>
 #include <sys/queue.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <stdbool.h>
 #include <limits.h>
 #include <string.h>
@@ -28,6 +31,7 @@
 
 #define nbr_int_settings 7
 #define MARGE 10
+#define LEN 8
 
 #ifndef LIST_FOREACH_SAFE
 #define LIST_FOREACH_SAFE(var, head, field, tvar)          \
@@ -289,6 +293,14 @@ sfVertexArray *refresh_vertex_quad(square_t quad, sfVertexArray *array);
 void refresh_map_ver(sfVertexArray ***map, sfVector2f **map_vec);
 sfVertexArray *refresh_vertex_line(line_t line, sfVertexArray *array);
 void refresh_map_line(void);
+
+// READ_MAP
+char *read_map(char *path);
+char *verif_map(char *file);
+
+float perlin2d(float x, float y, float freq, int depth);
+
+
 
 void start_engine(void);
 

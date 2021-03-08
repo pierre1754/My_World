@@ -60,6 +60,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/set_elems/refresh_map/refresh_vertex.c							\
 			src/set_elems/refresh_map/refresh_map.c								\
 			src/set_elems/refresh_map/refresh_map_line.c						\
+			src/load_map/read_map.c												\
 
 SRC_MAIN =	main.c	\
 
@@ -71,7 +72,7 @@ OBJ_MAIN =	$(SRC_MAIN)
 
 OBJ_TEST =	$(SRC_TEST:.c=.o)
 
-CFLAGS	=	-I include -I lib/button/include -I lib/my/include -L lib/my -L lib/button -lmy -lbutton -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Wall -Wextra -W
+CFLAGS	=	-I include -I lib/button/include -I lib/my/include -L lib/my -L lib/button -lmy -lbutton -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Wall -Wextra -W -Ofast
 
 CFLAGS_TEST	=	--coverage -lcriterion
 
