@@ -24,6 +24,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/draw_elems/draw_help.c											\
 			src/draw_elems/draw_map.c											\
 			src/get_elems/get_event.c											\
+			src/get_elems/get_molette.c											\
 			src/get_elems/get_elem.c											\
 			src/get_elems/get_color.c											\
 			src/get_elems/get_on_map.c											\

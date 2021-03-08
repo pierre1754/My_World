@@ -46,6 +46,7 @@ typedef struct {
     bool on_button;
     bool draw_line;
     int draw_mode;
+    int radius;
 } settings_t;
 
 typedef struct {

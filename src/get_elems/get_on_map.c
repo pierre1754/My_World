@@ -17,7 +17,7 @@ void get_on_map(void)
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
             temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             if (get_distance((sfVector2f){temp_rect.left, temp_rect.top},
-            (sfVector2f){mouse.x, mouse.y}) < 100) {
+            (sfVector2f){mouse.x, mouse.y}) < GET_SET_RAD(engine)) {
                 GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 100;
                 calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
             }
@@ -60,7 +60,8 @@ void get_selection(void)
             temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             dist = get_distance((sfVector2f){temp_rect.left, temp_rect.top},
             (sfVector2f){mouse.x, mouse.y});
-            if (dist < 100 && dist > 70) {
+            if (dist < GET_SET_RAD(engine) &&
+            dist > GET_SET_RAD(engine) - 20) {
                 change_color(i, j);
             }
         }

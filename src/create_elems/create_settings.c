@@ -23,4 +23,5 @@ void create_settings(void)
     GET_SET_STATUS(engine) = 0;
     GET_SET_LINE(engine) = 1;
     GET_SET_MODE(engine) = 1;
+    GET_SET_RAD(engine) = 100;
 }

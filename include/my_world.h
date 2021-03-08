@@ -48,6 +48,7 @@
 #define GET_SET_STATUS(engine) (engine->settings->on_button)
 #define GET_SET_LINE(engine) (engine->settings->draw_line)
 #define GET_SET_MODE(engine) (engine->settings->draw_mode)
+#define GET_SET_RAD(engine) (engine->settings->radius)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -239,6 +240,7 @@ void init_elem(void);
 sfColor get_color(int **map, int i, int j);
 void move_command(void);
 void get_elem(void);
+void get_molette(void);
 void get_event(void);
 void get_on_map(void);
 void get_mouse_input(void);
