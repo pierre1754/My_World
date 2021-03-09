@@ -18,7 +18,8 @@ static void (*ptr_func[but_nbr])(buttons_t *) = {
     init_angle_plus_x,
     init_angle_minus_x,
     init_angle_plus_y,
-    init_angle_minus_y
+    init_angle_minus_y,
+    init_new_perlin_map
 };
 
 void init_text_obj(void)

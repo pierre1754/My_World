@@ -29,7 +29,7 @@
 #include "my.h"
 #include "button.h"
 
-#define nbr_int_settings 7
+#define nbr_int_settings 13
 #define MARGE 10
 #define LEN 8
 
@@ -55,6 +55,9 @@
 #define GET_SET_LINE(engine) (engine->settings->draw_line)
 #define GET_SET_MODE(engine) (engine->settings->draw_mode)
 #define GET_SET_LOD(engine) (engine->settings->is_loaded)
+#define GET_SEED(engine) (engine->settings->seed)
+#define GET_DEPTH(engine) (engine->settings->depth)
+#define GET_FREQ(engine) (engine->settings->freq)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -88,6 +91,7 @@ typedef enum {
     minus_angle_x,
     plus_angle_y,
     minus_angle_y,
+    new_perlin_map,
 
     but_nbr
 } all_buttons_t;
@@ -167,11 +171,13 @@ void destroy_engine(void);
 
 // INIT_COMPONENTS
 void init_map_int(int **map);
+void init_perlin_map(int **map);
 void calc_map_vec(sfVector2f **map, int **map_int);
 void init_map_ver(sfVertexArray ***map, sfVector2f **map_vec);
 void init_map_line(void);
 void clear_map_ver(sfVertexArray ***map);
 void clear_map_lines(sfVertexArray ***map);
+void init_perlin(void);
 void init_map(void);
 void init_button_head(void);
 // PLUS X
@@ -238,6 +244,10 @@ sfVector2f rect_size);
 void init_angle_minus_y_text(buttons_t *button,
 sfVector2f rect_size);
 void init_angle_minus_y(buttons_t *button);
+// NEW_PERLIN_MAP
+void init_new_perlin_map_rect(buttons_t *button, sfVector2f rect_size);
+void init_new_perlin_map_text(buttons_t *button, sfVector2f rect_size);
+void init_new_perlin_map(buttons_t *button);
 void init_text_obj(void);
 void init_buttons_text(void);
 void init_elem(void);

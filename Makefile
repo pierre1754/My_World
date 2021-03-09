@@ -43,9 +43,11 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/init_elems/init_one_button/init_pos/init_minus_x.c				\
 			src/init_elems/init_one_button/init_pos/init_plus_y.c				\
 			src/init_elems/init_one_button/init_pos/init_minus_y.c				\
+			src/init_elems/init_one_button/init_map_modif/init_new_perlin_map.c	\
 			src/init_elems/init_map_elems/init_map.c							\
-			src/set_elems/clear_map.c											\
 			src/init_elems/init_elem.c											\
+			src/init_elems/init_map_elems/init_map_perl.c						\
+			src/set_elems/clear_map.c											\
 			src/set_elems/set_elem.c											\
 			src/set_elems/set_iso_point.c										\
 			src/set_elems/dup_2d.c												\
@@ -63,6 +65,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/load_map/read_map.c												\
 			src/load_map/str_to_line_array.c									\
 			src/load_map/file_to_map.c											\
+			src/perlin_noise/perlin_noise.c										\
 
 SRC_MAIN =	main.c	\
 

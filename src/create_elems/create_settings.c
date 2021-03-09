@@ -15,12 +15,14 @@ void create_settings(void)
     memset(engine->settings, 0, sizeof(int) * nbr_int_settings);
     GET_SET_AX(engine) = 45;
     GET_SET_AY(engine) = 45;
-    GET_SET_MX(engine) = 10;
-    GET_SET_MY(engine) = 10;
+    GET_SET_MX(engine) = 50;
+    GET_SET_MY(engine) = 50;
     GET_SET_PX(engine) = 600;
     GET_SET_PY(engine) = 100;
     GET_SET_Z(engine) = 12;
     GET_SET_STATUS(engine) = 0;
     GET_SET_LINE(engine) = 1;
-    GET_SET_MODE(engine) = 1;
+    GET_SET_MODE(engine) = 0;
+    GET_DEPTH(engine) = 4.f;
+    GET_FREQ(engine) = 0.02f;
 }

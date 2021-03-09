@@ -7,11 +7,11 @@
 
 #include "my_world.h"
 
-void init_map(void)
+void init_perlin(void)
 {
     engine_t *engine = get_engine();
 
-    init_map_int(GET_MAP_3D(engine));
+    init_perlin_map(GET_MAP_3D(engine));
     init_map_int(GET_MAP_3D_BASE(engine));
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
@@ -20,18 +20,26 @@ void init_map(void)
     init_map_line();
 }
 
-void init_map_perl(int **map)
+void init_perlin_map(int **map)
 {
     engine_t *engine = get_engine();
+    long int *temp = malloc(sizeof(int));
+    float calc = 0;
 
     if (GET_SET_LOD(engine)) {
         GET_SET_LOD(engine) = 0;
         return;
     }
+    srand((long int)temp);
+    GET_SEED(engine) = rand();
+    GET_DEPTH(engine) = rand() % 4;
+    calc = rand() / 10;
+    GET_FREQ(engine) = fmod(calc, 0.05f);
+    free(temp);
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        for (int j = 0; j <= GET_SET_MY(engine); j++) {
-            map[i][j] = 0 /* 50 * perlin2d(i, j, 0.02, 4) */;
+        for (int j = 0; j < GET_SET_MY(engine); j++) {
+            map[i][j] = 10 * perlin_noise(i * GET_FREQ(engine),
+            j * GET_FREQ(engine), GET_DEPTH(engine), GET_SEED(engine));
         }
     }
-    map[GET_SET_MX(engine)] = NULL;
 }
