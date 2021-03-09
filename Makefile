@@ -10,9 +10,11 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/create_elems/create_buttons.c									\
 			src/create_elems/create_window.c									\
 			src/create_elems/create_map.c										\
+			src/create_elems/create_color.c										\
 			src/create_elems/create_time.c										\
 			src/create_elems/create_vertex.c									\
 			src/create_elems/create_help_message.c								\
+			src/create_elems/create_render.c									\
 			src/destroy_elems/destroy_engine.c									\
 			src/destroy_elems/destroy_settings.c								\
 			src/destroy_elems/destroy_buttons.c									\
@@ -24,7 +26,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/draw_elems/draw_help.c											\
 			src/draw_elems/draw_map.c											\
 			src/get_elems/get_event.c											\
-			src/get_elems/get_molette.c											\
+			src/get_elems/get_scroll.c											\
 			src/get_elems/get_elem.c											\
 			src/get_elems/get_color.c											\
 			src/get_elems/get_on_map.c											\
@@ -46,6 +48,8 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/init_elems/init_one_button/init_pos/init_minus_y.c				\
 			src/init_elems/init_one_button/init_map_modif/init_new_perlin_map.c	\
 			src/init_elems/init_map_elems/init_map.c							\
+			src/init_elems/init_map_elems/init_color.c							\
+			src/init_elems/init_map_elems/calc_map.c							\
 			src/init_elems/init_elem.c											\
 			src/init_elems/init_map_elems/init_map_perl.c						\
 			src/set_elems/clear_map.c											\

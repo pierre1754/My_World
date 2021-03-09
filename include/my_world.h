@@ -69,9 +69,12 @@
 #define GET_MAP_2D_BASE(engine) (engine->map->map_2d_base)
 #define GET_MAP_3D(engine) (engine->map->map_3d)
 #define GET_MAP_3D_BASE(engine) (engine->map->map_3d_base)
-#define GET_MAP_VER(engine) (engine->map->map_ver)
+#define GET_MAP_COLOR(engine) (engine->map->map_color)
+#define GET_MAP_TEX(engine) (engine->map->map_tex)
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
 #define GET_MAP_ORIGIN(engine) (engine->map->map_origin)
+#define GET_COLOR_2D(engine) (engine->map->color_2d)
+#define GET_TEX_2D(engine) (engine->map->texture_2d)
 
 #define GET_CLOCK(engine) (engine->time->clock)
 #define GET_ELAPSED(engine) (engine->time->time_elapsed)
@@ -112,10 +115,18 @@ typedef struct {
     int **map_3d_base;
     sfVector2f **map_2d;
     sfVector2f **map_2d_base;
-    sfVertexArray ***map_ver;
+    sfVertexArray ***map_color;
+    sfVertexArray ***map_tex;
     sfVertexArray ***map_lines;
     sfVertexArray ***map_origin;
+    sfColor **color_2d;
+    sfTexture ***texture_2d;
 } map_t;
+
+typedef struct {
+    sfTexture *tex;
+    sfRenderStates states;
+} render_states_t;
 
 typedef struct {
     sfEvent event;
@@ -125,6 +136,7 @@ typedef struct {
     map_t *map;
     time_elapsed_t *time;
     help_message_t *message;
+    render_states_t *render;
 } engine_t;
 
 typedef struct {
@@ -148,13 +160,17 @@ void create_map(char *file);
 int **create_map_3d(void);
 sfVector2f **create_map_2d(void);
 sfVertexArray ***create_map_ver(void);
+sfColor **create_color_2d(void);
+sfTexture ***create_texture_2d(void);
 engine_t *get_engine(void);
 void create_time(void);
-sfVertexArray *create_vertex_quad(square_t quad, sfVertexArray *array, int i,
+sfVertexArray *create_vertex_color(square_t quad, sfVertexArray *array, int i,
 int j);
+sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array);
 sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 void create_help_message(void);
 void create_engine(char *file);
+void create_render(void);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
@@ -173,7 +189,8 @@ void destroy_engine(void);
 void init_map_int(int **map);
 void init_perlin_map(int **map);
 void calc_map_vec(sfVector2f **map, int **map_int);
-void init_map_ver(sfVertexArray ***map, sfVector2f **map_vec);
+void init_map_color(sfVertexArray ***map, sfVector2f **map_vec);
+void init_map_tex(sfVertexArray ***map, sfVector2f **map_vec);
 void init_map_line(void);
 void clear_map_ver(sfVertexArray ***map);
 void clear_map_lines(sfVertexArray ***map);
@@ -253,10 +270,11 @@ void init_buttons_text(void);
 void init_elem(void);
 
 // GET_ELEM
-sfColor get_color(int **map, int i, int j);
+sfColor get_color(int hight);
+sfTexture *get_texture(int hight);
 void move_command(void);
 void get_elem(void);
-void get_molette(void);
+void get_scroll(void);
 void get_event(void);
 void get_on_map(void);
 void get_mouse_input(void);
@@ -274,7 +292,6 @@ void set_pos_help_message(void);
 void set_elem(void);
 
 // DRAW_ELEM
-sfColor get_color(int **map, int i, int j);
 sfVector2f set_iso_point(int x, int y, int z);
 void draw_each_map(int i, int j);
 void draw_map(void);

@@ -24,9 +24,12 @@ void create_map(char *file)
     GET_MAP_3D_BASE(engine) = create_map_3d();
     GET_MAP_2D(engine) = create_map_2d();
     GET_MAP_2D_BASE(engine) = create_map_2d();
-    GET_MAP_VER(engine) = create_map_ver();
+    GET_MAP_COLOR(engine) = create_map_ver();
+    GET_MAP_TEX(engine) = create_map_ver();
     GET_MAP_LINES(engine) = create_map_ver();
     GET_MAP_ORIGIN(engine) = create_map_ver();
+    engine->map->color_2d = create_color_2d();
+    engine->map->texture_2d = create_texture_2d();
 }
 
 int **create_map_3d(void)

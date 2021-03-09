@@ -7,18 +7,30 @@
 
 #include "my_world.h"
 
-sfColor get_color(int **map, int i, int j)
+sfColor get_color(int hight)
 {
-    int hight = map[i][j];
-
     switch (hight) {
-    case 1:
+    case 2:
         return sfColor_fromRGB(255, 255, 255);
-    case 0:
+    case 1:
         return sfColor_fromRGB(128, 128, 128);
-    case -1:
+    case 0:
         return sfColor_fromRGB(64, 64, 64);
     default:
         return sfWhite;
+    }
+}
+
+sfTexture *get_texture(int hight)
+{
+    switch (hight) {
+    case 2:
+        return sfTexture_createFromFile("asset/grass.png", NULL);
+    case 1:
+        return sfTexture_createFromFile("asset/dirt.png", NULL);
+    case 0:
+        return sfTexture_createFromFile("asset/sand.png", NULL);
+    default:
+        return sfTexture_createFromFile("asset/grass.png", NULL);
     }
 }
