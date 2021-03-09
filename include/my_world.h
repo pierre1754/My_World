@@ -59,7 +59,7 @@
 #define GET_MAP_2D_BASE(engine) (engine->map->map_2d_base)
 #define GET_MAP_3D(engine) (engine->map->map_3d)
 #define GET_MAP_3D_BASE(engine) (engine->map->map_3d_base)
-#define GET_MAP_VER(engine) (engine->map->map_ver)
+#define GET_MAP_COLOR(engine) (engine->map->map_color)
 #define GET_MAP_TEX(engine) (engine->map->map_tex)
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
 #define GET_MAP_ORIGIN(engine) (engine->map->map_origin)
@@ -102,10 +102,12 @@ typedef struct {
     int **map_3d_base;
     sfVector2f **map_2d;
     sfVector2f **map_2d_base;
-    sfVertexArray ***map_ver;
+    sfVertexArray ***map_color;
     sfVertexArray ***map_tex;
     sfVertexArray ***map_lines;
     sfVertexArray ***map_origin;
+    sfColor **color_2d;
+    sfTexture ***texture_2d;
 } map_t;
 
 typedef struct {
@@ -149,7 +151,8 @@ engine_t *get_engine(void);
 void create_time(void);
 sfVertexArray *create_vertex_color(square_t quad, sfVertexArray *array, int i,
 int j);
-sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array);
+sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array, int i,
+int j);
 sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 void create_help_message(void);
 void create_render(void);
@@ -248,7 +251,8 @@ void init_buttons_text(void);
 void init_elem(void);
 
 // GET_ELEM
-sfColor get_color(int **map, int i, int j);
+sfColor get_color(int hight);
+sfTexture *get_texture(int hight);
 void move_command(void);
 void get_elem(void);
 void get_scroll(void);
@@ -269,7 +273,6 @@ void set_pos_help_message(void);
 void set_elem(void);
 
 // DRAW_ELEM
-sfColor get_color(int **map, int i, int j);
 sfVector2f set_iso_point(int x, int y, int z);
 void draw_each_map(int i, int j);
 void draw_map(void);

@@ -20,7 +20,7 @@ void draw_each_map(int i, int j)
     case color:
         if (i + 1 != GET_SET_MX(engine) && j + 1 != GET_SET_MY(engine))
             sfRenderWindow_drawVertexArray(GET_WINDOW(engine),
-            GET_MAP_VER(engine)[i][j], NULL);
+            GET_MAP_COLOR(engine)[i][j], NULL);
         break;
     }
     if (engine->settings->draw_line)

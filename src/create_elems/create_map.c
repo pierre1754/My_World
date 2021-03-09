@@ -16,7 +16,7 @@ void create_map(void)
     GET_MAP_3D_BASE(engine) = create_map_3d();
     GET_MAP_2D(engine) = create_map_2d();
     GET_MAP_2D_BASE(engine) = create_map_2d();
-    GET_MAP_VER(engine) = create_map_ver();
+    GET_MAP_COLOR(engine) = create_map_ver();
     GET_MAP_TEX(engine) = create_map_ver();
     GET_MAP_LINES(engine) = create_map_ver();
     GET_MAP_ORIGIN(engine) = create_map_ver();

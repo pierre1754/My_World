@@ -15,7 +15,7 @@ void init_map(void)
     init_map_int(GET_MAP_3D_BASE(engine));
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
-    init_map_color(GET_MAP_VER(engine), GET_MAP_2D(engine));
+    init_map_color(GET_MAP_COLOR(engine), GET_MAP_2D(engine));
     init_map_tex(GET_MAP_TEX(engine), GET_MAP_2D(engine));
     init_map_color(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     init_map_line();
@@ -59,7 +59,7 @@ void init_map_tex(sfVertexArray ***map, sfVector2f **map_vec)
                 map_vec[i][j + 1],
                 map_vec[i + 1][j + 1],
                 map_vec[i + 1][j]
-            }, map[i][j]);
+            }, map[i][j], i, j);
         }
     }
 }

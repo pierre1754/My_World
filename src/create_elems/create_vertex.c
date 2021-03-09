@@ -12,13 +12,13 @@ int j)
 {
     engine_t *engine = get_engine();
     sfVertex vertex1 = {.position = quad.point1, .color = get_color(
-    GET_MAP_3D(engine), i, j)};
+    GET_MAP_3D(engine)[i][j])};
     sfVertex vertex2 = {.position = quad.point2, .color = get_color(
-    GET_MAP_3D(engine), i, j + 1)};
+    GET_MAP_3D(engine)[i][j + 1])};
     sfVertex vertex3 = {.position = quad.point3, .color = get_color(
-    GET_MAP_3D(engine), i + 1, j + 1)};
+    GET_MAP_3D(engine)[i + 1][j + 1])};
     sfVertex vertex4 = {.position = quad.point4, .color = get_color(
-    GET_MAP_3D(engine), i + 1, j)};
+    GET_MAP_3D(engine)[i + 1][j])};
 
     sfVertexArray_append(array, vertex1);
     sfVertexArray_append(array, vertex2);
@@ -28,7 +28,8 @@ int j)
     return array;
 }
 
-sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array)
+sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array, int i,
+int j)
 {
     sfVertex vertex1 = {.position = quad.point1, .color = sfWhite, .texCoords =
     (sfVector2f){0, 0}};
