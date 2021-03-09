@@ -23,6 +23,6 @@ void get_event(void)
         GET_WINDOW(engine),
         engine->event
     );
-    get_molette();
+    get_scroll();
     get_mouse_input();
 }

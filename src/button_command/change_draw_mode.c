@@ -11,5 +11,5 @@ void change_draw_mode(void)
 {
     engine_t *engine = get_engine();
 
-    GET_SET_MODE(engine) = (GET_SET_MODE(engine) + 1) % 2;
+    GET_SET_MODE(engine) = (GET_SET_MODE(engine) + 1) % mode_nbr;
 }

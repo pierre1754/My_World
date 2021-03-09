@@ -34,10 +34,20 @@ void get_mouse_input(void)
     if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button) {
         get_on_map();
     }
-    clear_map_ver(GET_MAP_VER(engine));
-    clear_map_ver(GET_MAP_LINES(engine));
-    init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
-    init_map_line();
+    switch (engine->settings->draw_mode) {
+    case texture:
+        clear_map_ver(GET_MAP_TEX(engine));
+        init_map_tex(GET_MAP_TEX(engine), GET_MAP_2D(engine));
+        break;
+    case color:
+        clear_map_ver(GET_MAP_COLOR(engine));
+        init_map_color(GET_MAP_COLOR(engine), GET_MAP_2D(engine));
+        break;
+    }
+    if (engine->settings->draw_line) {
+        clear_map_ver(GET_MAP_LINES(engine));
+        init_map_line();
+    }
     get_selection();
 }
 
@@ -46,8 +56,10 @@ static void change_color(int i, int j)
     engine_t *engine = get_engine();
 
     for (int a = 0; a < 4; a++) {
-        sfVertexArray_getVertex(GET_MAP_VER(engine)[i][j], a)->color =
+        sfVertexArray_getVertex(GET_MAP_COLOR(engine)[i][j], a)->color =
         sfColor_fromRGBA(12, 24, 255, 200);
+        sfVertexArray_getVertex(GET_MAP_TEX(engine)[i][j], a)->color =
+        sfColor_fromRGBA(170, 170, 170, 200);
     }
 }
 
