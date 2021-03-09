@@ -50,6 +50,7 @@ typedef struct {
     int seed;
     float depth;
     float freq;
+    int radius;
 } settings_t;
 
 typedef struct {

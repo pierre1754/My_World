@@ -38,7 +38,7 @@ void decrease_map_x(void)
 
     if (GET_SET_MX(engine) > 1) {
         GET_SET_MX(engine) -= 1;
-        resize_map();
+        recalc_map();
     }
 }
 
@@ -56,6 +56,6 @@ void decrease_map_y(void)
 
     if (GET_SET_MY(engine) > 1) {
         GET_SET_MY(engine) -= 1;
-        resize_map();
+        recalc_map();
     }
 }
