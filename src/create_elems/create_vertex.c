@@ -28,8 +28,7 @@ int j)
     return array;
 }
 
-sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array, int i,
-int j)
+sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array)
 {
     sfVertex vertex1 = {.position = quad.point1, .color = sfWhite, .texCoords =
     (sfVector2f){0, 0}};

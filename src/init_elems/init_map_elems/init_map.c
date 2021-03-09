@@ -59,7 +59,7 @@ void init_map_tex(sfVertexArray ***map, sfVector2f **map_vec)
                 map_vec[i][j + 1],
                 map_vec[i + 1][j + 1],
                 map_vec[i + 1][j]
-            }, map[i][j], i, j);
+            }, map[i][j]);
         }
     }
 }

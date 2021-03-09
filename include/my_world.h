@@ -63,6 +63,8 @@
 #define GET_MAP_TEX(engine) (engine->map->map_tex)
 #define GET_MAP_LINES(engine) (engine->map->map_lines)
 #define GET_MAP_ORIGIN(engine) (engine->map->map_origin)
+#define GET_COLOR_2D(engine) (engine->map->color_2d)
+#define GET_TEX_2D(engine) (engine->map->texture_2d)
 
 #define GET_CLOCK(engine) (engine->time->clock)
 #define GET_ELAPSED(engine) (engine->time->time_elapsed)
@@ -147,12 +149,13 @@ void create_map(void);
 int **create_map_3d(void);
 sfVector2f **create_map_2d(void);
 sfVertexArray ***create_map_ver(void);
+sfColor **create_color_2d(void);
+sfTexture ***create_texture_2d(void);
 engine_t *get_engine(void);
 void create_time(void);
 sfVertexArray *create_vertex_color(square_t quad, sfVertexArray *array, int i,
 int j);
-sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array, int i,
-int j);
+sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array);
 sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 void create_help_message(void);
 void create_render(void);
