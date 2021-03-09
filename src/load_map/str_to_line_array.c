@@ -12,7 +12,7 @@ char **init_array(int y)
     char **array = malloc(sizeof(char *) * (y + 1));
 
     if (!array)
-        exit(84);
+        return NULL;
     for (int i = 0; i < y; i++) {
         array[i] = "0";
     }
@@ -30,6 +30,8 @@ char **my_str_to_line_array(char const *file)
         if (file[i] == '\n')
             y++;
     map = init_array(y);
+    if (!map)
+        return NULL;
     for (int nb_arr = 0; map[nb_arr]; nb_arr++) {
         for (x = 0; file[x] != '\n'; x++);
         map[nb_arr] = my_strndup(file, x);

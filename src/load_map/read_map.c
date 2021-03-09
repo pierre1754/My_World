@@ -7,8 +7,31 @@
 
 #include "my_world.h"
 
+static int check_commas(char *file)
+{
+    int len = 0;
+    int len_next = 0;
+    int j = 0;
+
+    for (int i = 0; file[i]; i++) {
+        for (j = i + 1; file[j] && file[j] != '\n'; j++) {
+            if (file[j] == ',') {
+                len_next++;
+            }
+        }
+        if (len != 0 && len_next != len)
+            return 1;
+        len = len_next;
+        len_next = 0;
+        i += j - i;
+    }
+    return 0;
+}
+
 char *verif_map(char *file)
 {
+    if (check_commas(file))
+        return NULL;
     for (int i = 0; file[i]; i++) {
         if ((file[i] < '0' || file[i] > '9') &&
         file[i] != ',' && file[i] != '\n' && file[i] != ';')
