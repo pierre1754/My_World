@@ -45,6 +45,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/init_elems/init_one_button/init_pos/init_plus_y.c				\
 			src/init_elems/init_one_button/init_pos/init_minus_y.c				\
 			src/init_elems/init_map_elems/init_map.c							\
+			src/init_elems/init_map_elems/calc_map.c							\
 			src/set_elems/clear_map.c											\
 			src/init_elems/init_elem.c											\
 			src/set_elems/set_elem.c											\

@@ -32,17 +32,6 @@ void init_map_int(int **map)
     map[GET_SET_MX(engine)] = NULL;
 }
 
-void calc_map_vec(sfVector2f **map, int **map_int)
-{
-    engine_t *engine = get_engine();
-
-    for (int i = 0; i < GET_SET_MX(engine); i++) {
-        for (int j = 0; j < GET_SET_MY(engine); j++)
-            map[i][j] = set_iso_point(i, j,
-            map_int[i][j]);
-    }
-}
-
 void init_map_color(sfVertexArray ***map, sfVector2f **map_vec)
 {
     engine_t *engine = get_engine();

@@ -30,10 +30,14 @@ int j)
 
 sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array)
 {
-    sfVertex vertex1 = {.position = quad.point1, .texCoords = quad.point1};
-    sfVertex vertex2 = {.position = quad.point2, .texCoords = quad.point2};
-    sfVertex vertex3 = {.position = quad.point3, .texCoords = quad.point3};
-    sfVertex vertex4 = {.position = quad.point4, .texCoords = quad.point4};
+    sfVertex vertex1 = {.position = quad.point1, .color = sfWhite, .texCoords =
+    (sfVector2f){0, 0}};
+    sfVertex vertex2 = {.position = quad.point2, .color = sfWhite, .texCoords =
+    (sfVector2f){0, 320}};
+    sfVertex vertex3 = {.position = quad.point3, .color = sfWhite, .texCoords =
+    (sfVector2f){320, 320}};
+    sfVertex vertex4 = {.position = quad.point4, .color = sfWhite, .texCoords =
+    (sfVector2f){320, 0}};
 
     sfVertexArray_append(array, vertex1);
     sfVertexArray_append(array, vertex2);

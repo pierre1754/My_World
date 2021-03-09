@@ -34,9 +34,11 @@ void get_mouse_input(void)
     if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button) {
         get_on_map();
     }
+    clear_map_ver(GET_MAP_TEX(engine));
     clear_map_ver(GET_MAP_VER(engine));
     clear_map_ver(GET_MAP_LINES(engine));
     init_map_color(GET_MAP_VER(engine), GET_MAP_2D(engine));
+    init_map_tex(GET_MAP_TEX(engine), GET_MAP_2D(engine));
     init_map_line();
     get_selection();
 }

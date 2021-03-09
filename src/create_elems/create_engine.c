@@ -26,7 +26,7 @@ void create_engine(void)
     create_map();
     create_time();
     create_help_message();
-    engine->tex = sfTexture_createFromFile("asset/image.png", NULL);
+    engine->tex = sfTexture_createFromFile("asset/dirt.png", NULL);
     engine->states = (sfRenderStates){
         .shader = NULL,
         .blendMode = sfBlendAlpha,
