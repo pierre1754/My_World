@@ -47,6 +47,9 @@ typedef struct {
     bool draw_line;
     int draw_mode;
     bool is_loaded;
+    int seed;
+    float depth;
+    float freq;
 } settings_t;
 
 typedef struct {

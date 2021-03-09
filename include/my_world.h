@@ -33,6 +33,8 @@
 #define MARGE 10
 #define LEN 8
 
+#define TABLE_SIZE 256
+
 #ifndef LIST_FOREACH_SAFE
 #define LIST_FOREACH_SAFE(var, head, field, tvar)          \
         for ((var) = LIST_FIRST((head));                   \
@@ -305,9 +307,12 @@ int y_size(char *file);
 void get_size_map(char *file);
 void file_to_map(char **file);
 
-float perlin2d(float x, float y, float freq, int depth);
-
-
+// PERLIN_NOISE
+int get_noise(int x, int y, int seed);
+float lin_inter(float x, float y, float s);
+float smooth_inter(float x, float y, float s);
+float perlin_noise_2d(float x, float y, int seed);
+float perlin_noise(float x_freq, float y_freq, int depth, int seed);
 
 void start_engine(void);
 
