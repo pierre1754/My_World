@@ -16,12 +16,12 @@ engine_t *get_engine(void)
     return engine;
 }
 
-void create_engine(void)
+void create_engine(char *file)
 {
     create_window();
     create_settings();
     create_buttons();
-    create_map();
     create_time();
     create_help_message();
+    create_map(file);
 }

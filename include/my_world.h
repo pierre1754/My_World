@@ -52,6 +52,7 @@
 #define GET_SET_STATUS(engine) (engine->settings->on_button)
 #define GET_SET_LINE(engine) (engine->settings->draw_line)
 #define GET_SET_MODE(engine) (engine->settings->draw_mode)
+#define GET_SET_LOD(engine) (engine->settings->is_loaded)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -136,7 +137,7 @@ void create_settings(void);
 void create_buttons(void);
 buttons_t *get_new_button(void);
 void create_window(void);
-void create_map(void);
+void create_map(char *file);
 int **create_map_3d(void);
 sfVector2f **create_map_2d(void);
 sfVertexArray ***create_map_ver(void);
@@ -146,7 +147,7 @@ sfVertexArray *create_vertex_quad(square_t quad, sfVertexArray *array, int i,
 int j);
 sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 void create_help_message(void);
-void create_engine(void);
+void create_engine(char *file);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
@@ -297,6 +298,12 @@ void refresh_map_line(void);
 // READ_MAP
 char *read_map(char *path);
 char *verif_map(char *file);
+char **init_array(int y);
+char **my_str_to_line_array(char const *file);
+int x_size(char *file);
+int y_size(char *file);
+void get_size_map(char *file);
+void file_to_map(char **file);
 
 float perlin2d(float x, float y, float freq, int depth);
 

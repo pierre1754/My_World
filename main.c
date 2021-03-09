@@ -13,12 +13,14 @@ int main(int argc, char **argv)
 
     if (argc > 2)
         return 84;
-    create_engine();
     if (argc == 2 && my_getnbr(argv[1]) == 0) {
         file = read_map(argv[1]);
+        if (!file)
+            return 84;
     }
-    // init_elem();
-    // start_engine();
+    create_engine(file);
+    init_elem();
+    start_engine();
     destroy_engine();
     return 0;
 }

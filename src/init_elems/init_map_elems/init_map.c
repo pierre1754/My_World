@@ -24,6 +24,10 @@ void init_map_int(int **map)
 {
     engine_t *engine = get_engine();
 
+    if (GET_SET_LOD(engine)) {
+        GET_SET_LOD(engine) = 0;
+        return;
+    }
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         for (int j = 0; j <= GET_SET_MY(engine); j++) {
             map[i][j] = 0 /* 50 * perlin2d(i, j, 0.02, 4) */;

@@ -61,6 +61,8 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/set_elems/refresh_map/refresh_map.c								\
 			src/set_elems/refresh_map/refresh_map_line.c						\
 			src/load_map/read_map.c												\
+			src/load_map/str_to_line_array.c									\
+			src/load_map/file_to_map.c											\
 
 SRC_MAIN =	main.c	\
 

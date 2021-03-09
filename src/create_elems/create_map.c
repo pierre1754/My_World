@@ -7,12 +7,20 @@
 
 #include "my_world.h"
 
-void create_map(void)
+void create_map(char *file)
 {
     engine_t *engine = get_engine();
 
     engine->map = malloc(sizeof(map_t));
-    GET_MAP_3D(engine) = create_map_3d();
+    if (file){
+        GET_SET_LOD(engine) = 1;
+        get_size_map(file);
+        file_to_map(my_str_to_line_array(file));
+    }
+    else {
+        GET_SET_LOD(engine) = 0;
+        GET_MAP_3D(engine) = create_map_3d();
+    }
     GET_MAP_3D_BASE(engine) = create_map_3d();
     GET_MAP_2D(engine) = create_map_2d();
     GET_MAP_2D_BASE(engine) = create_map_2d();

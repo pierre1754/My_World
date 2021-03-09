@@ -46,6 +46,7 @@ typedef struct {
     bool on_button;
     bool draw_line;
     int draw_mode;
+    bool is_loaded;
 } settings_t;
 
 typedef struct {

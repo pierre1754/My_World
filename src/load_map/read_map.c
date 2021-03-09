@@ -11,7 +11,7 @@ char *verif_map(char *file)
 {
     for (int i = 0; file[i]; i++) {
         if ((file[i] < '0' || file[i] > '9') &&
-        file[i] != ',' && file[i] != '\n')
+        file[i] != ',' && file[i] != '\n' && file[i] != ';')
             return NULL;
     }
     return file;
