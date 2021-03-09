@@ -18,12 +18,13 @@ void init_perlin(void)
     init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
     init_map_ver(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     init_map_line();
+    recalc_map();
 }
 
 void init_perlin_map(int **map)
 {
     engine_t *engine = get_engine();
-    long int *temp = malloc(sizeof(int));
+    static long int temp = 1;
     float calc = 0;
 
     if (GET_SET_LOD(engine)) {
@@ -32,14 +33,14 @@ void init_perlin_map(int **map)
     }
     srand((long int)temp);
     GET_SEED(engine) = rand();
-    GET_DEPTH(engine) = rand() % 4;
-    calc = rand() / 10;
-    GET_FREQ(engine) = fmod(calc, 0.05f);
-    free(temp);
-    for (int i = 0; i < GET_SET_MX(engine); i++) {
-        for (int j = 0; j < GET_SET_MY(engine); j++) {
-            map[i][j] = 10 * perlin_noise(i * GET_FREQ(engine),
+    calc = rand() / 10000.f;
+    GET_DEPTH(engine) = fmod(calc, 6.f) + 1;
+    GET_FREQ(engine) = fmod(calc, 0.1f);
+    for (int i = 1; i < GET_SET_MX(engine) - 1; i++) {
+        for (int j = 1; j < GET_SET_MY(engine) - 1; j++) {
+            map[i][j] = 30 * perlin_noise(i * GET_FREQ(engine),
             j * GET_FREQ(engine), GET_DEPTH(engine), GET_SEED(engine));
         }
     }
+    temp++;
 }

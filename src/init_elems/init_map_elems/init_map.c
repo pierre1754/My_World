@@ -18,6 +18,7 @@ void init_map(void)
     init_map_ver(GET_MAP_VER(engine), GET_MAP_2D(engine));
     init_map_ver(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     init_map_line();
+    recalc_map();
 }
 
 void init_map_int(int **map)

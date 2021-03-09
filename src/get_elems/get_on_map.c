@@ -11,8 +11,8 @@ void get_on_map(void)
 {
     engine_t *engine = get_engine();
     sfVector2i mouse = sfMouse_getPositionRenderWindow(GET_WINDOW(engine));
-    sfFloatRect temp_rect = {0, 0, 0, 0};
-    sfVector2f temp_vect = {0, 0};
+    sfFloatRect temp_rect = {0};
+    sfVector2f temp_vect = {0};
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
@@ -55,11 +55,11 @@ void get_selection(void)
 {
     engine_t *engine = get_engine();
     sfVector2i mouse = sfMouse_getPositionRenderWindow(GET_WINDOW(engine));
-    sfFloatRect temp_rect = {0, 0, 0, 0};
-    sfVector2f temp_vect = {0, 0};
+    sfFloatRect temp_rect = {0};
+    sfVector2f temp_vect = {0};
     float dist = 0;
 
-    for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
             temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             temp_vect = (sfVector2f){temp_rect.left + temp_rect.width / 2,
@@ -70,4 +70,5 @@ void get_selection(void)
                 change_color(i, j);
             }
         }
+    }
 }

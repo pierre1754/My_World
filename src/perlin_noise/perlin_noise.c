@@ -23,7 +23,7 @@ static const int table[] = {
     35, 193, 241, 168, 219, 58, 40, 178, 119, 28, 176, 9, 188, 106, 41, 229,
     75, 246, 198, 21, 105, 56, 100, 183, 232, 101, 19, 17, 204, 89, 98, 244,
     112, 60, 61, 36, 81, 166, 216, 194, 85, 92, 175, 174, 248, 214, 240, 47,
-    169, 195, 113, 217, 126, 62, 32, 37, 82, 201, 127, 116, 96
+    169, 195, 113, 217, 126, 62, 32, 37, 82, 201, 127, 116, 96, 78
 };
 
 int get_noise(int x, int y, int seed)
@@ -63,7 +63,7 @@ float perlin_noise(float x_freq, float y_freq, int depth, int seed)
 {
     float amp = 1.f;
     float fin = 0;
-    float div = 0.0;
+    float div = 0.1f;
 
     for (int i = 0; i < depth; i++) {
         div += TABLE_SIZE * amp;

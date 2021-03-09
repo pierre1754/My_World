@@ -22,6 +22,8 @@ void destroy_one_button(buttons_t *button)
 {
     sfRectangleShape_destroy(button->rectangle);
     sfText_destroy(button->text);
+    free(button->help_message);
+    free(button->str_text);
     LIST_REMOVE(button, entries);
     free(button);
 }

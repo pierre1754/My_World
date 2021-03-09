@@ -167,7 +167,6 @@ void destroy_clock(void);
 void destroy_map_3d(int **map);
 void destroy_map_2d(sfVector2f **map);
 void destroy_map_ver(sfVertexArray ***map);
-void destroy_map_line(sfVertexArray ***map);
 void destroy_engine(void);
 
 // INIT_COMPONENTS
@@ -291,7 +290,6 @@ void increase_map_y(void);
 void decrease_map_y(void);
 void increase_zoom(void);
 void decrease_zoom(void);
-void refresh_map(void);
 void change_draw_line(void);
 void change_draw_mode(void);
 void increase_angle_x(void);
