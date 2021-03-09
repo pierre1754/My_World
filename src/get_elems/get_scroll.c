@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void get_molette(void)
+void get_scroll(void)
 {
     engine_t *engine = get_engine();
 

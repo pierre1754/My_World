@@ -109,6 +109,11 @@ typedef struct {
 } map_t;
 
 typedef struct {
+    sfTexture *tex;
+    sfRenderStates states;
+} render_states_t;
+
+typedef struct {
     sfEvent event;
     settings_t *settings;
     LIST_HEAD(, buttons_s) buttons;
@@ -116,8 +121,7 @@ typedef struct {
     map_t *map;
     time_elapsed_t *time;
     help_message_t *message;
-    sfTexture *tex;
-    sfRenderStates states;
+    render_states_t *render;
 } engine_t;
 
 typedef struct {
@@ -148,6 +152,7 @@ int j);
 sfVertexArray *create_vertex_tex(square_t quad, sfVertexArray *array);
 sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 void create_help_message(void);
+void create_render(void);
 void create_engine(void);
 
 // DESTROY_COMPONENTS
@@ -246,7 +251,7 @@ void init_elem(void);
 sfColor get_color(int **map, int i, int j);
 void move_command(void);
 void get_elem(void);
-void get_molette(void);
+void get_scroll(void);
 void get_event(void);
 void get_on_map(void);
 void get_mouse_input(void);
