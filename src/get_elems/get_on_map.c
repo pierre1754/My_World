@@ -14,7 +14,7 @@ void get_on_map(void)
     sfFloatRect temp_rect = {0};
     sfVector2f temp_vect = {0};
 
-    for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
             temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             temp_vect = (sfVector2f){temp_rect.left + temp_rect.width / 2,
@@ -25,6 +25,7 @@ void get_on_map(void)
                 calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
             }
         }
+    }
 }
 
 void get_mouse_input(void)
