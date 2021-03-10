@@ -15,17 +15,17 @@ void resize_map(void)
     GET_MAP_3D_BASE(engine) = intdup_2d(GET_MAP_3D_BASE(engine));
     GET_MAP_2D(engine) = vectordup_2d(GET_MAP_2D(engine));
     GET_MAP_2D_BASE(engine) = vectordup_2d(GET_MAP_2D_BASE(engine));
-    GET_COLOR_2D(engine) = create_color_2d();
-    GET_TEX_2D(engine) = create_texture_2d();
-    //GET_COLOR_2D(engine) = color_dup_2d(GET_COLOR_2D(engine));
-    //GET_TEX_2D(engine) = texture_dup_2d(GET_TEX_2D(engine));
+    //GET_COLOR_2D(engine) = create_color_2d();
+    //GET_TEX_2D(engine) = create_texture_2d();
+    GET_COLOR_2D(engine) = color_dup_2d(GET_COLOR_2D(engine));
+    GET_TEX_2D(engine) = texture_dup_2d(GET_TEX_2D(engine));
     GET_MAP_COLOR(engine) = vertexdup_2d();
     GET_MAP_TEX(engine) = vertexdup_2d();
     GET_MAP_LINES(engine) = linedup_2d();
     GET_MAP_ORIGIN(engine) = vertexdup_2d();
 
-    init_color_2d();
-    init_texture_2d();
+    //init_color_2d();
+    //init_texture_2d();
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
     init_map_color(GET_MAP_COLOR(engine), GET_MAP_2D(engine));
