@@ -124,7 +124,9 @@ typedef struct {
 } map_t;
 
 typedef struct {
-    sfTexture *tex;
+    sfTexture *dirt;
+    sfTexture *grass;
+    sfTexture *sand;
     sfRenderStates states;
 } render_states_t;
 
@@ -183,6 +185,8 @@ void destroy_clock(void);
 void destroy_map_3d(int **map);
 void destroy_map_2d(sfVector2f **map);
 void destroy_map_ver(sfVertexArray ***map);
+void destroy_color_2d(void);
+void destroy_texture_2d(void);
 void destroy_engine(void);
 
 // INIT_COMPONENTS
@@ -192,6 +196,8 @@ void calc_map_vec(sfVector2f **map, int **map_int);
 void init_map_color(sfVertexArray ***map, sfVector2f **map_vec);
 void init_map_tex(sfVertexArray ***map, sfVector2f **map_vec);
 void init_map_line(void);
+void init_color_2d(void);
+void init_texture_2d(void);
 void clear_map_ver(sfVertexArray ***map);
 void clear_map_lines(sfVertexArray ***map);
 void init_perlin(void);
@@ -288,6 +294,8 @@ int **intdup_2d(int **src);
 sfVector2f **vectordup_2d(sfVector2f **src);
 sfVertexArray ***vertexdup_2d(void);
 sfVertexArray ***linedup_2d(void);
+sfColor **color_dup_2d(sfColor **src);
+sfTexture ***texture_dup_2d(sfTexture ***src);
 void set_pos_help_message(void);
 void set_elem(void);
 

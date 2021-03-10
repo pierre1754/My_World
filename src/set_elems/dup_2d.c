@@ -67,14 +67,14 @@ sfVertexArray ***vertexdup_2d(void)
     sfVertexArray ***cp_src = malloc(sizeof(sfVertexArray **) *
     (GET_SET_MX(engine) + 1));
 
-    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVertexArray *) *
         (GET_SET_MY(engine) + 1));
-        for (int j = 0; j < GET_SET_MY(engine) - 1;j++) {
+        for (int j = 0; j < GET_SET_MY(engine);j++) {
             cp_src[i][j] = sfVertexArray_create();
         }
     }
-    cp_src[GET_SET_MX(engine) - 1] = NULL;
+    cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }
 

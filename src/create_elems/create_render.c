@@ -12,11 +12,13 @@ void create_render(void)
     engine_t *engine = get_engine();
 
     engine->render = malloc(sizeof(render_states_t));
-    engine->render->tex = sfTexture_createFromFile("asset/dirt.png", NULL);
+    engine->render->dirt = sfTexture_createFromFile("asset/dirt.png", NULL);
+    engine->render->grass = sfTexture_createFromFile("asset/grass.png", NULL);
+    engine->render->sand = sfTexture_createFromFile("asset/sand.png", NULL);
     engine->render->states = (sfRenderStates){
         .shader = NULL,
         .blendMode = sfBlendAlpha,
         .transform = sfTransform_Identity,
-        .texture = engine->render->tex,
+        .texture = engine->render->dirt,
     };
 }

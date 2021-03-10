@@ -28,8 +28,8 @@ void create_map(char *file)
     GET_MAP_TEX(engine) = create_map_ver();
     GET_MAP_LINES(engine) = create_map_ver();
     GET_MAP_ORIGIN(engine) = create_map_ver();
-    engine->map->color_2d = create_color_2d();
-    engine->map->texture_2d = create_texture_2d();
+    GET_COLOR_2D(engine) = create_color_2d();
+    GET_TEX_2D(engine) = create_texture_2d();
 }
 
 int **create_map_3d(void)
