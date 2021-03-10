@@ -14,15 +14,15 @@ void get_on_map(void)
     sfFloatRect temp_rect = {0};
     sfVector2f temp_vect = {0};
 
-    for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
-        for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
+    for (int i = 1; i < GET_SET_MX(engine) - 1; i++) {
+        for (int j = 1; j < GET_SET_MY(engine) - 1; j++) {
             temp_rect = sfVertexArray_getBounds(GET_MAP_ORIGIN(engine)[i][j]);
             temp_vect = (sfVector2f){temp_rect.left + temp_rect.width / 2,
             temp_rect.top + temp_rect.height / 2};
             if (get_distance(temp_vect, (sfVector2f){mouse.x, mouse.y}) <
             GET_SET_RAD(engine)) {
                 GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 100;
-                calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
+                GET_MAP_2D(engine)[i][j] = set_iso_point(i, j, GET_MAP_3D(engine)[i][j]);
             }
         }
     }
@@ -32,9 +32,8 @@ void get_mouse_input(void)
 {
     engine_t *engine = get_engine();
 
-    if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button) {
+    if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button)
         get_on_map();
-    }
     switch (engine->settings->draw_mode) {
     case texture:
         clear_map_ver(GET_MAP_TEX(engine));

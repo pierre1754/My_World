@@ -9,28 +9,22 @@
 
 sfColor get_color(int hight)
 {
-    switch (hight) {
-    case 2:
+    if (hight >= 12)
         return sfColor_fromRGB(255, 255, 255);
-    case 1:
+    else if (hight < 12 && hight > 3)
         return sfColor_fromRGB(128, 128, 128);
-    case 0:
+    else
         return sfColor_fromRGB(64, 64, 64);
-    default:
-        return sfWhite;
-    }
 }
 
 sfTexture *get_texture(int hight)
 {
-    switch (hight) {
-    case 2:
-        return sfTexture_createFromFile("asset/grass.png", NULL);
-    case 1:
-        return sfTexture_createFromFile("asset/dirt.png", NULL);
-    case 0:
-        return sfTexture_createFromFile("asset/sand.png", NULL);
-    default:
-        return sfTexture_createFromFile("asset/grass.png", NULL);
-    }
+    engine_t *engine = get_engine();
+
+    if (hight >= 12)
+        return engine->render->grass;
+    else if (hight < 12 && hight > 3)
+        return engine->render->dirt;
+    else
+        return engine->render->sand;
 }
