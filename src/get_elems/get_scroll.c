@@ -14,7 +14,7 @@ void get_scroll(void)
     if (engine->event.type == sfEvtMouseWheelScrolled) {
         if (engine->event.mouseWheelScroll.delta < 0)
             GET_SET_RAD(engine) += 10;
-         else if (engine->event.mouseWheelScroll.delta > 0)
+        else if (engine->event.mouseWheelScroll.delta > 0)
             if (GET_SET_RAD(engine) - 10 > 0)
                 GET_SET_RAD(engine) -= 10;
     }

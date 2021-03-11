@@ -44,7 +44,8 @@ sfTexture **texture_dup(sfTexture **cp_src, sfTexture **src)
 sfTexture ***texture_dup_2d(sfTexture ***src)
 {
     engine_t *engine = get_engine();
-    sfTexture ***cp_src = malloc(sizeof(sfTexture **) * (GET_SET_MX(engine) + 1));
+    sfTexture ***cp_src = malloc(sizeof(sfTexture **) * (GET_SET_MX(engine)
+    + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfTexture *) * (GET_SET_MY(engine) + 2));
