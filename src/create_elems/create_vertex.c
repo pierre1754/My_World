@@ -11,10 +11,14 @@ sfVertexArray *create_vertex_color(square_t quad, sfVertexArray *array, int i,
 int j)
 {
     engine_t *engine = get_engine();
-    sfVertex vertex1 = {.position = quad.point1, .color = GET_COLOR_2D(engine)[i][j]};
-    sfVertex vertex2 = {.position = quad.point2, .color = GET_COLOR_2D(engine)[i][j + 1]};
-    sfVertex vertex3 = {.position = quad.point3, .color = GET_COLOR_2D(engine)[i + 1][j + 1]};
-    sfVertex vertex4 = {.position = quad.point4, .color = GET_COLOR_2D(engine)[i + 1][j]};
+    sfVertex vertex1 = {.position = quad.point1, .color =
+    GET_COLOR_2D(engine)[i][j]};
+    sfVertex vertex2 = {.position = quad.point2, .color =
+    GET_COLOR_2D(engine)[i][j + 1]};
+    sfVertex vertex3 = {.position = quad.point3, .color =
+    GET_COLOR_2D(engine)[i + 1][j + 1]};
+    sfVertex vertex4 = {.position = quad.point4, .color =
+    GET_COLOR_2D(engine)[i + 1][j]};
 
     sfVertexArray_append(array, vertex1);
     sfVertexArray_append(array, vertex2);

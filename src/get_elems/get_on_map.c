@@ -22,7 +22,8 @@ void get_on_map(void)
             if (get_distance(temp_vect, (sfVector2f){mouse.x, mouse.y}) <
             GET_SET_RAD(engine)) {
                 GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 100;
-                GET_MAP_2D(engine)[i][j] = set_iso_point(i, j, GET_MAP_3D(engine)[i][j]);
+                GET_MAP_2D(engine)[i][j] = set_iso_point(i, j,
+                GET_MAP_3D(engine)[i][j]);
             }
         }
     }

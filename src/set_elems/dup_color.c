@@ -15,30 +15,46 @@ sfColor **color_dup_2d(sfColor **src)
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfColor) * (GET_SET_MY(engine) + 1));
         if (src[i] != NULL)
-            for (int j = 0; j < GET_SET_MY(engine); j++)
+            for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
                 cp_src[i][j] = src[i][j];
-        else {
+                cp_src[i][j + 1] = sfWhite;
+            }
+        else
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = sfWhite;
-        }
     }
     cp_src[GET_SET_MX(engine)] = NULL;
+    return cp_src;
+}
+
+sfTexture **texture_dup(sfTexture **cp_src, sfTexture **src)
+{
+    engine_t *engine = get_engine();
+
+    for (int j = 0; j < GET_SET_MY(engine); j++) {
+        if (src[j] != NULL)
+            cp_src[j] = src[j];
+        else
+            cp_src[j] = engine->render->grass;
+        cp_src[j + 1] = NULL;
+    }
     return cp_src;
 }
 
 sfTexture ***texture_dup_2d(sfTexture ***src)
 {
     engine_t *engine = get_engine();
-    sfTexture ***cp_src = malloc(sizeof(sfTexture **) * (GET_SET_MX(engine) + 1));
+    sfTexture ***cp_src = malloc(sizeof(sfTexture **) * (GET_SET_MX(engine)
+    + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfTexture *) * (GET_SET_MY(engine) + 2));
         if (src[i] != NULL)
-            for (int j = 0; j < GET_SET_MY(engine); j++)
-                cp_src[i][j] = engine->render->grass;
+            cp_src[i] = texture_dup(cp_src[i], src[i]);
         else {
             for (int j = 0; j < GET_SET_MY(engine); j++) {
                 cp_src[i][j] = engine->render->grass;
+                cp_src[i][j + 1] = NULL;
             }
         }
     }

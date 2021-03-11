@@ -12,12 +12,11 @@ void create_map(char *file)
     engine_t *engine = get_engine();
 
     engine->map = malloc(sizeof(map_t));
-    if (file){
+    if (file) {
         GET_SET_LOD(engine) = 1;
         get_size_map(file);
         file_to_map(my_str_to_line_array(file));
-    }
-    else {
+    } else {
         GET_SET_LOD(engine) = 0;
         GET_MAP_3D(engine) = create_map_3d();
     }
