@@ -294,6 +294,7 @@ void get_keyboard(void);
 void get_scroll(void);
 void get_event(void);
 void get_on_map(void);
+void get_on_map_minus(void);
 void get_mouse_input(void);
 void get_selection(void);
 void get_time(void);
