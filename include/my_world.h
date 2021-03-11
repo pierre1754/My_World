@@ -59,6 +59,7 @@
 #define GET_DEPTH(engine) (engine->settings->depth)
 #define GET_FREQ(engine) (engine->settings->freq)
 #define GET_SET_RAD(engine) (engine->settings->radius)
+#define GET_COLOR(engine) (engine->settings->color)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -96,6 +97,7 @@ typedef enum {
     plus_angle_y,
     minus_angle_y,
     new_perlin_map,
+    color_palette,
 
     but_nbr
 } all_buttons_t;
@@ -271,6 +273,12 @@ void init_angle_minus_y(buttons_t *button);
 void init_new_perlin_map_rect(buttons_t *button, sfVector2f rect_size);
 void init_new_perlin_map_text(buttons_t *button, sfVector2f rect_size);
 void init_new_perlin_map(buttons_t *button);
+// COLOR_PALETTE
+void init_color_palette_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_color_palette_text(buttons_t *button, sfVector2f rect_size);
+void init_color_palette(buttons_t *button);
+
 void init_text_obj(void);
 void init_buttons_text(void);
 void init_elem(void);
@@ -321,6 +329,7 @@ void increase_angle_x(void);
 void decrease_angle_x(void);
 void increase_angle_y(void);
 void decrease_angle_y(void);
+void change_color_map(void);
 
 // KEY_COMMAND
 void key_move(void);

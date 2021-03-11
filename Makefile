@@ -48,6 +48,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/init_elems/init_one_button/init_pos/init_plus_y.c				\
 			src/init_elems/init_one_button/init_pos/init_minus_y.c				\
 			src/init_elems/init_one_button/init_map_modif/init_new_perlin_map.c	\
+			src/init_elems/init_one_button/init_map_modif/init_color_palette.c	\
 			src/init_elems/init_map_elems/init_map.c							\
 			src/init_elems/init_map_elems/init_color.c							\
 			src/init_elems/init_map_elems/calc_map.c							\
@@ -63,6 +64,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/button_command/change_size.c									\
 			src/button_command/change_draw_line.c								\
 			src/button_command/change_draw_mode.c								\
+			src/button_command/change_color.c									\
 			src/button_command/change_angle.c									\
 			src/keyboard_command/key_zoom.c										\
 			src/keyboard_command/key_move.c										\

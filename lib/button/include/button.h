@@ -30,6 +30,7 @@ typedef struct buttons_s {
     sfRectangleShape *rectangle;
     sfVector2f pos;
     sfText *text;
+    sfColor color;
     char *str_text;
     char *help_message;
     void (*act_funct)(void);
@@ -51,6 +52,7 @@ typedef struct {
     float depth;
     float freq;
     int radius;
+    sfColor color;
 } settings_t;
 
 typedef struct {

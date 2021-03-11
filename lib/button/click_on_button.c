@@ -35,7 +35,7 @@ sfEvent event)
             temp->act_funct();
         }
         else {
-            sfRectangleShape_setFillColor(temp->rectangle, sfBlue);
+            sfRectangleShape_setFillColor(temp->rectangle, temp->color);
         }
     }
 }
