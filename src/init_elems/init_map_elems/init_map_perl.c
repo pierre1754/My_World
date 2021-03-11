@@ -13,12 +13,14 @@ void init_perlin(void)
 
     init_perlin_map(GET_MAP_3D(engine));
     init_map_int(GET_MAP_3D_BASE(engine));
+    clear_map_ver(GET_MAP_ORIGIN(engine));
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
     init_color_2d();
     init_texture_2d();
     init_map_color(GET_MAP_COLOR(engine), GET_MAP_2D(engine));
-    init_map_tex(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
+    init_map_tex(GET_MAP_TEX(engine), GET_MAP_2D_BASE(engine));
+    init_map_color(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     init_map_line();
     recalc_map();
 }

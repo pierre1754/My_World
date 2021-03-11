@@ -68,3 +68,16 @@ sfVertexArray ***create_map_ver(void)
     map[GET_SET_MX(engine)] = NULL;
     return map;
 }
+
+sfVertexArray **create_map_lines(void)
+{
+    engine_t *engine = get_engine();
+    sfVertexArray ***map = malloc(sizeof(sfVertexArray *) *
+    (GET_SET_MX(engine) + 1));
+
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
+        map[i] = sfVertexArray_create();
+    }
+    map[GET_SET_MX(engine)] = NULL;
+    return map;
+}

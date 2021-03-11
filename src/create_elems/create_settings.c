@@ -15,8 +15,8 @@ void create_settings(void)
     memset(engine->settings, 0, sizeof(int) * nbr_int_settings);
     GET_SET_AX(engine) = 45;
     GET_SET_AY(engine) = 20;
-    GET_SET_MX(engine) = 5;
-    GET_SET_MY(engine) = 5;
+    GET_SET_MX(engine) = 125;
+    GET_SET_MY(engine) = 125;
     GET_SET_PX(engine) = 600;
     GET_SET_PY(engine) = 100;
     GET_SET_Z(engine) = 12;
