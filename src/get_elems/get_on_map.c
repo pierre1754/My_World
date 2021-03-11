@@ -21,7 +21,7 @@ void get_on_map(void)
             temp_rect.top + temp_rect.height / 2};
             if (get_distance(temp_vect, (sfVector2f){mouse.x, mouse.y}) <
             GET_SET_RAD(engine)) {
-                GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 30;
+                GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 100;
                 GET_MAP_2D(engine)[i][j] = set_iso_point(i, j,
                 GET_MAP_3D(engine)[i][j]);
             }
@@ -43,7 +43,7 @@ void get_on_map_minus(void)
             temp_rect.top + temp_rect.height / 2};
             if (get_distance(temp_vect, (sfVector2f){mouse.x, mouse.y}) <
             GET_SET_RAD(engine)) {
-                GET_MAP_3D(engine)[i][j] -= GET_ELAPSED(engine) * 30;
+                GET_MAP_3D(engine)[i][j] -= GET_ELAPSED(engine) * 100;
                 GET_MAP_2D(engine)[i][j] = set_iso_point(i, j,
                 GET_MAP_3D(engine)[i][j]);
             }
