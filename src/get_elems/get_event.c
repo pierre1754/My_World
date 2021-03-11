@@ -11,7 +11,6 @@ void get_event(void)
 {
     engine_t *engine = get_engine();
 
-    move_command();
     curser_on_button(
         GET_LISTHEAD(engine)->lh_first,
         GET_WINDOW(engine),
@@ -25,4 +24,5 @@ void get_event(void)
     );
     get_scroll();
     get_mouse_input();
+    get_keyboard();
 }

@@ -31,7 +31,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/get_elems/get_elem.c											\
 			src/get_elems/get_color.c											\
 			src/get_elems/get_on_map.c											\
-			src/get_elems/get_command.c											\
+			src/get_elems/get_keyboard.c										\
 			src/get_elems/get_time.c											\
 			src/get_elems/get_distance.c										\
 			src/init_elems/init_button_head.c									\

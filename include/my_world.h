@@ -288,8 +288,9 @@ void init_elem(void);
 // GET_ELEM
 sfColor get_color(int hight);
 sfTexture *get_texture(int hight);
-void move_command(void);
 void get_elem(void);
+void shortcut(void);
+void get_keyboard(void);
 void get_scroll(void);
 void get_event(void);
 void get_on_map(void);

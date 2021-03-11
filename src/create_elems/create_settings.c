@@ -19,7 +19,7 @@ void create_settings(void)
     GET_SET_MY(engine) = 100;
     GET_SET_PX(engine) = 700;
     GET_SET_PY(engine) = 200;
-    GET_SET_Z(engine) = 24;
+    GET_SET_Z(engine) = 12;
     GET_SET_STATUS(engine) = 0;
     GET_SET_LINE(engine) = 0;
     GET_DEPTH(engine) = 4.f;
