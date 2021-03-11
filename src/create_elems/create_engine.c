@@ -25,4 +25,5 @@ void create_engine(char *file)
     create_help_message();
     create_map(file);
     create_render();
+    create_shader();
 }

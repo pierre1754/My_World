@@ -39,5 +39,6 @@ void get_keyboard(void)
         key_move();
         key_zoom();
         shortcut();
+        recalc_map();
     }
 }

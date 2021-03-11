@@ -65,6 +65,8 @@
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
+#define SHADER_NAME "asset/water_shader.frag"
+
 #define GET_WINDOW(engine) (engine->window->window)
 #define GET_WINDOW_SIZE(engine) (engine->window->window_size)
 
@@ -135,6 +137,13 @@ typedef struct {
 } render_states_t;
 
 typedef struct {
+    sfTexture *water;
+    sfShader *shader;
+    sfFloatRect shader_rect;
+    sfRenderStates states;
+} render_shader_t;
+
+typedef struct {
     sfEvent event;
     settings_t *settings;
     LIST_HEAD(, buttons_s) buttons;
@@ -143,6 +152,7 @@ typedef struct {
     time_elapsed_t *time;
     help_message_t *message;
     render_states_t *render;
+    render_shader_t *shade;
 } engine_t;
 
 typedef struct {
@@ -177,6 +187,7 @@ sfVertexArray *create_vertex_line(line_t line, sfVertexArray *array);
 void create_help_message(void);
 void create_engine(char *file);
 void create_render(void);
+void create_shader(void);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);

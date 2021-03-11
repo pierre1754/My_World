@@ -22,3 +22,18 @@ void create_render(void)
         .texture = engine->render->dirt,
     };
 }
+
+void create_shader(void)
+{
+    engine_t *engine = get_engine();
+
+    engine->shade = malloc(sizeof(render_shader_t));
+    engine->shade->water = sfTexture_createFromFile("asset/water.png", NULL);
+    engine->shade->shader = sfShader_createFromFile(NULL, NULL, SHADER_NAME);
+    engine->shade->states = (sfRenderStates){
+        .shader = engine->shade->shader,
+        .blendMode = sfBlendAlpha,
+        .transform = sfTransform_Identity,
+        .texture = engine->shade->water,
+    };
+}
