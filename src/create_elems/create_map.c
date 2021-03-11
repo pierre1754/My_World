@@ -36,8 +36,11 @@ int **create_map_3d(void)
     engine_t *engine = get_engine();
     int **map = malloc(sizeof(int *) * (GET_SET_MX(engine) + 1));
 
-    for (int i = 0; i < GET_SET_MX(engine); i++)
+    memset(map, 0, GET_SET_MX(engine) + 1);
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
         map[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + MARGE_MAP));
+        memset(map[i], 0, GET_SET_MY(engine) + MARGE_MAP);
+    }
     map[GET_SET_MX(engine)] = NULL;
     return map;
 }

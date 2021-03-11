@@ -12,7 +12,7 @@ int *intdup(int *cp_src, int *src)
     engine_t *engine = get_engine();
 
     for (int j = 0; j < GET_SET_MY(engine); j++) {
-        if (src[j] != 0)
+        if (src[j])
             cp_src[j] = src[j];
         else {
             cp_src[j] = 0;
@@ -27,13 +27,16 @@ int **intdup_2d(int **src)
     engine_t *engine = get_engine();
     int **cp_src = malloc(sizeof(int *) * (GET_SET_MX(engine) + 1));
 
+    memset(cp_src, 0, GET_SET_MX(engine) + 1);
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + MARGE_MAP));
+        memset(cp_src[i], 0, GET_SET_MY(engine) + MARGE_MAP);
         if (src[i] != NULL)
             cp_src[i] = intdup(cp_src[i], src[i]);
         else {
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = 0;
+            cp_src[i][GET_SET_MY(engine)] = 0;
         }
     }
     cp_src[GET_SET_MX(engine)] = NULL;
