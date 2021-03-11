@@ -12,11 +12,11 @@ int *intdup(int *cp_src, int *src)
     engine_t *engine = get_engine();
 
     for (int j = 0; j < GET_SET_MY(engine); j++) {
-        if (src[j] != '\0')
+        if (src[j] != 0)
             cp_src[j] = src[j];
         else {
             cp_src[j] = 0;
-            cp_src[j + 1] = '\0';
+            cp_src[j + 1] = 0;
         }
     }
     return cp_src;
@@ -28,13 +28,12 @@ int **intdup_2d(int **src)
     int **cp_src = malloc(sizeof(int *) * (GET_SET_MX(engine) + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        cp_src[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + 1));
+        cp_src[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + MARGE_MAP));
         if (src[i] != NULL)
             cp_src[i] = intdup(cp_src[i], src[i]);
         else {
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = 0;
-            cp_src[i][GET_SET_MY(engine)] = '\0';
         }
     }
     cp_src[GET_SET_MX(engine)] = NULL;
@@ -49,7 +48,7 @@ sfVector2f **vectordup_2d(sfVector2f **src)
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVector2f) *
-        (GET_SET_MY(engine) + 1));
+        (GET_SET_MY(engine) + MARGE));
         if (src[i] != NULL)
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = src[i][j];
@@ -70,6 +69,7 @@ sfVertexArray ***vertexdup_2d(void)
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVertexArray *) *
         (GET_SET_MY(engine) + 1));
+        cp_src[i][GET_SET_MY(engine)] = NULL;
         for (int j = 0; j < GET_SET_MY(engine);j++) {
             cp_src[i][j] = sfVertexArray_create();
         }
@@ -87,6 +87,7 @@ sfVertexArray ***linedup_2d(void)
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVertexArray *) *
         (GET_SET_MY(engine) + 1));
+        cp_src[i][GET_SET_MY(engine)] = NULL;
         for (int j = 0; j < GET_SET_MY(engine);j++) {
             cp_src[i][j] = sfVertexArray_create();
         }

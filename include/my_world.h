@@ -33,6 +33,8 @@
 #define MARGE 10
 #define LEN 8
 
+#define MARGE_MAP 1
+
 #define TABLE_SIZE 256
 
 #ifndef LIST_FOREACH_SAFE

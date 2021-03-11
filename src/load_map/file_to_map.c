@@ -45,7 +45,7 @@ void file_to_map(char **file)
     int **result = malloc(sizeof(int *) * (GET_SET_MX(engine) + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        result[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + 1));
+        result[i] = malloc(sizeof(int) * GET_SET_MY(engine));
         for (int j = 0; j < GET_SET_MY(engine); j++) {
             result[i][j] = my_getnbr(file[i]);
             for (; *file[i] != ',' && *file[i]; file[i]++);

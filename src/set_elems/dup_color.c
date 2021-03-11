@@ -13,7 +13,7 @@ sfColor **color_dup_2d(sfColor **src)
     sfColor **cp_src = malloc(sizeof(sfColor *) * (GET_SET_MX(engine) + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        cp_src[i] = malloc(sizeof(sfColor) * (GET_SET_MY(engine) + 1));
+        cp_src[i] = malloc(sizeof(sfColor) * GET_SET_MY(engine));
         if (src[i] != NULL)
             for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
                 cp_src[i][j] = src[i][j];
@@ -48,7 +48,7 @@ sfTexture ***texture_dup_2d(sfTexture ***src)
     + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
-        cp_src[i] = malloc(sizeof(sfTexture *) * (GET_SET_MY(engine) + 2));
+        cp_src[i] = malloc(sizeof(sfTexture *) * (GET_SET_MY(engine) + 1));
         if (src[i] != NULL)
             cp_src[i] = texture_dup(cp_src[i], src[i]);
         else {

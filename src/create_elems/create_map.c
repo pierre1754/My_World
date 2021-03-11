@@ -37,7 +37,7 @@ int **create_map_3d(void)
     int **map = malloc(sizeof(int *) * (GET_SET_MX(engine) + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++)
-        map[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + 1));
+        map[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + MARGE_MAP));
     map[GET_SET_MX(engine)] = NULL;
     return map;
 }
@@ -49,7 +49,7 @@ sfVector2f **create_map_2d(void)
 
     for (int i = 0; i < GET_SET_MX(engine); i++)
         map[i] = malloc(sizeof(sfVector2f) *
-        (GET_SET_MY(engine) + 1));
+        (GET_SET_MY(engine) + MARGE_MAP));
     map[GET_SET_MX(engine)] = NULL;
     return map;
 }
@@ -62,6 +62,7 @@ sfVertexArray ***create_map_ver(void)
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         map[i] = malloc(sizeof(sfVertexArray *) * (GET_SET_MY(engine) + 1));
+        map[i][GET_SET_MY(engine)] = NULL;
         for (int j = 0; j < GET_SET_MY(engine); j++)
             map[i][j] = sfVertexArray_create();
     }

@@ -13,7 +13,7 @@ sfColor **create_color_2d(void)
     sfColor **map = malloc(sizeof(sfColor *) * (GET_SET_MX(engine) + 1));
 
     for (int i = 0; i < GET_SET_MX(engine); i++)
-        map[i] = malloc(sizeof(sfColor) * (GET_SET_MY(engine) + 1));
+        map[i] = malloc(sizeof(sfColor) * GET_SET_MY(engine));
     map[GET_SET_MX(engine)] = NULL;
     return map;
 }
@@ -23,8 +23,10 @@ sfTexture ***create_texture_2d(void)
     engine_t *engine = get_engine();
     sfTexture ***map = malloc(sizeof(sfTexture **) * (GET_SET_MX(engine) + 1));
 
-    for (int i = 0; i < GET_SET_MX(engine); i++)
+    for (int i = 0; i < GET_SET_MX(engine); i++) {
         map[i] = malloc(sizeof(sfTexture *) * (GET_SET_MY(engine) + 1));
+        map[i][GET_SET_MY(engine)] = NULL;
+    }
     map[GET_SET_MX(engine)] = NULL;
     return map;
 }

@@ -19,9 +19,9 @@ void create_settings(void)
     GET_SET_MY(engine) = 20;
     GET_SET_PX(engine) = 700;
     GET_SET_PY(engine) = 200;
-    GET_SET_Z(engine) = 24;
+    GET_SET_Z(engine) = 50;
     GET_SET_STATUS(engine) = 0;
-    GET_SET_LINE(engine) = 1;
+    GET_SET_LINE(engine) = 0;
     GET_DEPTH(engine) = 4.f;
     GET_FREQ(engine) = 0.02f;
     GET_SET_MODE(engine) = 1;
