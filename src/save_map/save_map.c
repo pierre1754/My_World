@@ -11,12 +11,21 @@ void save_map(void)
 {
     engine_t *engine = get_engine();
     static int map_nbr = 1;
-    char *link = my_strndup("asset/map/", my_strlen("my_map") + SIZE_SAVE_MAP +
-    my_strlen("asset/map/"));
-    char *map = my_strndup("my_map", my_strlen("my_map") + SIZE_SAVE_MAP);
+    char *link = malloc(sizeof(char) * (my_strlen("my_map") + SIZE_SAVE_MAP +
+    my_strlen("asset/map/") + 2));
+    char *map = malloc(sizeof(char) * (my_strlen("my_map") + SIZE_SAVE_MAP + 2));
     char *nbr = my_array_nbr(map_nbr, SIZE_SAVE_MAP);
-    char *path = my_strcat(link, my_strcat(map, nbr));
+    char *path = NULL;
 
-    printf("%s\n", path);
+    memset(link, '\0', my_strlen("my_map") + SIZE_SAVE_MAP +
+    my_strlen("asset/map/") + 1);
+    memset(map, '\0', my_strlen("my_map") + SIZE_SAVE_MAP + 1);
+    link = my_strcpy(link, "asset/map/");
+    map = my_strcpy(map, "my_map");
+    path = my_strcat(link, my_strcat(map, nbr));
+
+    free(nbr);
+    free(map);
+    free(link);
     map_nbr++;
 }
