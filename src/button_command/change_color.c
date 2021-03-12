@@ -42,6 +42,6 @@ void change_color_map(void)
     static int color_id = 0;
 
     GET_COLOR(engine) = ar_color_palette[color_id];
-    color_id = (color_id + 1) % 8;
+    color_id = (color_id + 1) % 9;
     change_button_color();
 }
