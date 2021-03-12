@@ -54,6 +54,7 @@ typedef struct {
     int radius;
     sfColor color;
     bool edit_mode;
+    bool draw_button;
 } settings_t;
 
 typedef struct {

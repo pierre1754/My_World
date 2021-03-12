@@ -63,6 +63,7 @@
 #define GET_SET_RAD(engine) (engine->settings->radius)
 #define GET_COLOR(engine) (engine->settings->color)
 #define GET_EDIT_MODE(engine) (engine->settings->edit_mode)
+#define GET_DRAW_BUTTON(engine) (engine->settings->draw_button)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 

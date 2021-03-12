@@ -18,6 +18,9 @@ void key_map(void)
     case sfKeyT:
         init_perlin();
         break;
+    case sfKeyEnter:
+        GET_DRAW_BUTTON(engine) = !GET_DRAW_BUTTON(engine);
+        break;
     default:
         break;
     }
