@@ -10,16 +10,15 @@
 char *my_array_nbr(int nb, int size)
 {
     char *result = malloc(sizeof(char) * size + 1);
-    int comm = nb % 10;
-    int dec = nb / 10;
+    int comm = 0;
 
     memset(result, '0', size);
     result[size] = '\0';
     if (result) {
-        for (int i = 0; dec && size; i++, size--) {
-            result[size - 1] = comm + '0';
+        for (int i = 0; nb && size; i++, size--) {
             comm = nb % 10;
-            dec = nb / 10;
+            nb = nb / 10;
+            result[size - 1] = comm + '0';
         }
     }
     return result;

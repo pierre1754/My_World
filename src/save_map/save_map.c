@@ -10,10 +10,13 @@
 void save_map(void)
 {
     engine_t *engine = get_engine();
-    static int map_nbr = 0;
-    char *path = my_strndup("my_map", my_strlen("my_map") + 10);
+    static int map_nbr = 1;
+    char *link = my_strndup("asset/map/", my_strlen("my_map") + SIZE_SAVE_MAP +
+    my_strlen("asset/map/"));
+    char *map = my_strndup("my_map", my_strlen("my_map") + SIZE_SAVE_MAP);
+    char *nbr = my_array_nbr(map_nbr, SIZE_SAVE_MAP);
+    char *path = my_strcat(link, my_strcat(map, nbr));
 
-    printf("%s, %d\n", my_array_nbr(map_nbr, 10), map_nbr);
-    // fopen()
+    printf("%s\n", path);
     map_nbr++;
 }
