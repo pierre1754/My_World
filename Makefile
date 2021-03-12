@@ -23,9 +23,11 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/destroy_elems/destroy_clock.c									\
 			src/destroy_elems/destroy_help_message.c							\
 			src/destroy_elems/destroy_color.c									\
+			src/destroy_elems/destroy_shader.c									\
 			src/draw_elems/draw_elem.c											\
 			src/draw_elems/draw_help.c											\
 			src/draw_elems/draw_map.c											\
+			src/draw_elems/draw_shader.c										\
 			src/get_elems/get_event.c											\
 			src/get_elems/get_scroll.c											\
 			src/get_elems/get_elem.c											\
