@@ -86,7 +86,7 @@ OBJ_MAIN =	$(SRC_MAIN)
 
 OBJ_TEST =	$(SRC_TEST:.c=.o)
 
-CFLAGS	=	-I include -I lib/button/include -I lib/my/include -L lib/my -L lib/button -lmy -lbutton -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Wall -Wextra -W -Ofast
+CFLAGS	=	-I include -I lib/button/include -I lib/my/include -L lib/my -L lib/button -lmy -lbutton -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Wall -Wextra -W -Ofast -Wdeprecated-declarations
 
 CFLAGS_TEST	=	--coverage -lcriterion
 
