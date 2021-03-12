@@ -74,6 +74,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/button_command/change_angle.c									\
 			src/keyboard_command/key_zoom.c										\
 			src/keyboard_command/key_move.c										\
+			src/keyboard_command/key_map.c										\
 			src/set_elems/refresh_map/refresh_vertex.c							\
 			src/set_elems/refresh_map/refresh_map.c								\
 			src/set_elems/refresh_map/refresh_map_line.c						\
