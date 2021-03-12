@@ -20,7 +20,7 @@ void init_map(void)
     init_texture_2d();
     init_map_color(GET_MAP_COLOR(engine), GET_MAP_2D(engine));
     init_map_tex(GET_MAP_TEX(engine), GET_MAP_2D(engine));
-    init_map_color(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
+    init_map_tex(GET_MAP_ORIGIN(engine), GET_MAP_2D_BASE(engine));
     init_map_line();
     recalc_map();
 }

@@ -7,13 +7,12 @@
 
 #include "my_world.h"
 
-void draw_shader(void)
+void draw_shader(int i, int j)
 {
     engine_t *engine = get_engine();
-    static float time = 0;
 
-    time += GET_ELAPSED(engine);
-    sfShader_setFloatUniform(engine->shade->shader, "time", time);
-    sfRenderWindow_drawVertexArray(GET_WINDOW(engine),
-    GET_MAP_TEX(engine)[1][1], &engine->shade->states);
+    if (i + 2 != GET_SET_MX(engine) && j + 2 != GET_SET_MY(engine) &&
+    GET_MAP_3D(engine)[i][j] < 0)
+        sfRenderWindow_drawVertexArray(GET_WINDOW(engine),
+        GET_MAP_ORIGIN(engine)[i][j], &engine->shade->states);
 }
