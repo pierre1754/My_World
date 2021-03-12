@@ -13,4 +13,5 @@ void destroy_shader(void)
 
     sfShader_destroy(engine->shade->shader);
     sfTexture_destroy(engine->shade->water);
+    free(engine->shade);
 }
