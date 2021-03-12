@@ -52,13 +52,16 @@ sfVector2f **vectordup_2d(sfVector2f **src)
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfVector2f) *
         (GET_SET_MY(engine) + MARGE));
-        if (src[i] != NULL)
+        if (src[i] != NULL) {
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = src[i][j];
+            free(src[i]);
+        }
         else
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = (sfVector2f){0, 0};
     }
+    free(src);
     cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }

@@ -21,7 +21,6 @@ void resize_map(void)
     GET_MAP_TEX(engine) = vertexdup_2d();
     GET_MAP_LINES(engine) = linedup_2d();
     GET_MAP_ORIGIN(engine) = vertexdup_2d();
-
     calc_map_vec(GET_MAP_2D(engine), GET_MAP_3D(engine));
     calc_map_vec(GET_MAP_2D_BASE(engine), GET_MAP_3D_BASE(engine));
     init_map_color(GET_MAP_COLOR(engine), GET_MAP_2D(engine));
@@ -34,6 +33,7 @@ void increase_map_x(void)
 {
     engine_t *engine = get_engine();
 
+    destroy_array();
     GET_SET_MX(engine) += 1;
     resize_map();
 }
@@ -43,6 +43,7 @@ void decrease_map_x(void)
     engine_t *engine = get_engine();
 
     if (GET_SET_MX(engine) > 1) {
+        destroy_array();
         GET_SET_MX(engine) -= 1;
         resize_map();
     }
@@ -52,6 +53,7 @@ void increase_map_y(void)
 {
     engine_t *engine = get_engine();
 
+    destroy_array();
     GET_SET_MY(engine) += 1;
     resize_map();
 }
@@ -61,6 +63,7 @@ void decrease_map_y(void)
     engine_t *engine = get_engine();
 
     if (GET_SET_MY(engine) > 1) {
+        destroy_array();
         GET_SET_MY(engine) -= 1;
         resize_map();
     }

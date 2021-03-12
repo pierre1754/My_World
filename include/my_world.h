@@ -203,6 +203,7 @@ void destroy_map_ver(sfVertexArray ***map);
 void destroy_color_2d(void);
 void destroy_texture_2d(void);
 void destroy_shader(void);
+void destroy_array(void);
 void destroy_engine(void);
 
 // INIT_COMPONENTS
