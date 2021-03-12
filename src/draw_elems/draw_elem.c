@@ -18,6 +18,5 @@ void draw_elem(void)
         draw_text(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
     }
     draw_help();
-    draw_shader();
     sfRenderWindow_display(GET_WINDOW(engine));
 }

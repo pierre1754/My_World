@@ -11,6 +11,7 @@ void draw_each_map(int i, int j)
 {
     engine_t *engine = get_engine();
 
+    draw_shader(i, j);
     switch (engine->settings->draw_mode) {
     case texture:
         if (i + 1 != GET_SET_MX(engine) && j + 1 != GET_SET_MY(engine)) {
@@ -33,7 +34,10 @@ void draw_each_map(int i, int j)
 void draw_map(void)
 {
     engine_t *engine = get_engine();
+    static float time = 0;
 
+    time += GET_ELAPSED(engine);
+    sfShader_setFloatUniform(engine->shade->shader, "time", time);
     for (int i = 0; i < GET_SET_MX(engine); i++)
         for (int j = 0; j < GET_SET_MY(engine); j++)
             draw_each_map(i, j);

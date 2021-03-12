@@ -32,13 +32,16 @@ void get_mouse_input(void)
     engine_t *engine = get_engine();
 
     if (engine->settings->edit_mode) {
-        if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button)
+        if (sfMouse_isButtonPressed(sfMouseLeft) &&
+        !engine->settings->on_button)
             get_on_map();
-        if (sfMouse_isButtonPressed(sfMouseRight) && !engine->settings->on_button)
+        if (sfMouse_isButtonPressed(sfMouseRight) &&
+        !engine->settings->on_button)
             get_on_map_minus();
     }
     else
-        if (sfMouse_isButtonPressed(sfMouseLeft) && !engine->settings->on_button)
+        if (sfMouse_isButtonPressed(sfMouseLeft) &&
+        !engine->settings->on_button)
             edit_map();
     replace_map();
     get_selection();

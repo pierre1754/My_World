@@ -343,7 +343,7 @@ void draw_each_map(int i, int j);
 void draw_map(void);
 void draw_help(void);
 void draw_elem(void);
-void draw_shader(void);
+void draw_shader(int i, int j);
 
 // BUTTON_COMMAND
 void resize_map(void);
