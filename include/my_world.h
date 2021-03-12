@@ -363,6 +363,7 @@ void change_color_map(void);
 void change_edit_mode(void);
 
 // KEY_COMMAND
+void key_map(void);
 void key_move(void);
 void key_zoom(void);
 

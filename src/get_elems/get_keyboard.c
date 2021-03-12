@@ -38,6 +38,7 @@ void get_keyboard(void)
     if (engine->event.type == sfEvtKeyPressed) {
         key_move();
         key_zoom();
+        key_map();
         shortcut();
         recalc_map();
     }
