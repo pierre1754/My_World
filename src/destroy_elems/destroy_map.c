@@ -44,10 +44,8 @@ void destroy_map_2d(sfVector2f **map)
 
 void destroy_map_ver(sfVertexArray ***map)
 {
-    engine_t *engine = get_engine();
-
-    for (int i = 0; i < GET_SET_MX(engine); i++) {
-        for (int j = 0; j < GET_SET_MY(engine); j++)
+    for (int i = 0; map[i]; i++) {
+        for (int j = 0; map[i][j]; j++)
             sfVertexArray_destroy(map[i][j]);
         free(map[i]);
     }
