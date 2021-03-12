@@ -364,6 +364,7 @@ void change_color_map(void);
 void change_edit_mode(void);
 
 // KEY_COMMAND
+void key_save(void);
 void key_map(void);
 void key_move(void);
 void key_zoom(void);
@@ -390,6 +391,9 @@ float lin_inter(float x, float y, float s);
 float smooth_inter(float x, float y, float s);
 float perlin_noise_2d(float x, float y, int seed);
 float perlin_noise(float x_freq, float y_freq, int depth, int seed);
+
+// SAVE_MAP
+void save_map(void);
 
 void start_engine(void);
 

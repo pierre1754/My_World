@@ -1,5 +1,5 @@
 Map should have the same line size.
-Only integer are allowed, do not put interger out of range.
+Only integer are allowed, do not put integer out of range.
 You must separate every number with a comas and every line sould finish by ';'.
 
 The map must look like this:

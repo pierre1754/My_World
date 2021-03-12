@@ -8,6 +8,11 @@
 #ifndef MY_H
 #define MY_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
 void my_putchar(char c);
 void my_swap(int *a, int *b);
 void my_put_nbr(int nb);
@@ -48,7 +53,7 @@ char *convert_base(char const *nbr, char const *base_from, char const *base_to);
 char **my_str_to_word_array(char const *str);
 char *my_strndup(char const *src, int n);
 void my_putstr(char const *str);
-void my_array_nbr(int nb, char *array, int array_size);
+char *my_array_nbr(int nb, int size);
 unsigned int my_atoi_size(char const *str);
 char **init_array(int y);
 char **strdup_2d(char **array);

@@ -13,16 +13,16 @@ void shortcut(void)
 
     if (engine->event.key.control) {
         switch (engine->event.key.code) {
-        case sfKeyA:
+        case sfKeyO:
             increase_map_x();
             break;
-        case sfKeyQ:
+        case sfKeyL:
             decrease_map_x();
             break;
-        case sfKeyZ:
+        case sfKeyP:
             increase_map_y();
             break;
-        case sfKeyS:
+        case sfKeyM:
             decrease_map_y();
             break;
         default:
@@ -39,6 +39,7 @@ void get_keyboard(void)
         key_move();
         key_zoom();
         key_map();
+        key_save();
         shortcut();
         recalc_map();
     }

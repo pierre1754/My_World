@@ -7,6 +7,7 @@
 
 SRC =	my_compute_power_rec.c		\
 		my_compute_square_root.c		\
+		my_array_nbr.c				\
 		my_find_prime_sup.c			\
 		my_first_wordlen.c			\
 		my_getnbr.c					\
@@ -42,7 +43,6 @@ SRC =	my_compute_power_rec.c		\
 		my_strupcase.c				\
 		my_swap.c						\
 		size_tab_wordarray.c			\
-		my_array_nbr.c				\
 		convert_base.c				\
 		my_showstr.c					\
 		my_strndup.c					\

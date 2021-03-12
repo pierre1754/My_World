@@ -76,6 +76,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/keyboard_command/key_zoom.c										\
 			src/keyboard_command/key_move.c										\
 			src/keyboard_command/key_map.c										\
+			src/keyboard_command/key_save.c										\
 			src/set_elems/refresh_map/refresh_vertex.c							\
 			src/set_elems/refresh_map/refresh_map.c								\
 			src/set_elems/refresh_map/refresh_map_line.c						\
@@ -83,6 +84,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/load_map/str_to_line_array.c									\
 			src/load_map/file_to_map.c											\
 			src/perlin_noise/perlin_noise.c										\
+			src/save_map/save_map.c												\
 
 SRC_MAIN =	main.c	\
 
@@ -94,7 +96,7 @@ OBJ_MAIN =	$(SRC_MAIN)
 
 OBJ_TEST =	$(SRC_TEST:.c=.o)
 
-CFLAGS	=	-I include -I lib/button/include -I lib/my/include -L lib/my -L lib/button -lmy -lbutton -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Wall -Wextra -W -Ofast -Wdeprecated-declarations
+CFLAGS	=	-I include -I lib/button/include -I lib/my/include -L lib/my -L lib/button -lmy -lbutton -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio -lm -Wall -Wextra -W
 
 CFLAGS_TEST	=	--coverage -lcriterion
 

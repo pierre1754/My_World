@@ -5,19 +5,22 @@
 ** 02/10/2020
 */
 
-#include <stdio.h>
 #include "my.h"
 
-void my_array_nbr(int nb, char *array, int array_size)
+char *my_array_nbr(int nb, int size)
 {
-    int dec;
-    int comm;
+    char *result = malloc(sizeof(char) * size + 1);
+    int comm = nb % 10;
+    int dec = nb / 10;
 
-    if (array) {
-        comm = nb % 10;
-        dec = nb / 10;
-        if (dec != 0)
-            my_array_nbr(dec, array, array_size - 1);
-        array[array_size] = comm + '0';
+    memset(result, '0', size);
+    result[size] = '\0';
+    if (result) {
+        for (int i = 0; dec && size; i++, size--) {
+            result[size - 1] = comm + '0';
+            comm = nb % 10;
+            dec = nb / 10;
+        }
     }
+    return result;
 }
