@@ -20,7 +20,8 @@ static void (*ptr_func[but_nbr])(buttons_t *) = {
     init_angle_plus_y,
     init_angle_minus_y,
     init_new_perlin_map,
-    init_color_palette
+    init_color_palette,
+    init_edit_mode
 };
 
 void init_text_obj(void)

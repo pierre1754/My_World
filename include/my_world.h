@@ -62,6 +62,7 @@
 #define GET_FREQ(engine) (engine->settings->freq)
 #define GET_SET_RAD(engine) (engine->settings->radius)
 #define GET_COLOR(engine) (engine->settings->color)
+#define GET_EDIT_MODE(engine) (engine->settings->edit_mode)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -102,6 +103,7 @@ typedef enum {
     minus_angle_y,
     new_perlin_map,
     color_palette,
+    edit_mode,
 
     but_nbr
 } all_buttons_t;
@@ -292,6 +294,12 @@ void init_color_palette_rect(engine_t *engine, buttons_t *button,
 sfVector2f rect_size);
 void init_color_palette_text(buttons_t *button, sfVector2f rect_size);
 void init_color_palette(buttons_t *button);
+// EDIT_MODE
+void init_edit_mode_rect(engine_t *engine, buttons_t *button,
+sfVector2f rect_size);
+void init_edit_mode_text(buttons_t *button,
+sfVector2f rect_size);
+void init_edit_mode(buttons_t *button);
 
 void init_text_obj(void);
 void init_buttons_text(void);
@@ -346,6 +354,7 @@ void decrease_angle_x(void);
 void increase_angle_y(void);
 void decrease_angle_y(void);
 void change_color_map(void);
+void change_edit_mode(void);
 
 // KEY_COMMAND
 void key_move(void);

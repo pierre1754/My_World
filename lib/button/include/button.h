@@ -53,6 +53,7 @@ typedef struct {
     float freq;
     int radius;
     sfColor color;
+    bool edit_mode;
 } settings_t;
 
 typedef struct {
