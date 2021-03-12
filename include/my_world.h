@@ -204,6 +204,8 @@ void destroy_map_2d(sfVector2f **map);
 void destroy_map_ver(sfVertexArray ***map);
 void destroy_color_2d(void);
 void destroy_texture_2d(void);
+void destroy_shader(void);
+void destroy_render(void);
 void destroy_array(void);
 void destroy_engine(void);
 
@@ -337,6 +339,7 @@ void draw_each_map(int i, int j);
 void draw_map(void);
 void draw_help(void);
 void draw_elem(void);
+void draw_shader(void);
 
 // BUTTON_COMMAND
 void resize_map(void);

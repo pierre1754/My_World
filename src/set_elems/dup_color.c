@@ -14,15 +14,18 @@ sfColor **color_dup_2d(sfColor **src)
 
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(sfColor) * GET_SET_MY(engine));
-        if (src[i] != NULL)
+        if (src[i] != NULL) {
             for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
                 cp_src[i][j] = src[i][j];
                 cp_src[i][j + 1] = sfWhite;
             }
+            free(src[i]);
+        }
         else
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = sfWhite;
     }
+    free(src);
     cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }
@@ -61,6 +64,7 @@ sfTexture ***texture_dup_2d(sfTexture ***src)
             }
         }
     }
+    free(src);
     cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }

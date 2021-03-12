@@ -16,7 +16,6 @@ void draw_elem(void)
     draw_button(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
     draw_text(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
     draw_help();
-    sfShader_setFloatUniform(engine->shade->shader, "time", GET_ELAPSED(engine) * 10000);
-    sfRenderWindow_drawVertexArray(GET_WINDOW(engine), GET_MAP_TEX(engine)[1][1], &engine->shade->states);
+    draw_shader();
     sfRenderWindow_display(GET_WINDOW(engine));
 }

@@ -31,14 +31,17 @@ int **intdup_2d(int **src)
     for (int i = 0; i < GET_SET_MX(engine); i++) {
         cp_src[i] = malloc(sizeof(int) * (GET_SET_MY(engine) + MARGE_MAP));
         memset(cp_src[i], 0, GET_SET_MY(engine) + MARGE_MAP);
-        if (src[i] != NULL)
+        if (src[i] != NULL) {
             cp_src[i] = intdup(cp_src[i], src[i]);
+            free(src[i]);
+        }
         else {
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = 0;
             cp_src[i][GET_SET_MY(engine)] = 0;
         }
     }
+    free(src);
     cp_src[GET_SET_MX(engine)] = NULL;
     return cp_src;
 }
