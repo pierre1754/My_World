@@ -47,21 +47,16 @@ static char *my_strdup_plus(char *str, int basic, int plus)
     memset(result, '\0', basic + plus);
     if (str)
         my_strcpy(result, str);
+    free(str);
     return result;
 }
 
-char *read_map(char *path)
+char *loop_read(int fd, char *temp, char *buffer)
 {
     int ret = 1;
     int iter = 0;
     int len = LEN;
-    char *temp = malloc(sizeof(char) * (LEN + 1));
-    char *buffer = malloc(sizeof(char) * (LEN + 1));
-    int fd = open(path, O_RDONLY);
 
-    if (fd == -1)
-        return NULL;
-    memset(buffer, '\0', LEN + 1);
     do {
         iter++;
         len = (iter * LEN);
@@ -71,5 +66,20 @@ char *read_map(char *path)
         if (ret == LEN && !temp[ret - 1])
             break;
     } while (ret == LEN);
+    return buffer;
+}
+
+char *read_map(char *path)
+{
+    char *temp = malloc(sizeof(char) * (LEN + 1));
+    char *buffer = malloc(sizeof(char) * (LEN + 1));
+    int fd = open(path, O_RDONLY);
+
+    if (fd == -1)
+        return NULL;
+    memset(buffer, '\0', LEN + 1);
+    buffer = loop_read(fd, temp, buffer);
+    free(temp);
+    close(fd);
     return verif_map(buffer);
 }

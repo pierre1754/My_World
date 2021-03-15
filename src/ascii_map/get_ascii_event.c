@@ -7,22 +7,22 @@
 
 #include "my_world.h"
 
-void get_arrow(sfEvent event, ascii_map_t *map)
+void get_arrow(sfEvent event, ascii_map_t *map, time_elapsed_t *time)
 {
     sfVector2f pos = sfText_getPosition(map->text);
 
     switch (event.key.code) {
     case sfKeyRight:
-        pos.x -= 20;
+        pos.x -= time->time_elapsed * 1000;
         break;
     case sfKeyLeft:
-        pos.x += 20;
+        pos.x += time->time_elapsed * 1000;
         break;
     case sfKeyDown:
-        pos.y += 20;
+        pos.y += time->time_elapsed * 1000;
         break;
     case sfKeyUp:
-        pos.y -= 20;
+        pos.y -= time->time_elapsed * 1000;
         break;
     default:
         break;
@@ -30,7 +30,8 @@ void get_arrow(sfEvent event, ascii_map_t *map)
     sfText_setPosition(map->text, pos);
 }
 
-void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map)
+void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map,
+time_elapsed_t *time)
 {
     unsigned int font = sfText_getCharacterSize(map->text);
 
@@ -42,5 +43,5 @@ void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map)
     else if (event.type == sfEvtMouseWheelScrolled &&
     event.mouseWheelScroll.delta > 0)
         sfText_setCharacterSize(map->text, font + 1);
-    get_arrow(event, map);
+    get_arrow(event, map, time);
 }

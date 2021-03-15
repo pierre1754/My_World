@@ -26,4 +26,8 @@ ascii_map_t *create_ascii_map(char *path)
 time_elapsed_t *create_time_ascii(void)
 {
     time_elapsed_t *time = malloc(sizeof(time_elapsed_t));
+
+    time->clock = sfClock_create();
+    time->time_elapsed = 0;
+    return time;
 }

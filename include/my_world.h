@@ -384,6 +384,7 @@ sfVertexArray *refresh_vertex_line(line_t line, sfVertexArray *array);
 void refresh_map_line(void);
 
 // READ_MAP
+char *loop_read(int fd, char *temp, char *buffer);
 char *read_map(char *path);
 char *verif_map(char *file);
 char **init_array(int y);
@@ -407,10 +408,14 @@ void save_map(void);
 
 // ASCII_MAP
 ascii_map_t *create_ascii_map(char *path);
-void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map);
+time_elapsed_t *create_time_ascii(void);
+void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map,
+time_elapsed_t *time);
+void get_arrow(sfEvent event, ascii_map_t *map, time_elapsed_t *time);
 void draw_ascii_map(sfRenderWindow *window, ascii_map_t *map);
-void get_arrow(sfEvent event, ascii_map_t *map);
 int loop_ascii(char *path);
+void destroy_ascii_elem(ascii_map_t *map, time_elapsed_t *time,
+sfRenderWindow *window);
 
 void start_engine(void);
 

@@ -89,6 +89,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/ascii_map/get_ascii_event.c										\
 			src/ascii_map/create_ascii_map.c									\
 			src/ascii_map/draw_ascii_map.c										\
+			src/ascii_map/destroy_ascii_elem.c									\
 
 SRC_MAIN =	main.c	\
 
