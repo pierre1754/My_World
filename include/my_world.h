@@ -31,7 +31,7 @@
 
 #define nbr_int_settings 13
 #define MARGE 10
-#define LEN 20
+#define LEN 2000
 
 #define SIZE_SAVE_MAP 5
 

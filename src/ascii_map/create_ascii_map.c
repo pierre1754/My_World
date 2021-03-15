@@ -17,7 +17,7 @@ ascii_map_t *create_ascii_map(char *path)
     map->font = sfFont_createFromFile("asset/ascii_font.ttf");
     map->text = sfText_create();
     sfText_setString(map->text, map->map);
-    sfText_setFillColor(map->text, sfWhite);
+    sfText_setFillColor(map->text, sfCyan);
     sfText_setCharacterSize(map->text, 20);
     sfText_setFont(map->text, map->font);
     return map;

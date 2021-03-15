@@ -9,8 +9,8 @@
 
 int loop_ascii(char *path)
 {
-    sfRenderWindow *window = sfRenderWindow_create((sfVideoMode) {800, 600, 32},
-    "ASCII Map", sfClose, NULL);
+    sfRenderWindow *window = sfRenderWindow_create(
+    (sfVideoMode) {1920, 1080, 32}, "ASCII Map", sfFullscreen, NULL);
     ascii_map_t *map = create_ascii_map(path);
     time_elapsed_t *time = create_time_ascii();
     sfEvent event;
