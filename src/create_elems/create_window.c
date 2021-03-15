@@ -10,7 +10,7 @@
 void create_window(void)
 {
     engine_t *engine = get_engine();
-    sfVideoMode mode = {3840, 2160, 32};
+    sfVideoMode mode = {1440, 810, 32};
 
     engine->window = malloc(sizeof(window_t));
     GET_WINDOW(engine) = sfRenderWindow_create(mode,
