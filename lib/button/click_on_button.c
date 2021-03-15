@@ -7,35 +7,23 @@
 
 #include "button.h"
 
-static bool if_collision(buttons_t *temp, sfVector2i mouse,
-sfVector2f size_rect)
+bool if_collision(sfVector2f pos, sfVector2i mouse_pos, sfVector2f size_rect)
 {
-    bool x = temp->pos.x < mouse.x && mouse.x < (temp->pos.x + size_rect.x);
-    bool y = temp->pos.y < mouse.y && mouse.y < (temp->pos.y + size_rect.y);
+    bool x = pos.x < mouse_pos.x && mouse_pos.x < (pos.x + size_rect.x);
+    bool y = pos.y < mouse_pos.y && mouse_pos.y < (pos.y + size_rect.y);
 
-    return (x && y);
+    return x && y;
 }
 
-void click_on_button(buttons_t *button_head, sfRenderWindow *window,
-sfEvent event)
+void click_on_button(button_t *button, sfVector2i mouse_pos, sfEvent event)
 {
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
-    sfVector2f size_rect = {0};
-    buttons_t *temp = NULL;
-
-    LIST_HEAD(, buttons_s) buttons;
-    buttons.lh_first = button_head;
-    LIST_FOREACH(temp, &buttons, entries) {
-        size_rect = sfRectangleShape_getSize(temp->rectangle);
-        if (if_collision(temp, mouse, size_rect) &&
-            event.type == sfEvtMouseButtonPressed) {
-            sfRectangleShape_setFillColor(temp->rectangle,
-            sfColor_modulate(sfRectangleShape_getFillColor(temp->rectangle),
-            sfColor_fromRGB(0, 0, 128)));
-            temp->act_funct();
-        }
-        else {
-            sfRectangleShape_setFillColor(temp->rectangle, temp->color);
-        }
+    if (if_collision(button->pos, mouse_pos, button->rect_size) &&
+        event.type == sfEvtMouseButtonPressed) {
+        sfRectangleShape_setFillColor(button->rectangle,
+        sfColor_modulate(button->color, sfColor_fromRGB(0, 0, 128)));
+        button->act_funct();
+    }
+    else {
+        sfRectangleShape_setFillColor(button->rectangle, button->color);
     }
 }
