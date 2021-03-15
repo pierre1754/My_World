@@ -158,6 +158,7 @@ typedef struct {
     help_message_t *message;
     render_states_t *render;
     render_shader_t *shade;
+    sfTexture *selected;
 } engine_t;
 
 typedef struct {
@@ -338,6 +339,8 @@ sfColor **color_dup_2d(sfColor **src);
 sfTexture ***texture_dup_2d(sfTexture ***src);
 void set_pos_help_message(void);
 void set_elem(void);
+void set_tex_button(void);
+void reset_tex_button(void);
 
 // DRAW_ELEM
 sfVector2f set_iso_point(int x, int y, int z);
