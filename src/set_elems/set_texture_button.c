@@ -21,7 +21,7 @@ void set_tex_button(void)
         && rect_pos.y == MARGE) {
             sfRectangleShape_setFillColor(temp->rectangle, sfWhite);
             sfRectangleShape_setTexture(temp->rectangle,
-            engine->render->states.texture, sfTrue);
+            GET_TEXTURE(engine), sfTrue);
         }
     }
 }

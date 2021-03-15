@@ -39,9 +39,9 @@ static void change_button_color(void)
 void change_color_map(void)
 {
     engine_t *engine = get_engine();
-    static int color_id = 0;
 
-    GET_COLOR(engine) = ar_color_palette[color_id];
-    color_id = (color_id + 1) % 9;
+    GET_COLOR_ID(engine) = (GET_COLOR_ID(engine) + 1) % 9;
+    GET_COLOR(engine) = ar_color_palette[GET_COLOR_ID(engine)];
+    GET_TEXTURE(engine) = engine->texture_palette[GET_COLOR_ID(engine)];
     change_button_color();
 }

@@ -19,6 +19,7 @@ engine_t *get_engine(void)
 void create_engine(char *file)
 {
     create_window();
+    create_texture_palette();
     create_settings();
     create_buttons();
     create_time();

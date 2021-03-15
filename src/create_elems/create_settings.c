@@ -29,4 +29,6 @@ void create_settings(void)
     GET_COLOR(engine) = sfWhite;
     GET_EDIT_MODE(engine) = 1;
     GET_DRAW_BUTTON(engine) = 1;
+    GET_COLOR_ID(engine) = 0;
+    GET_TEXTURE(engine) = engine->texture_palette[GET_COLOR_ID(engine)];
 }

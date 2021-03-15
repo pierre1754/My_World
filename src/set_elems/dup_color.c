@@ -39,7 +39,7 @@ sfTexture **texture_dup(sfTexture **cp_src, sfTexture **src)
             cp_src[j] = src[j];
         }
         else
-            cp_src[j] = engine->render->grass;
+            cp_src[j] = engine->render->sand;
         cp_src[j + 1] = NULL;
     }
     return cp_src;
@@ -59,7 +59,7 @@ sfTexture ***texture_dup_2d(sfTexture ***src)
         }
         else {
             for (int j = 0; j < GET_SET_MY(engine); j++) {
-                cp_src[i][j] = engine->render->grass;
+                cp_src[i][j] = engine->render->sand;
                 cp_src[i][j + 1] = NULL;
             }
         }

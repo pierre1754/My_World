@@ -15,6 +15,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/create_elems/create_vertex.c									\
 			src/create_elems/create_help_message.c								\
 			src/create_elems/create_render.c									\
+			src/create_elems/create_texture_palette.c							\
 			src/destroy_elems/destroy_engine.c									\
 			src/destroy_elems/destroy_settings.c								\
 			src/destroy_elems/destroy_buttons.c									\

@@ -55,6 +55,8 @@ typedef struct {
     sfColor color;
     bool edit_mode;
     bool draw_button;
+    sfTexture *selected;
+    int color_id;
 } settings_t;
 
 typedef struct {

@@ -66,6 +66,8 @@
 #define GET_COLOR(engine) (engine->settings->color)
 #define GET_EDIT_MODE(engine) (engine->settings->edit_mode)
 #define GET_DRAW_BUTTON(engine) (engine->settings->draw_button)
+#define GET_COLOR_ID(engine) (engine->settings->color_id)
+#define GET_TEXTURE(engine) (engine->settings->selected)
 
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
@@ -110,6 +112,20 @@ typedef enum {
 
     but_nbr
 } all_buttons_t;
+
+typedef enum {
+    dirt,
+    grass,
+    sand,
+    ice,
+    netherrack,
+    stone,
+    wool,
+    planks,
+    bedrock,
+
+    tex_nbr
+} texture_palette_t;
 
 typedef struct {
     sfRenderWindow *window;
@@ -158,7 +174,7 @@ typedef struct {
     help_message_t *message;
     render_states_t *render;
     render_shader_t *shade;
-    sfTexture *selected;
+    sfTexture **texture_palette;
 } engine_t;
 
 typedef struct {
@@ -200,6 +216,7 @@ void create_help_message(void);
 void create_engine(char *file);
 void create_render(void);
 void create_shader(void);
+void create_texture_palette(void);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
