@@ -341,6 +341,7 @@ void set_elem(void);
 
 // DRAW_ELEM
 sfVector2f set_iso_point(int x, int y, int z);
+void set_texture_params(int i, int j);
 void draw_each_map(int i, int j);
 void draw_map(void);
 void draw_help(void);

@@ -66,6 +66,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/set_elems/dup_2d.c												\
 			src/set_elems/dup_color.c											\
 			src/set_elems/set_pos_help_message.c								\
+			src/set_elems/set_texture_params.c									\
 			src/start_engine.c													\
 			src/button_command/change_size.c									\
 			src/button_command/change_draw_line.c								\

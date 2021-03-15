@@ -73,6 +73,7 @@ void get_selection(void)
             temp_vect = (sfVector2f){temp_rect.left + temp_rect.width / 2,
             temp_rect.top + temp_rect.height / 2};
             dist = get_distance(temp_vect, (sfVector2f){mouse.x, mouse.y});
+            set_texture_params(i, j);
             if (dist < GET_SET_RAD(engine) &&
             dist > GET_SET_RAD(engine) - 20) {
                 change_color(i, j);
