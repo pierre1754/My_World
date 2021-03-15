@@ -11,7 +11,6 @@ void set_texture_params(int i, int j)
 {
     engine_t *engine = get_engine();
 
-    engine->render->states.texture = GET_TEX_2D(engine)[i][j];
     if (i != 0)
         if (GET_MAP_3D(engine)[i][j + 1] > GET_MAP_3D(engine)[i + 1][j] ||
         GET_MAP_3D(engine)[i][j + 1] > GET_MAP_3D(engine)[i][j] ||

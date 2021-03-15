@@ -25,10 +25,10 @@ void refresh_map_ver(sfVertexArray ***map, sfVector2f **map_vec)
 
 sfVertexArray *refresh_vertex_quad(square_t quad, sfVertexArray *array)
 {
-    sfVertexArray_getVertex(array, 0)->color = sfWhite;
-    sfVertexArray_getVertex(array, 1)->color = sfWhite;
-    sfVertexArray_getVertex(array, 2)->color = sfWhite;
-    sfVertexArray_getVertex(array, 3)->color = sfWhite;
+    sfVertexArray_getVertex(array, 0)->color = sfVertexArray_getVertex(array, 0)->color;
+    sfVertexArray_getVertex(array, 1)->color = sfVertexArray_getVertex(array, 1)->color;
+    sfVertexArray_getVertex(array, 2)->color = sfVertexArray_getVertex(array, 2)->color;
+    sfVertexArray_getVertex(array, 3)->color = sfVertexArray_getVertex(array, 3)->color;
     sfVertexArray_getVertex(array, 0)->position = quad.point1;
     sfVertexArray_getVertex(array, 1)->position = quad.point2;
     sfVertexArray_getVertex(array, 2)->position = quad.point3;
