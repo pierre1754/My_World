@@ -72,6 +72,15 @@
 #define GET_LISTHEAD(engine) (&engine->buttons)
 
 #define SHADER_NAME "asset/water_shader.frag"
+#define DIRT "asset/dirt.png"
+#define GRASS "asset/grass.png"
+#define SAND "asset/sand.png"
+#define ICE "asset/ice.png"
+#define NETHERRACK "asset/netherrack.png"
+#define STONE "asset/stone.png"
+#define WOOL "asset/wool.png"
+#define PLANKS "asset/planks.png"
+#define BEDROCK "asset/bedrock.png"
 
 #define GET_WINDOW(engine) (engine->window->window)
 #define GET_WINDOW_SIZE(engine) (engine->window->window_size)

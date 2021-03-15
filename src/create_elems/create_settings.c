@@ -7,12 +7,10 @@
 
 #include "my_world.h"
 
-void create_settings(void)
+static void map_settings(void)
 {
     engine_t *engine = get_engine();
 
-    engine->settings = malloc(sizeof(settings_t));
-    memset(engine->settings, 0, sizeof(int) * nbr_int_settings);
     GET_SET_AX(engine) = 45;
     GET_SET_AY(engine) = 20;
     GET_SET_MX(engine) = 20;
@@ -20,6 +18,15 @@ void create_settings(void)
     GET_SET_PX(engine) = 700;
     GET_SET_PY(engine) = 200;
     GET_SET_Z(engine) = 24;
+}
+
+void create_settings(void)
+{
+    engine_t *engine = get_engine();
+
+    engine->settings = malloc(sizeof(settings_t));
+    memset(engine->settings, 0, sizeof(int) * nbr_int_settings);
+    map_settings();
     GET_SET_STATUS(engine) = 0;
     GET_SET_LINE(engine) = 0;
     GET_DEPTH(engine) = 4.f;
