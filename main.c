@@ -11,16 +11,16 @@ int main(int argc, char **argv)
 {
     char *file = NULL;
 
-    if (argc > 2)
+    if (argc > 2 || loop_ascii(argv[1]))
         return 84;
-    if (argc == 2 && my_getnbr(argv[1]) == 0) {
-        file = read_map(argv[1]);
-        if (!file)
-            return 84;
-    }
-    create_engine(file);
-    init_elem();
-    start_engine();
-    destroy_engine();
+    // if (argc == 2 && my_getnbr(argv[1]) == 0) {
+    //     file = read_map(argv[1]);
+    //     if (!file)
+    //         return 84;
+    // }
+    // create_engine(file);
+    // init_elem();
+    // start_engine();
+    // destroy_engine();
     return 0;
 }

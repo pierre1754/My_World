@@ -85,6 +85,10 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/load_map/file_to_map.c											\
 			src/perlin_noise/perlin_noise.c										\
 			src/save_map/save_map.c												\
+			src/ascii_map/loop_ascii.c											\
+			src/ascii_map/get_ascii_event.c										\
+			src/ascii_map/create_ascii_map.c									\
+			src/ascii_map/draw_ascii_map.c										\
 
 SRC_MAIN =	main.c	\
 

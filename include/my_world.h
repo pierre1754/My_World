@@ -31,7 +31,7 @@
 
 #define nbr_int_settings 13
 #define MARGE 10
-#define LEN 8
+#define LEN 20
 
 #define SIZE_SAVE_MAP 5
 
@@ -171,6 +171,12 @@ typedef struct {
     sfVector2f point1;
     sfVector2f point2;
 } line_t;
+
+typedef struct {
+    sfFont *font;
+    sfText *text;
+    char *map;
+} ascii_map_t;
 
 // CREATE_COMPONENT
 void create_settings(void);
@@ -398,6 +404,13 @@ float perlin_noise(float x_freq, float y_freq, int depth, int seed);
 void write_map(char *path);
 char *get_map_nbr(void);
 void save_map(void);
+
+// ASCII_MAP
+ascii_map_t *create_ascii_map(char *path);
+void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map);
+void draw_ascii_map(sfRenderWindow *window, ascii_map_t *map);
+void get_arrow(sfEvent event, ascii_map_t *map);
+int loop_ascii(char *path);
 
 void start_engine(void);
 
