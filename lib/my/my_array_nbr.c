@@ -7,19 +7,22 @@
 
 #include "my.h"
 
-char *my_array_nbr(int nb, int size)
+char *my_array_nbr(int nb, int size, char *buffer)
 {
-    char *result = malloc(sizeof(char) * size + 1);
     int comm = 0;
 
-    memset(result, '0', size);
-    result[size] = '\0';
-    if (result) {
+    memset(buffer, '0', size - 1);
+    buffer[size] = '\0';
+    if (buffer) {
         for (int i = 0; nb && size; i++, size--) {
             comm = nb % 10;
             nb = nb / 10;
-            result[size - 1] = comm + '0';
+            buffer[size - 1] = comm + '0';
         }
     }
-    return result;
+    for (; *buffer == '0' && *buffer; buffer++);
+    if (*buffer == '\0') {
+        buffer--;
+    }
+    return buffer;
 }

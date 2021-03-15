@@ -396,6 +396,7 @@ float perlin_noise(float x_freq, float y_freq, int depth, int seed);
 
 // SAVE_MAP
 void write_map(char *path);
+char *get_map_nbr(void);
 void save_map(void);
 
 void start_engine(void);

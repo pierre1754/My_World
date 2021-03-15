@@ -27,6 +27,6 @@ void create_settings(void)
     GET_SET_MODE(engine) = 1;
     GET_SET_RAD(engine) = 100;
     GET_COLOR(engine) = sfWhite;
-    GET_EDIT_MODE(engine) = 0;
+    GET_EDIT_MODE(engine) = 1;
     GET_DRAW_BUTTON(engine) = 1;
 }

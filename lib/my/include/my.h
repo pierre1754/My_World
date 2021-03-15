@@ -53,7 +53,7 @@ char *convert_base(char const *nbr, char const *base_from, char const *base_to);
 char **my_str_to_word_array(char const *str);
 char *my_strndup(char const *src, int n);
 void my_putstr(char const *str);
-char *my_array_nbr(int nb, int size);
+char *my_array_nbr(int nb, int size, char *buffer);
 unsigned int my_atoi_size(char const *str);
 char **init_array(int y);
 char **strdup_2d(char **array);
