@@ -11,9 +11,14 @@ int main(int argc, char **argv)
 {
     char *file = NULL;
 
-    if (argc > 2)
+    if (argc > 3)
         return 84;
-    if (argc == 2 && my_getnbr(argv[1]) == 0) {
+    if (argc == 3 && !my_strcmp(argv[2], "--ascii")) {
+        if (loop_ascii(argv[1]))
+            return 84;
+        return 0;
+    }
+    else if (argc == 2 && my_getnbr(argv[1]) == 0) {
         file = read_map(argv[1]);
         if (!file)
             return 84;
