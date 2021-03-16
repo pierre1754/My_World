@@ -7,7 +7,7 @@
 
 #include "button.h"
 
-void draw_text(button_t *button, sfRenderWindow *window)
+void draw_button(button_t *button, sfRenderWindow *window)
 {
     sfRenderWindow_drawRectangleShape(window, button->rectangle, NULL);
     sfRenderWindow_drawText(window, button->text, NULL);

@@ -67,7 +67,7 @@
 #define GET_EDIT_MODE(engine) (engine->settings->edit_mode)
 #define GET_DRAW_BUTTON(engine) (engine->settings->draw_button)
 
-#define GET_LISTHEAD(engine) (&engine->buttons)
+#define BUT_AR(engine) (engine->buttons)
 
 #define SHADER_NAME "asset/water_shader.frag"
 
@@ -91,25 +91,6 @@
 // MACRO FOR CALC
 #define ANGLE_X_RAD(engine) (GET_SET_AX(engine) * 3.14 / 180)
 #define ANGLE_Y_RAD(engine) (GET_SET_AY(engine) * 3.14 / 180)
-
-typedef enum {
-    plus_x,
-    minus_x,
-    plus_y,
-    minus_y,
-    cart_mode,
-    change_mode,
-    new_map,
-    plus_angle_x,
-    minus_angle_x,
-    plus_angle_y,
-    minus_angle_y,
-    new_perlin_map,
-    color_palette,
-    edit_mode,
-
-    but_nbr
-} all_buttons_t;
 
 typedef struct {
     sfRenderWindow *window;
@@ -151,7 +132,7 @@ typedef struct {
 typedef struct {
     sfEvent event;
     settings_t *settings;
-    LIST_HEAD(, buttons_s) buttons;
+    button_t *buttons[buttons];
     window_t *window;
     map_t *map;
     time_elapsed_t *time;
@@ -181,7 +162,7 @@ typedef struct {
 // CREATE_COMPONENT
 void create_settings(void);
 void create_buttons(void);
-buttons_t *get_new_button(void);
+button_t *get_new_button(void);
 void create_window(void);
 void create_map(char *file);
 int **create_map_3d(void);
@@ -203,7 +184,6 @@ void create_shader(void);
 // DESTROY_COMPONENTS
 void destroy_settings(void);
 void destroy_buttons(void);
-void destroy_one_button(buttons_t *button);
 void destroy_window(void);
 void destroy_map(void);
 void destroy_help_message(void);
@@ -231,89 +211,21 @@ void clear_map_ver(sfVertexArray ***map);
 void clear_map_lines(sfVertexArray ***map);
 void init_perlin(void);
 void init_map(void);
-void init_button_head(void);
-// PLUS X
-void init_plus_x_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_plus_x_text(buttons_t *button,
-sfVector2f rect_size);
-void init_plus_x(buttons_t *button);
-// MINUS X
-void init_minus_x_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_minus_x_text(buttons_t *button,
-sfVector2f rect_size);
-void init_minus_x(buttons_t *button);
-// PLUS Y
-void init_plus_y_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_plus_y_text(buttons_t *button,
-sfVector2f rect_size);
-void init_plus_y(buttons_t *button);
-// MINUS Y
-void init_minus_y_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_angle_minus_y_text(buttons_t *button,
-sfVector2f rect_size);
-void init_minus_y(buttons_t *button);
-// CART MODE
-void init_cart_mode_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_cart_mode_text(buttons_t *button,
-sfVector2f rect_size);
-void init_cart_mode(buttons_t *button);
-// CHANGE MODE
-void init_change_mode_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_change_mode_text(buttons_t *button,
-sfVector2f rect_size);
-void init_change_mode(buttons_t *button);
-// NEW MAP
-void init_new_map_rect(buttons_t *button);
-void init_new_map_text(buttons_t *button, sfVector2f rect_size);
-void init_new_map(buttons_t *button);
-// ANGLE X PLUS
-void init_angle_plus_x_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_angle_plus_x_text(buttons_t *button,
-sfVector2f rect_size);
-void init_angle_plus_x(buttons_t *button);
-// ANGLE X MINUS
-void init_angle_minus_x_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_angle_minus_x_text(buttons_t *button,
-sfVector2f rect_size);
-void init_angle_minus_x(buttons_t *button);
-// ANGLE Y PLUS
-void init_angle_plus_y_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_angle_plus_y_text(buttons_t *button,
-sfVector2f rect_size);
-void init_angle_plus_y(buttons_t *button);
-// ANGLE Y MINUS
-void init_angle_minus_y_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_angle_minus_y_text(buttons_t *button,
-sfVector2f rect_size);
-void init_angle_minus_y(buttons_t *button);
-// NEW_PERLIN_MAP
-void init_new_perlin_map_rect(buttons_t *button, sfVector2f rect_size);
-void init_new_perlin_map_text(buttons_t *button, sfVector2f rect_size);
-void init_new_perlin_map(buttons_t *button);
-// COLOR_PALETTE
-void init_color_palette_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_color_palette_text(buttons_t *button, sfVector2f rect_size);
-void init_color_palette(buttons_t *button);
-// EDIT_MODE
-void init_edit_mode_rect(engine_t *engine, buttons_t *button,
-sfVector2f rect_size);
-void init_edit_mode_text(buttons_t *button,
-sfVector2f rect_size);
-void init_edit_mode(buttons_t *button);
-
-void init_text_obj(void);
-void init_buttons_text(void);
+void init_buttons(void);
+void init_p_pos_x(button_t *button);
+void init_m_pos_x(button_t *button);
+void init_p_pos_y(button_t *button);
+void init_m_pos_y(button_t *button);
+void init_map_mode(button_t *button);
+void init_change_mode(button_t *button);
+void init_new_map(button_t *button);
+void init_p_angle_x(button_t *button);
+void init_m_angle_x(button_t *button);
+void init_p_angle_y(button_t *button);
+void init_m_angle_y(button_t *button);
+void init_new_perlin_map(button_t *button);
+void init_palette_color(button_t *button);
+void init_edit_mode(button_t *button);
 void init_elem(void);
 
 // GET_ELEM
@@ -323,6 +235,7 @@ void get_elem(void);
 void shortcut(void);
 void get_keyboard(void);
 void get_scroll(void);
+void get_button_evt(void);
 void get_event(void);
 void get_on_map(void);
 void get_on_map_minus(void);
@@ -351,8 +264,9 @@ void set_texture_params(int i, int j);
 void draw_each_map(int i, int j);
 void draw_map(void);
 void draw_help(void);
-void draw_elem(void);
+void draw_all_button(void);
 void draw_shader(int i, int j);
+void draw_elem(void);
 
 // BUTTON_COMMAND
 void resize_map(void);

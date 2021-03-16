@@ -39,11 +39,11 @@ typedef enum {
     change_mode,
     map_mode,
     palette_color,
-    palette_texture,
+    // palette_texture,
     edit_mode,
 
     buttons
-} all_buttons_t;
+} all_button_t;
 
 typedef struct buttons_s {
     sfRectangleShape *rectangle;
@@ -87,6 +87,6 @@ void click_on_button(button_t *button, sfVector2i mouse_pos, sfEvent event);
 bool curser_on_button(button_t *button, sfVector2i mouse_pos,
 help_message_t *message);
 
-void draw_text(button_t *button, sfRenderWindow *window);
+void draw_button(button_t *button, sfRenderWindow *window);
 
 #endif // BUTTON_H
