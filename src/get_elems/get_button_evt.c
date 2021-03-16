@@ -14,7 +14,7 @@ void get_button_evt(void)
 
     if (GET_DRAW_BUTTON(engine)) {
         for (int i = 0; i < buttons; i++) {
-            curser_on_button(BUT_AR(engine)[i], mouse_pos, engine->message);
+            GET_SET_STATUS(engine) = curser_on_button(BUT_AR(engine)[i], mouse_pos, engine->message);
             click_on_button(BUT_AR(engine)[i], mouse_pos, engine->event);
         }
     }
