@@ -30,6 +30,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/draw_elems/draw_elem.c											\
 			src/draw_elems/draw_help.c											\
 			src/draw_elems/draw_map.c											\
+			src/draw_elems/draw_all_button.c									\
 			src/draw_elems/draw_shader.c										\
 			src/get_elems/get_event.c											\
 			src/get_elems/edit_map.c											\
@@ -39,23 +40,13 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/get_elems/get_on_map.c											\
 			src/get_elems/get_keyboard.c										\
 			src/get_elems/get_time.c											\
+			src/get_elems/get_button_evt.c										\
 			src/get_elems/get_distance.c										\
-			src/init_elems/init_button_head.c									\
-			src/init_elems/init_buttons_text.c									\
-			src/init_elems/init_one_button/init_angle/init_angle_plus_x.c		\
-			src/init_elems/init_one_button/init_angle/init_angle_minus_x.c		\
-			src/init_elems/init_one_button/init_angle/init_angle_plus_y.c		\
-			src/init_elems/init_one_button/init_angle/init_angle_minus_y.c		\
-			src/init_elems/init_one_button/init_map_modif/init_new_map.c		\
-			src/init_elems/init_one_button/init_mode/init_cart_mode.c			\
-			src/init_elems/init_one_button/init_mode/init_change_mode.c			\
-			src/init_elems/init_one_button/init_pos/init_plus_x.c				\
-			src/init_elems/init_one_button/init_pos/init_minus_x.c				\
-			src/init_elems/init_one_button/init_pos/init_plus_y.c				\
-			src/init_elems/init_one_button/init_pos/init_minus_y.c				\
-			src/init_elems/init_one_button/init_map_modif/init_new_perlin_map.c	\
-			src/init_elems/init_one_button/init_map_modif/init_color_palette.c	\
-			src/init_elems/init_one_button/init_mode/init_edit_mode.c			\
+			src/init_elems/init_buttons.c										\
+			src/init_elems/init_one_button/init_angle.c							\
+			src/init_elems/init_one_button/init_map_modif.c						\
+			src/init_elems/init_one_button/init_mode.c							\
+			src/init_elems/init_one_button/init_pos.c							\
 			src/init_elems/init_map_elems/init_map.c							\
 			src/init_elems/init_map_elems/init_color.c							\
 			src/init_elems/init_map_elems/calc_map.c							\

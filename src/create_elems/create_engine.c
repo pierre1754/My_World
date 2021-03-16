@@ -21,10 +21,10 @@ void create_engine(char *file)
     create_window();
     create_texture_palette();
     create_settings();
-    create_buttons();
     create_time();
     create_help_message();
     create_map(file);
     create_render();
     create_shader();
+    create_buttons();
 }

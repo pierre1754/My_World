@@ -25,16 +25,36 @@ typedef enum {
     mode_nbr
 } draw_mode_t;
 
+typedef enum {
+    p_angle_x,
+    m_angle_x,
+    p_angle_y,
+    m_angle_y,
+    p_position_x,
+    m_position_x,
+    p_position_y,
+    m_position_y,
+    new_map,
+    new_perlin_map,
+    change_mode,
+    map_mode,
+    palette_color,
+    // palette_texture,
+    edit_mode,
+
+    buttons
+} all_button_t;
+
 typedef struct buttons_s {
-    LIST_ENTRY(buttons_s) entries;
     sfRectangleShape *rectangle;
+    sfVector2f rect_size;
     sfVector2f pos;
     sfText *text;
     sfColor color;
     char *str_text;
     char *help_message;
     void (*act_funct)(void);
-} buttons_t;
+} button_t;
 
 typedef struct {
     int zoom;
@@ -64,11 +84,11 @@ typedef struct {
     sfFont *font;
 } help_message_t;
 
-void curser_on_button(buttons_t *button_head, sfRenderWindow *window,
-settings_t *settings, help_message_t *message);
-void click_on_button(buttons_t *button_head, sfRenderWindow *window,
-sfEvent event);
-void draw_button(buttons_t *button_head, sfRenderWindow *window);
-void draw_text(buttons_t *button_head, sfRenderWindow *window);
+bool if_collision(sfVector2f pos, sfVector2i mouse_pos, sfVector2f size_rect);
+void click_on_button(button_t *button, sfVector2i mouse_pos, sfEvent event);
+bool curser_on_button(button_t *button, sfVector2i mouse_pos,
+help_message_t *message);
+
+void draw_button(button_t *button, sfRenderWindow *window);
 
 #endif // BUTTON_H

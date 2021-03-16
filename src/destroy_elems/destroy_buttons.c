@@ -10,20 +10,12 @@
 void destroy_buttons(void)
 {
     engine_t *engine = get_engine();
-    buttons_t *button = NULL;
-    buttons_t *button_temp = NULL;
 
-    LIST_FOREACH_SAFE(button, GET_LISTHEAD(engine), entries, button_temp) {
-        destroy_one_button(button);
+    for (int i = 0; i < buttons; i++) {
+        sfRectangleShape_destroy(BUT_AR(engine)[i]->rectangle);
+        sfText_destroy(BUT_AR(engine)[i]->text);
+        free(BUT_AR(engine)[i]->help_message);
+        free(BUT_AR(engine)[i]->str_text);
+        free(BUT_AR(engine)[i]);
     }
-}
-
-void destroy_one_button(buttons_t *button)
-{
-    sfRectangleShape_destroy(button->rectangle);
-    sfText_destroy(button->text);
-    free(button->help_message);
-    free(button->str_text);
-    LIST_REMOVE(button, entries);
-    free(button);
 }

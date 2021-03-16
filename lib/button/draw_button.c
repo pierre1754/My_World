@@ -7,13 +7,8 @@
 
 #include "button.h"
 
-void draw_button(buttons_t *button_head, sfRenderWindow *window)
+void draw_button(button_t *button, sfRenderWindow *window)
 {
-    buttons_t *temp = NULL;
-
-    LIST_HEAD(, buttons_s) buttons;
-    buttons.lh_first = button_head;
-    LIST_FOREACH(temp, &buttons, entries) {
-        sfRenderWindow_drawRectangleShape(window, temp->rectangle, NULL);
-    }
+    sfRenderWindow_drawRectangleShape(window, button->rectangle, NULL);
+    sfRenderWindow_drawText(window, button->text, NULL);
 }

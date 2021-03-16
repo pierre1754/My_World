@@ -13,14 +13,7 @@ void draw_elem(void)
 
     sfRenderWindow_clear(GET_WINDOW(engine), sfBlack);
     draw_map();
-    if (GET_DRAW_BUTTON(engine)) {
-        if (GET_SET_MODE(engine) == texture)
-            set_tex_button();
-        else
-            reset_tex_button();
-        draw_button(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
-        draw_text(GET_LISTHEAD(engine)->lh_first, GET_WINDOW(engine));
-    }
+    draw_all_button();
     draw_help();
     sfRenderWindow_display(GET_WINDOW(engine));
 }

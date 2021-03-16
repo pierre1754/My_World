@@ -7,36 +7,14 @@
 
 #include "button.h"
 
-static bool if_collision(buttons_t *temp, sfVector2i mouse,
-sfVector2f size_rect)
+bool curser_on_button(button_t *button, sfVector2i mouse_pos,
+help_message_t *message)
 {
-    bool x = temp->pos.x < mouse.x && mouse.x < (temp->pos.x + size_rect.x);
-    bool y = temp->pos.y < mouse.y && mouse.y < (temp->pos.y + size_rect.y);
-
-    return (x && y);
-}
-
-void curser_on_button(buttons_t *button_head, sfRenderWindow *window,
-settings_t *settings, help_message_t *message)
-{
-    sfVector2i mouse = sfMouse_getPositionRenderWindow(window);
-    sfVector2f size_rect = {0};
-    buttons_t *temp = NULL;
-    bool one_but = 0;
-
-    LIST_HEAD(, buttons_s) buttons;
-    buttons.lh_first = button_head;
-    LIST_FOREACH(temp, &buttons, entries) {
-        size_rect = sfRectangleShape_getSize(temp->rectangle);
-        if (if_collision(temp, mouse, size_rect)) {
-            sfRectangleShape_setOutlineThickness(temp->rectangle, -5.f);
-            sfText_setString(message->message, temp->help_message);
-            one_but = 1;
-        }
-        else sfRectangleShape_setOutlineThickness(temp->rectangle, -2.f);
+    if (if_collision(button->pos, mouse_pos, button->rect_size)) {
+        sfRectangleShape_setOutlineThickness(button->rectangle, -5.f);
+        sfText_setString(message->message, button->help_message);
+        return 1;
     }
-    if (one_but)
-        settings->on_button = 1;
-    else
-        settings->on_button = 0;
+    else sfRectangleShape_setOutlineThickness(button->rectangle, -2.f);
+    return 0;
 }
