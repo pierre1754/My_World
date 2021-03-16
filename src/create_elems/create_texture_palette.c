@@ -20,7 +20,7 @@ void create_texture_palette(void)
     engine->texture_palette[netherrack] = sfTexture_createFromFile(NETHERRACK,
     NULL);
     engine->texture_palette[stone] = sfTexture_createFromFile(STONE, NULL);
-    engine->texture_palette[wool] = sfTexture_createFromFile(WOOL, NULL);
+    engine->texture_palette[snow] = sfTexture_createFromFile(SNOW, NULL);
     engine->texture_palette[planks] = sfTexture_createFromFile(PLANKS, NULL);
     engine->texture_palette[bedrock] = sfTexture_createFromFile(BEDROCK, NULL);
 }

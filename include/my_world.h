@@ -78,7 +78,7 @@
 #define ICE "asset/ice.png"
 #define NETHERRACK "asset/netherrack.png"
 #define STONE "asset/stone.png"
-#define WOOL "asset/wool.png"
+#define SNOW "asset/snow.png"
 #define PLANKS "asset/planks.png"
 #define BEDROCK "asset/bedrock.png"
 
@@ -110,7 +110,7 @@ typedef enum {
     ice,
     netherrack,
     stone,
-    wool,
+    snow,
     planks,
     bedrock,
 
