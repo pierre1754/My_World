@@ -56,7 +56,7 @@ void get_mouse_point_input(void)
     !engine->settings->on_button)
         get_on_point_map_minus();
     replace_map();
-    for (int i = 1; i < GET_SET_MX(engine) - 1; i++)
-        for (int j = 1; j < GET_SET_MY(engine) - 1; j++)
+    for (int i = 0; i < GET_SET_MX(engine) - 1; i++)
+        for (int j = 0; j < GET_SET_MY(engine) - 1; j++)
             set_texture_params(i, j);
 }

@@ -26,6 +26,7 @@ int main(int argc, char **argv)
     create_engine(file);
     init_elem();
     start_engine();
+    save_map();
     destroy_engine();
     return 0;
 }
