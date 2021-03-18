@@ -19,5 +19,7 @@ void destroy_engine(void)
     destroy_clock();
     destroy_shader();
     destroy_render();
+    destroy_sound();
+    destroy_texture_palette();
     free(engine);
 }

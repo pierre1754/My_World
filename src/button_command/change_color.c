@@ -26,5 +26,6 @@ void change_color_map(void)
     GET_COLOR_ID(engine) = (GET_COLOR_ID(engine) + 1) % 9;
     GET_COLOR(engine) = ar_color_palette[GET_COLOR_ID(engine)];
     GET_TEXTURE(engine) = engine->texture_palette[GET_COLOR_ID(engine)];
+    GET_SOUND(engine) = engine->sounds[GET_COLOR_ID(engine)];
     BUT_AR(engine)[palette_color]->color = GET_COLOR(engine);
 }

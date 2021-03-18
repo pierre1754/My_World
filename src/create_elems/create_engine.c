@@ -27,4 +27,5 @@ void create_engine(char *file)
     create_render();
     create_shader();
     create_buttons();
+    create_sound();
 }

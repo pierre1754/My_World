@@ -12,7 +12,6 @@ void create_texture_palette(void)
     engine_t *engine = get_engine();
 
     engine->texture_palette = malloc(sizeof(sfTexture *) * tex_nbr);
-
     engine->texture_palette[dirt] = sfTexture_createFromFile(DIRT, NULL);
     engine->texture_palette[grass] = sfTexture_createFromFile(GRASS, NULL);
     engine->texture_palette[sand] = sfTexture_createFromFile(SAND, NULL);

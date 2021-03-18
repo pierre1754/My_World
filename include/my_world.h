@@ -68,6 +68,7 @@
 #define GET_DRAW_BUTTON(engine) (engine->settings->draw_button)
 #define GET_COLOR_ID(engine) (engine->settings->color_id)
 #define GET_TEXTURE(engine) (engine->settings->selected)
+#define GET_SOUND(engine) (engine->settings->sound)
 
 #define BUT_AR(engine) (engine->buttons)
 
@@ -165,6 +166,8 @@ typedef struct {
     render_states_t *render;
     render_shader_t *shade;
     sfTexture **texture_palette;
+    sfSoundBuffer **sounds;
+    sfSound *play;
 } engine_t;
 
 typedef struct {
@@ -207,6 +210,7 @@ void create_engine(char *file);
 void create_render(void);
 void create_shader(void);
 void create_texture_palette(void);
+void create_sound(void);
 
 // DESTROY_COMPONENTS
 void destroy_settings(void);
@@ -223,6 +227,8 @@ void destroy_texture_2d(void);
 void destroy_shader(void);
 void destroy_render(void);
 void destroy_array(void);
+void destroy_texture_palette(void);
+void destroy_sound(void);
 void destroy_engine(void);
 
 // INIT_COMPONENTS
@@ -273,6 +279,7 @@ void get_mouse_input(void);
 void get_selection(void);
 void get_time(void);
 float get_distance(sfVector2f point_1, sfVector2f point_2);
+void play_sound(void);
 
 // SET_ELEM
 int *intdup(int *cp_src, int *src);

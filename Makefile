@@ -16,6 +16,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/create_elems/create_help_message.c								\
 			src/create_elems/create_render.c									\
 			src/create_elems/create_texture_palette.c							\
+			src/create_elems/create_sound.c										\
 			src/destroy_elems/destroy_engine.c									\
 			src/destroy_elems/destroy_settings.c								\
 			src/destroy_elems/destroy_buttons.c									\
@@ -27,6 +28,8 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/destroy_elems/destroy_shader.c									\
 			src/destroy_elems/destroy_render.c									\
 			src/destroy_elems/destroy_array.c									\
+			src/destroy_elems/destroy_texture_palette.c							\
+			src/destroy_elems/destroy_sound.c									\
 			src/draw_elems/draw_elem.c											\
 			src/draw_elems/draw_help.c											\
 			src/draw_elems/draw_map.c											\
@@ -42,6 +45,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/get_elems/get_time.c											\
 			src/get_elems/get_button_evt.c										\
 			src/get_elems/get_distance.c										\
+			src/get_elems/play_sound.c											\
 			src/init_elems/init_buttons.c										\
 			src/init_elems/init_one_button/init_angle.c							\
 			src/init_elems/init_one_button/init_map_modif.c						\

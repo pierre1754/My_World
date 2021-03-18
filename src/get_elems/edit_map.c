@@ -58,6 +58,7 @@ void edit_map(void)
     switch (engine->settings->draw_mode) {
     case texture:
         edit_texture_map();
+        play_sound();
         break;
     case color:
         edit_color_map();

@@ -77,6 +77,7 @@ typedef struct {
     bool draw_button;
     sfTexture *selected;
     int color_id;
+    sfSoundBuffer *sound;
 } settings_t;
 
 typedef struct {
