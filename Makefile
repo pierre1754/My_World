@@ -46,6 +46,7 @@ SRC		 =	src/create_elems/create_engine.c									\
 			src/get_elems/get_button_evt.c										\
 			src/get_elems/get_distance.c										\
 			src/get_elems/play_sound.c											\
+			src/get_elems/get_on_point_map.c									\
 			src/init_elems/init_buttons.c										\
 			src/init_elems/init_one_button/init_angle.c							\
 			src/init_elems/init_one_button/init_map_modif.c						\

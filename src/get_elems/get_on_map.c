@@ -47,7 +47,7 @@ void get_mouse_input(void)
     get_selection();
 }
 
-static void change_color(int i, int j)
+void change_color(int i, int j)
 {
     engine_t *engine = get_engine();
 

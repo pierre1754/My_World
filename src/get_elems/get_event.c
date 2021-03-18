@@ -15,6 +15,9 @@ void get_event(void)
         sfRenderWindow_close(GET_WINDOW(engine));
     get_button_evt();
     get_scroll();
-    get_mouse_input();
+    if (GET_LINE(engine))
+        get_mouse_point_input();
+    else
+        get_mouse_input();
     get_keyboard();
 }

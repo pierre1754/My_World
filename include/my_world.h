@@ -280,6 +280,7 @@ void get_keyboard(void);
 void get_scroll(void);
 void get_button_evt(void);
 void get_event(void);
+void replace_map(void);
 void get_on_map(void);
 void get_on_map_minus(void);
 void edit_map(void);
@@ -290,6 +291,9 @@ void get_selection(void);
 void get_time(void);
 float get_distance(sfVector2f point_1, sfVector2f point_2);
 void play_sound(void);
+void get_on_point_map(void);
+void get_on_point_map_minus(void);
+void get_mouse_point_input(void);
 
 // SET_ELEM
 int *intdup(int *cp_src, int *src);
