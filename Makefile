@@ -119,6 +119,8 @@ all:	$(NAME)
 
 clean:
 	@make clean -C lib/my
+	@make clean -C lib/button
+	@make clean -C bonus
 	@(rm -f $(OBJ)) > /dev/null
 	@find . -name "*.gcno" -delete
 	@find . -name "*.gcda" -delete
@@ -127,6 +129,7 @@ clean:
 fclean:	clean
 	@make fclean -C lib/my
 	@make fclean -C lib/button
+	@make fclean -C bonus
 	@rm -f $(NAME)
 	@(rm -f $(NAME) $(NAME_TEST)) > /dev/null
 	@(rm -rf tests/coverage) > /dev/null
@@ -137,6 +140,7 @@ re:	fclean all
 debug:
 	@make -C lib/my
 	@make -C lib/button
+	@make -C bonus
 	gcc $(SRC) $(SRC_MAIN) -o $(NAME) $(CFLAGS) $(CFLAGS_DEBUG)
 
 unit_tests: $(OBJ_TEST)
