@@ -83,6 +83,14 @@
 #define PLANKS "asset/planks.png"
 #define BEDROCK "asset/bedrock.png"
 
+#define GRASS_SOUND "asset/sounds/grass.ogg"
+#define SAND_SOUND "asset/sounds/sand.ogg"
+#define ICE_SOUND "asset/sounds/ice.ogg"
+#define NETHER_SOUND "asset/sounds/netherrack.ogg"
+#define STONE_SOUND "asset/sounds/stone.ogg"
+#define SNOW_SOUND "asset/sounds/snow.ogg"
+#define WOOD_SOUND "asset/sounds/wood.ogg"
+
 #define GET_WINDOW(engine) (engine->window->window)
 #define GET_WINDOW_SIZE(engine) (engine->window->window_size)
 

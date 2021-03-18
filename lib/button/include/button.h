@@ -39,7 +39,6 @@ typedef enum {
     change_mode,
     map_mode,
     palette_color,
-    // palette_texture,
     edit_mode,
 
     buttons

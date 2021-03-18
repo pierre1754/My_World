@@ -23,7 +23,6 @@ static void (*ptr_func[buttons])(button_t *) =
     init_map_mode,
     init_palette_color,
     init_edit_mode
-    // NULL, // PALETTE TEXT
 };
 
 void init_buttons(void)
