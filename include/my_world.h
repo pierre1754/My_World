@@ -69,6 +69,7 @@
 #define GET_COLOR_ID(engine) (engine->settings->color_id)
 #define GET_TEXTURE(engine) (engine->settings->selected)
 #define GET_SOUND(engine) (engine->settings->sound)
+#define GET_LINE(engine) (engine->settings->point_mode)
 
 #define BUT_AR(engine) (engine->buttons)
 
@@ -267,6 +268,7 @@ void init_m_angle_y(button_t *button);
 void init_new_perlin_map(button_t *button);
 void init_palette_color(button_t *button);
 void init_edit_mode(button_t *button);
+void init_line_mode(button_t *button);
 void init_elem(void);
 
 // GET_ELEM
@@ -329,6 +331,7 @@ void increase_angle_y(void);
 void decrease_angle_y(void);
 void change_color_map(void);
 void change_edit_mode(void);
+void change_line_mode(void);
 
 // KEY_COMMAND
 void key_save(void);

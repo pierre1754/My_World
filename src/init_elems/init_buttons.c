@@ -22,7 +22,8 @@ static void (*ptr_func[buttons])(button_t *) =
     init_change_mode,
     init_map_mode,
     init_palette_color,
-    init_edit_mode
+    init_edit_mode,
+    init_line_mode
 };
 
 void init_buttons(void)

@@ -48,3 +48,17 @@ void init_edit_mode(button_t *button)
     button->str_text = my_strdup("Edit Mode");
     button->help_message = my_strdup("Change Edit Mode");
 }
+
+void init_line_mode(button_t *button)
+{
+    engine_t *engine = get_engine();
+
+    button->act_funct = change_line_mode;
+    button->pos = (sfVector2f){
+        GET_WINDOW_SIZE(engine).x - button->rect_size.x - MARGE,
+        button->rect_size.y * 2 + 3 * MARGE
+    };
+    sfRectangleShape_setPosition(button->rectangle, button->pos);
+    button->str_text = my_strdup("Line Mode");
+    button->help_message = my_strdup("Change Line Mode");
+}

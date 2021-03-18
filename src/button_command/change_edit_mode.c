@@ -13,3 +13,10 @@ void change_edit_mode(void)
 
     GET_EDIT_MODE(engine) = !GET_EDIT_MODE(engine);
 }
+
+void change_line_mode(void)
+{
+    engine_t *engine = get_engine();
+
+    GET_LINE(engine) = !GET_LINE(engine);
+}

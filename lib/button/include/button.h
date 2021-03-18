@@ -40,6 +40,7 @@ typedef enum {
     map_mode,
     palette_color,
     edit_mode,
+    get_line,
 
     buttons
 } all_button_t;
@@ -77,6 +78,7 @@ typedef struct {
     sfTexture *selected;
     int color_id;
     sfSoundBuffer *sound;
+    bool point_mode;
 } settings_t;
 
 typedef struct {

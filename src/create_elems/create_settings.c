@@ -18,6 +18,7 @@ static void map_settings(void)
     GET_SET_PX(engine) = 700;
     GET_SET_PY(engine) = 200;
     GET_SET_Z(engine) = 24;
+    GET_LINE(engine) = 0;
 }
 
 void create_settings(void)
