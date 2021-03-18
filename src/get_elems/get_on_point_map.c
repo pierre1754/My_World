@@ -14,7 +14,8 @@ void get_on_point_map(void)
 
     for (int i = 0; i < GET_SET_MX(engine) - 1; i++) {
         for (int j = 0; j < GET_SET_MY(engine) - 1; j++) {
-            if (get_distance(GET_MAP_2D(engine)[i][j], (sfVector2f){mouse.x, mouse.y}) < 10) {
+            if (get_distance(GET_MAP_2D(engine)[i][j],
+            (sfVector2f){mouse.x, mouse.y}) < 10) {
                 GET_MAP_3D(engine)[i][j] += GET_ELAPSED(engine) * 100;
                 GET_MAP_2D(engine)[i][j] = set_iso_point(i, j,
                 GET_MAP_3D(engine)[i][j]);
