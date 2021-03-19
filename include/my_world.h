@@ -75,6 +75,15 @@
 #define BUT_AR(engine) (engine->buttons)
 
 #define SHADER_NAME "asset/water_shader.frag"
+#define DIRT "asset/textures/dirt.png"
+#define GRASS "asset/textures/grass.png"
+#define SAND "asset/textures/sand.png"
+#define ICE "asset/textures/ice.png"
+#define NETHERRACK "asset/textures/netherrack.png"
+#define STONE "asset/textures/stone.png"
+#define SNOW "asset/textures/snow.png"
+#define PLANKS "asset/textures/planks.png"
+#define BEDROCK "asset/textures/bedrock.png"
 #define WATER "asset/textures/water.png"
 
 #define GRASS_SOUND "asset/sounds/grass.ogg"
@@ -107,15 +116,15 @@
 #define ANGLE_Y_RAD(engine) (GET_SET_AY(engine) * 3.14 / 180)
 
 typedef enum {
-    grass,
-    stone,
-    sand,
-    netherrack,
-    bedrock,
     dirt,
+    grass,
+    sand,
     ice,
+    netherrack,
+    stone,
     snow,
     planks,
+    bedrock,
 
     tex_nbr
 } texture_palette_t;
