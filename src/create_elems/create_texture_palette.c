@@ -20,7 +20,7 @@ void create_texture_palette(void)
         temp = my_strdup_plus(my_strdup("asset/textures/"),
         my_strlen("asset/textures/"), my_strlen(file_info->d_name));
         strcat(temp, file_info->d_name);
-        if (my_strncmp(file_info->d_name, ".", 1)) {
+        if (file_info->d_name[0] != '.') {
             engine->texture_palette[i] = sfTexture_createFromFile(temp, NULL);
             i++;
         }
