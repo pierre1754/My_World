@@ -38,8 +38,8 @@ int **intdup_2d(int **src)
         else {
             for (int j = 0; j < GET_SET_MY(engine); j++)
                 cp_src[i][j] = 0;
-            cp_src[i][GET_SET_MY(engine)] = 0;
         }
+        cp_src[i][GET_SET_MY(engine)] = 0;
     }
     free(src);
     cp_src[GET_SET_MX(engine)] = NULL;
