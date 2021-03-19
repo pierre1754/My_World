@@ -15,6 +15,7 @@
 #include <SFML/Config.h>
 #include <sys/queue.h>
 #include <sys/types.h>
+#include <dirent.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdbool.h>
@@ -74,15 +75,6 @@
 #define BUT_AR(engine) (engine->buttons)
 
 #define SHADER_NAME "asset/water_shader.frag"
-#define DIRT "asset/textures/dirt.png"
-#define GRASS "asset/textures/grass.png"
-#define SAND "asset/textures/sand.png"
-#define ICE "asset/textures/ice.png"
-#define NETHERRACK "asset/textures/netherrack.png"
-#define STONE "asset/textures/stone.png"
-#define SNOW "asset/textures/snow.png"
-#define PLANKS "asset/textures/planks.png"
-#define BEDROCK "asset/textures/bedrock.png"
 #define WATER "asset/textures/water.png"
 
 #define GRASS_SOUND "asset/sounds/grass.ogg"
@@ -115,15 +107,15 @@
 #define ANGLE_Y_RAD(engine) (GET_SET_AY(engine) * 3.14 / 180)
 
 typedef enum {
-    dirt,
     grass,
-    sand,
-    ice,
-    netherrack,
     stone,
+    sand,
+    netherrack,
+    bedrock,
+    dirt,
+    ice,
     snow,
     planks,
-    bedrock,
 
     tex_nbr
 } texture_palette_t;
@@ -372,6 +364,7 @@ float perlin_noise_2d(float x, float y, int seed);
 float perlin_noise(float x_freq, float y_freq, int depth, int seed);
 
 // SAVE_MAP
+char *my_strdup_plus(char *str, int basic, int plus);
 void write_map(char *path);
 char *get_map_nbr(void);
 void save_map(void);

@@ -11,8 +11,5 @@ void destroy_render(void)
 {
     engine_t *engine = get_engine();
 
-    sfTexture_destroy(engine->render->dirt);
-    sfTexture_destroy(engine->render->grass);
-    sfTexture_destroy(engine->render->sand);
     free(engine->render);
 }
