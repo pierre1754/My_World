@@ -39,3 +39,7 @@ BONUS
   - Image rendering of saved maps
   - OpenGL shaders on water (dig straight down to see the water)
   - You can paint the map when you change mode
+
+REQUIREMENT
+  - CSFML v-2.5.1
+    - Take care to have the good version of CSFML
