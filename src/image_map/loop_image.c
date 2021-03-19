@@ -9,8 +9,8 @@
 
 static sfRenderWindow *create_window_size(int x, int y)
 {
-    unsigned int width = x * 5;
-    unsigned int height = y * 5;
+    unsigned int width = (x * 5) % 1920;
+    unsigned int height = (y * 5) % 1080;
 
     return sfRenderWindow_create(
     (sfVideoMode) {width, height, 32}, "Map Image", sfClose, NULL);

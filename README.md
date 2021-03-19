@@ -6,7 +6,7 @@ USAGE
   - make
   - ./my_world
   - ./my_world [path_to_map]
-  - ./my_world [path_to_map] --image [size_x] [size_y]
+  - ./my_world [path_to_map] --image
 
 OPTIONS
   - Edit terrain hight
@@ -33,7 +33,9 @@ COMMANDS
   - Scroll = Change selection size
   - Left click = Edit terrain up / Apply selected color
   - Right click = Edit terrain down
+  - Enter = hide buttons
 
 BONUS
-  - ASCII rendering of saved maps
+  - Image rendering of saved maps
   - OpenGL shaders on water (dig straight down to see the water)
+  - You can paint the map when you change mode
