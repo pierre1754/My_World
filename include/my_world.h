@@ -197,7 +197,9 @@ typedef struct {
     sfImage *image;
     sfTexture *tex;
     sfSprite *sprite;
-} ascii_map_t;
+    int x;
+    int y;
+} image_map_t;
 
 // CREATE_COMPONENT
 void create_settings(void);
@@ -375,14 +377,14 @@ char *get_map_nbr(void);
 void save_map(void);
 
 // ASCII_MAP
-ascii_map_t *create_ascii_map(char *path, int x, int y);
-time_elapsed_t *create_time_ascii(void);
-void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map,
+image_map_t *create_image_map(char *path);
+time_elapsed_t *create_time_image(void);
+void get_image_evt(sfRenderWindow *window, sfEvent event, image_map_t *map,
 time_elapsed_t *time);
-void get_arrow(sfEvent event, ascii_map_t *map, time_elapsed_t *time);
-void draw_ascii_map(sfRenderWindow *window, ascii_map_t *map);
-int loop_ascii(char *path, int x, int y);
-void destroy_ascii_elem(ascii_map_t *map, time_elapsed_t *time,
+void get_arrow(sfEvent event, image_map_t *map, time_elapsed_t *time);
+void draw_image_map(sfRenderWindow *window, image_map_t *map);
+int loop_image(char *path);
+void destroy_image_elem(image_map_t *map, time_elapsed_t *time,
 sfRenderWindow *window);
 
 void start_engine(void);

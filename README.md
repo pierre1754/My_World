@@ -6,7 +6,7 @@ USAGE
   - make
   - ./my_world
   - ./my_world [path_to_map]
-  - ./my_world [path_to_map] --ascii
+  - ./my_world [path_to_map] --image [size_x] [size_y]
 
 OPTIONS
   - Edit terrain hight
@@ -19,7 +19,7 @@ OPTIONS
   - Activate line rendering
   - Switch between draw mod and terrain edit mod
   - Activate single point selection
- 
+
 COMMANDS
   - crtl + S = Save map
   - crtl + O = Increase map on x axis

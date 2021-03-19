@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void destroy_ascii_elem(ascii_map_t *map, time_elapsed_t *time,
+void destroy_image_elem(image_map_t *map, time_elapsed_t *time,
 sfRenderWindow *window)
 {
     sfSprite_destroy(map->sprite);

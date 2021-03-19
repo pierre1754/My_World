@@ -16,7 +16,7 @@ static unsigned char fill_elem(int *temp)
     return 0;
 }
 
-static void fill_pixel_array(ascii_map_t *map, char *buffer)
+static void fill_pixel_array(image_map_t *map, char *buffer)
 {
     int temp = 0;
     int adv = 0;
@@ -31,18 +31,35 @@ static void fill_pixel_array(ascii_map_t *map, char *buffer)
     }
 }
 
-ascii_map_t *create_ascii_map(char *path, int x, int y)
+static void calc_xy(image_map_t *map, char *buffer)
 {
-    ascii_map_t *map = malloc(sizeof(ascii_map_t));
+    bool act = 1;
+
+    map->y = 0;
+    map->x = 1;
+    for (int i = 0; buffer[i]; i++) {
+        if (buffer[i] == ',' && act)
+            map->x++;
+        if (buffer[i] == '\n')
+            act = 0;
+        if (buffer[i] == '\n')
+            map->y++;
+    }
+}
+
+image_map_t *create_image_map(char *path)
+{
+    image_map_t *map = malloc(sizeof(image_map_t));
     char *buf = NULL;
 
     buf = read_map(path);
+    calc_xy(map, buf);
     if (!buf)
         return NULL;
-    map->map = malloc(sizeof(char) * (x * y * 4 + 1));
-    memset(map->map, 0, x * y * 4 + 1);
+    map->map = malloc(sizeof(char) * (map->x * map->y * 4 + 1));
+    memset(map->map, 0, map->x * map->y * 4 + 1);
     fill_pixel_array(map, buf);
-    map->image = sfImage_createFromPixels(x, y, (sfUint8 *)map->map);
+    map->image = sfImage_createFromPixels(map->x, map->y, (sfUint8 *)map->map);
     map->sprite = sfSprite_create();
     map->tex = sfTexture_createFromImage(map->image, NULL);
     sfSprite_setScale(map->sprite, (sfVector2f){5, 5});
@@ -50,7 +67,7 @@ ascii_map_t *create_ascii_map(char *path, int x, int y)
     return map;
 }
 
-time_elapsed_t *create_time_ascii(void)
+time_elapsed_t *create_time_image(void)
 {
     time_elapsed_t *time = malloc(sizeof(time_elapsed_t));
 

@@ -9,13 +9,8 @@
 
 static int parcing(int argc, char **argv, char **file)
 {
-    int temp_one = 0;
-    int temp_two = 0;
-
-    if (argc == 5 && !my_strcmp(argv[2], "--image")) {
-        temp_one = my_getnbr(argv[3]);
-        temp_two = my_getnbr(argv[4]);
-        if (!temp_one || !temp_two || loop_ascii(argv[1], temp_one, temp_two))
+    if (argc == 3 && !my_strcmp(argv[2], "--image")) {
+        if (loop_image(argv[1]))
             return 84;
         return 0;
     }

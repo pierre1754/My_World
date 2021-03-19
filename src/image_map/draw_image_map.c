@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void draw_ascii_map(sfRenderWindow *window, ascii_map_t *map)
+void draw_image_map(sfRenderWindow *window, image_map_t *map)
 {
     sfRenderWindow_clear(window, sfBlack);
     sfRenderWindow_drawSprite(window, map->sprite, NULL);
