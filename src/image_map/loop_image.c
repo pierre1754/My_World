@@ -9,30 +9,31 @@
 
 static sfRenderWindow *create_window_size(int x, int y)
 {
-    unsigned int width = x * 5;
-    unsigned int height = y * 5;
+    unsigned int width = (x * 5) % 1920;
+    unsigned int height = (y * 5) % 1080;
 
     return sfRenderWindow_create(
     (sfVideoMode) {width, height, 32}, "Map Image", sfClose, NULL);
 }
 
-int loop_ascii(char *path, int x, int y)
+int loop_image(char *path)
 {
-    sfRenderWindow *window = create_window_size(x, y);
-    ascii_map_t *map = map = create_ascii_map(path, x, y);;
-    time_elapsed_t *time = create_time_ascii();
+    sfRenderWindow *window = NULL;
+    image_map_t *map = create_image_map(path);
+    time_elapsed_t *time = create_time_image();
     sfEvent event;
 
-    if (!map->map)
+    if (!map)
         return 84;
+    window = create_window_size(map->x, map->y);
     sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
-            get_ascii_evt(window, event, map, time);
+            get_image_evt(window, event, map, time);
         }
         time->time_elapsed = sfTime_asSeconds(sfClock_restart(time->clock));
-        draw_ascii_map(window, map);
+        draw_image_map(window, map);
     }
-    destroy_ascii_elem(map, time, window);
+    destroy_image_elem(map, time, window);
     return 0;
 }

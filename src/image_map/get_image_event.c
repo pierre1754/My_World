@@ -7,7 +7,7 @@
 
 #include "my_world.h"
 
-void get_arrow(sfEvent event, ascii_map_t *map, time_elapsed_t *time)
+void get_arrow(sfEvent event, image_map_t *map, time_elapsed_t *time)
 {
     sfVector2f pos = sfSprite_getPosition(map->sprite);
 
@@ -30,7 +30,7 @@ void get_arrow(sfEvent event, ascii_map_t *map, time_elapsed_t *time)
     sfSprite_setPosition(map->sprite, pos);
 }
 
-void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map,
+void get_image_evt(sfRenderWindow *window, sfEvent event, image_map_t *map,
 time_elapsed_t *time)
 {
     float all_scale = sfSprite_getScale(map->sprite).x;
