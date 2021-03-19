@@ -40,11 +40,11 @@ char *verif_map(char *file)
     return file;
 }
 
-static char *my_strdup_plus(char *str, int basic, int plus)
+char *my_strdup_plus(char *str, int basic, int plus)
 {
     char *result = malloc(sizeof(char) * (basic + plus + 1));
 
-    memset(result, '\0', basic + plus);
+    memset(result, '\0', basic + plus + 1);
     if (str)
         my_strcpy(result, str);
     free(str);

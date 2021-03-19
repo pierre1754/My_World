@@ -12,9 +12,9 @@ void create_render(void)
     engine_t *engine = get_engine();
 
     engine->render = malloc(sizeof(render_states_t));
-    engine->render->dirt = sfTexture_createFromFile(DIRT, NULL);
-    engine->render->grass = sfTexture_createFromFile(GRASS, NULL);
-    engine->render->sand = sfTexture_createFromFile(SAND, NULL);
+    engine->render->dirt = engine->texture_palette[dirt];
+    engine->render->grass = engine->texture_palette[grass];
+    engine->render->sand = engine->texture_palette[sand];
     engine->render->states = (sfRenderStates){
         .shader = NULL,
         .blendMode = sfBlendAlpha,
