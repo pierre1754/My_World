@@ -10,6 +10,6 @@
 void draw_ascii_map(sfRenderWindow *window, ascii_map_t *map)
 {
     sfRenderWindow_clear(window, sfBlack);
-    sfRenderWindow_drawText(window, map->text, NULL);
+    sfRenderWindow_drawSprite(window, map->sprite, NULL);
     sfRenderWindow_display(window);
 }

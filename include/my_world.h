@@ -193,9 +193,10 @@ typedef struct {
 } line_t;
 
 typedef struct {
-    sfFont *font;
-    sfText *text;
-    char *map;
+    unsigned char *map;
+    sfImage *image;
+    sfTexture *tex;
+    sfSprite *sprite;
 } ascii_map_t;
 
 // CREATE_COMPONENT
@@ -374,13 +375,13 @@ char *get_map_nbr(void);
 void save_map(void);
 
 // ASCII_MAP
-ascii_map_t *create_ascii_map(char *path);
+ascii_map_t *create_ascii_map(char *path, int x, int y);
 time_elapsed_t *create_time_ascii(void);
 void get_ascii_evt(sfRenderWindow *window, sfEvent event, ascii_map_t *map,
 time_elapsed_t *time);
 void get_arrow(sfEvent event, ascii_map_t *map, time_elapsed_t *time);
 void draw_ascii_map(sfRenderWindow *window, ascii_map_t *map);
-int loop_ascii(char *path);
+int loop_ascii(char *path, int x, int y);
 void destroy_ascii_elem(ascii_map_t *map, time_elapsed_t *time,
 sfRenderWindow *window);
 

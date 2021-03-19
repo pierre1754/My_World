@@ -7,17 +7,25 @@
 
 #include "my_world.h"
 
-int loop_ascii(char *path)
+static sfRenderWindow *create_window_size(int x, int y)
 {
-    sfRenderWindow *window = sfRenderWindow_create(
-    (sfVideoMode) {1440, 810, 32}, "ASCII Map", sfClose, NULL);
-    ascii_map_t *map = create_ascii_map(path);
+    unsigned int width = x * 5;
+    unsigned int height = y * 5;
+
+    return sfRenderWindow_create(
+    (sfVideoMode) {width, height, 32}, "Map Image", sfClose, NULL);
+}
+
+int loop_ascii(char *path, int x, int y)
+{
+    sfRenderWindow *window = create_window_size(x, y);
+    ascii_map_t *map = map = create_ascii_map(path, x, y);;
     time_elapsed_t *time = create_time_ascii();
     sfEvent event;
 
-    sfRenderWindow_setFramerateLimit(window, 60);
     if (!map->map)
         return 84;
+    sfRenderWindow_setFramerateLimit(window, 60);
     while (sfRenderWindow_isOpen(window)) {
         while (sfRenderWindow_pollEvent(window, &event)) {
             get_ascii_evt(window, event, map, time);

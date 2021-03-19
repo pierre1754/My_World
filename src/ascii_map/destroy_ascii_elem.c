@@ -10,8 +10,9 @@
 void destroy_ascii_elem(ascii_map_t *map, time_elapsed_t *time,
 sfRenderWindow *window)
 {
-    sfText_destroy(map->text);
-    sfFont_destroy(map->font);
+    sfSprite_destroy(map->sprite);
+    sfTexture_destroy(map->tex);
+    sfImage_destroy(map->image);
     free(map->map);
     free(map);
     sfClock_destroy(time->clock);
