@@ -21,6 +21,8 @@ static int parcing(int argc, char **argv, char **file)
         if (!*file)
             return 84;
     }
+    if (!sfShader_isAvailable())
+        return 84;
     return -1;
 }
 
