@@ -129,6 +129,7 @@ fclean:	clean
 	@make fclean -C lib/my
 	@make fclean -C lib/button
 	@rm -f $(NAME)
+	@rm -f asset/image_map/image.png
 	@(rm -f $(NAME) $(NAME_TEST)) > /dev/null
 	@(rm -rf tests/coverage) > /dev/null
 	@$(ECHO) $(CLEAR)

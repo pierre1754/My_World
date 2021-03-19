@@ -39,6 +39,7 @@ BONUS
   - Image rendering of saved maps
   - OpenGL shaders on water (dig straight down to see the water)
   - You can paint the map when you change mode
+  - When you quit the "--image" mode, an image is saved in the path asset/image_map/image.png
 
 REQUIREMENT
   - CSFML v-2.5.1

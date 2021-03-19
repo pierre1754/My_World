@@ -10,6 +10,7 @@
 void destroy_image_elem(image_map_t *map, time_elapsed_t *time,
 sfRenderWindow *window)
 {
+    sfImage_saveToFile(map->image, "asset/image_map/image.png");
     sfSprite_destroy(map->sprite);
     sfTexture_destroy(map->tex);
     sfImage_destroy(map->image);
