@@ -22,7 +22,7 @@ static void fill_pixel_array(image_map_t *map, char *buffer)
     int adv = 0;
 
     for (; *buffer; buffer++, adv += 4) {
-        temp = 3 * (unsigned char)atoi(buffer);
+        temp = 3 * (unsigned char)my_getnbr(buffer);
         map->map[adv] = temp % 255;
         map->map[adv + 1] = fill_elem(&temp);
         map->map[adv + 2] = fill_elem(&temp);
