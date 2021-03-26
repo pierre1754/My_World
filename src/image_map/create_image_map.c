@@ -53,9 +53,9 @@ image_map_t *create_image_map(char *path)
     char *buf = NULL;
 
     buf = read_map(path);
-    calc_xy(map, buf);
     if (!buf)
         return NULL;
+    calc_xy(map, buf);
     map->map = malloc(sizeof(char) * (map->x * map->y * 4 + 1));
     memset(map->map, 0, map->x * map->y * 4 + 1);
     fill_pixel_array(map, buf);
