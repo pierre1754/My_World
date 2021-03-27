@@ -11,6 +11,8 @@ void play_sound(void)
 {
     engine_t *engine = get_engine();
 
-    sfSound_setBuffer(engine->play, engine->sounds[GET_COLOR_ID(engine)]);
-    sfSound_play(engine->play);
+    if (sfSound_getStatus(engine->play) != sfPlaying) {
+        sfSound_setBuffer(engine->play, engine->sounds[GET_COLOR_ID(engine)]);
+        sfSound_play(engine->play);
+    }
 }
